@@ -17,5 +17,6 @@ public class GregTech5 {
         MineTweakerAPI.registerClass(SawLiq.class);
         MineTweakerAPI.registerClass(Printer.class);
         MineTweakerAPI.registerClass(CentrifugeLiq.class);
+        MineTweakerAPI.registerClass(ElectrolyzerLiq.class);
 	}
 }

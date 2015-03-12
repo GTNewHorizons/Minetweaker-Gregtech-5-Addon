@@ -12,16 +12,16 @@ import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
 /**
- * Provides access to the Centrifuge recipes.
+ * Provides access to the Electrolyzer recipes.
  *
  * @author Stan Hebben
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.CentrifugeLiq")
+@ZenClass("mods.gregtech.ElectrolyzerLiq")
 @ModOnly(MOD_ID)
-public class CentrifugeLiq {
+public class ElectrolyzerLiq {
     /**
-     * Adds a Centrifuge recipe.
+     * Adds a Electrolyzer recipe.
      *
      * @param output1  1st output
      * @param output2  2nd output
@@ -93,11 +93,11 @@ public class CentrifugeLiq {
 
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addCentrifugeRecipe(
+            GregTech_API.sRecipeAdder.addElectrolyzerRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getItemStack(cells),
-                    MineTweakerMC.getLiquidStack(fluidOutput),
                     MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getLiquidStack(fluidOutput),
                     MineTweakerMC.getItemStack(output1),
                     MineTweakerMC.getItemStack(output2),
                     MineTweakerMC.getItemStack(output3),
@@ -112,7 +112,7 @@ public class CentrifugeLiq {
 
         @Override
         public String describe() {
-            return "Adding Centrifuge recipe for " + input ;
+            return "Adding Electrolyzer recipe for " + input ;
         }
 
         @Override
@@ -122,19 +122,19 @@ public class CentrifugeLiq {
 
         @Override
         public int hashCode() {
-            int hash = 6;
-            hash = 55 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
-            hash = 55 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
-            hash = 55 * hash + (this.output3 != null ? this.output3.hashCode() : 0);
-            hash = 55 * hash + (this.output4 != null ? this.output4.hashCode() : 0);
-            hash = 55 * hash + (this.output5 != null ? this.output5.hashCode() : 0);
-            hash = 55 * hash + (this.output6 != null ? this.output6.hashCode() : 0);
-            hash = 55 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
-            hash = 55 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 55 * hash + (this.cells != null ? this.cells.hashCode() : 0);
-            hash = 55 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
-            hash = 55 * hash + this.duration;
-            hash = 55 * hash + this.euPerTick;
+            int hash = 8;
+            hash = 44 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
+            hash = 44 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
+            hash = 44 * hash + (this.output3 != null ? this.output3.hashCode() : 0);
+            hash = 44 * hash + (this.output4 != null ? this.output4.hashCode() : 0);
+            hash = 44 * hash + (this.output5 != null ? this.output5.hashCode() : 0);
+            hash = 44 * hash + (this.output6 != null ? this.output6.hashCode() : 0);
+            hash = 44 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
+            hash = 44 * hash + (this.input != null ? this.input.hashCode() : 0);
+            hash = 44 * hash + (this.cells != null ? this.cells.hashCode() : 0);
+            hash = 44 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
+            hash = 44 * hash + this.duration;
+            hash = 44 * hash + this.euPerTick;
 
             return hash;
         }

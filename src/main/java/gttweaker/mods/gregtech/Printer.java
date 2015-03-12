@@ -60,10 +60,10 @@ public class Printer {
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addPrinterRecipe(
-                    MineTweakerMC.getItemStack(output),
+                    MineTweakerMC.getItemStack(input1),
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getItemStack(DataStick),
-                    MineTweakerMC.getItemStack(input1),
+                    MineTweakerMC.getItemStack(output),
                     duration,
                     euPerTick);
         }

@@ -5,7 +5,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import gttweaker.mods.gregtech.GregTech5;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.2.2")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.3.0")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
