@@ -23,50 +23,49 @@ public class Brewery {
     /**
      * Adds a Brewing Machine recipe.
      *
+	 * @param fluidOutput  primary fluid output
      * @param Ingredient primary input
-     * @param fluidInput1   primary fluidInput
-     * @param fluidOutput1  primary fluidOutput
-     * @param Hidden hidden
+     * @param fluidInput  primary fluid input
+     * @param Hidden hidden true or false
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack Ingredient, ILiquidStack fluidInput1, ILiquidStack fluidOutput1, boolean Hidden) {
-        MineTweakerAPI.apply(new AddRecipeAction(Ingredient, fluidInput1, fluidOutput1, Hidden));
+    public static void addRecipe(ILiquidStack fluidOutput, IItemStack Ingredient, ILiquidStack fluidInput, boolean Hidden) {
+        MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, Ingredient, fluidInput, Hidden));
     }
 
-    // ######################
-    // ### Action classes ###
-    // ######################
+// ######################
+// ### Action classes ###
+// ######################
 
     private static class AddRecipeAction extends OneWayAction {
-
+	
+        private final ILiquidStack fluidOutput;
         private final IItemStack Ingredient;
-        private final ILiquidStack fluidInput1;
-        private final ILiquidStack fluidOutput1;
+        private final ILiquidStack fluidInput;
         private final boolean Hidden;
 
-        public AddRecipeAction(IItemStack Ingredient, ILiquidStack fluidInput1, ILiquidStack fluidOutput1, boolean Hidden) {
+        public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Ingredient, ILiquidStack fluidInput, boolean Hidden) {
 
+            this.fluidOutput = fluidOutput;		
             this.Ingredient = Ingredient;
-            this.fluidInput1 = fluidInput1;
-            this.fluidOutput1 = fluidOutput1;
+            this.fluidInput = fluidInput;
             this.Hidden = Hidden;
         }
 
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addBrewingRecipe(
+			        MineTweakerMC.getLiquidStack(fluidOutput).getFluid(),
                     MineTweakerMC.getItemStack(Ingredient),
-                    MineTweakerMC.getLiquidStack(fluidInput1).getFluid(),
-                    MineTweakerMC.getLiquidStack(fluidOutput1).getFluid(),
+                    MineTweakerMC.getLiquidStack(fluidInput).getFluid(),
                     Hidden);
-
 
         }
 
         @Override
         public String describe() {
-            return "Adding brewery recipe for " + fluidOutput1 ;
+            return "Adding brewery recipe for " + fluidOutput ;
         }
 
         @Override
@@ -77,10 +76,10 @@ public class Brewery {
         @Override
         public int hashCode() {
             int hash = 9;
+			hash = 8 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
             hash = 8 * hash + (this.Ingredient != null ? this.Ingredient.hashCode() : 0);
-            hash = 8 * hash + (this.fluidInput1 != null ? this.fluidInput1.hashCode() : 0);
-            hash = 8 * hash + (this.fluidOutput1 != null ? this.fluidOutput1.hashCode() : 0);
-
+            hash = 8 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
+            
             return hash;
         }
 
@@ -93,13 +92,13 @@ public class Brewery {
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
+			if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
+                return false;
+			}	
             if (this.Ingredient != other.Ingredient && (this.Ingredient == null || !this.Ingredient.equals(other.Ingredient))) {
 
             }
-            if (this.fluidInput1 != other.fluidInput1 && (this.fluidInput1 == null || !this.fluidInput1.equals(other.fluidInput1))) {
-                return false;
-            }
-            if (this.fluidOutput1 != other.fluidOutput1 && (this.fluidOutput1 == null || !this.fluidOutput1.equals(other.fluidOutput1))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.Hidden != other.Hidden) {
