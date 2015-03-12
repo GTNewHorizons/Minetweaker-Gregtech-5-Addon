@@ -62,8 +62,8 @@ public class Printer {
             GregTech_API.sRecipeAdder.addPrinterRecipe(
                     MineTweakerMC.getItemStack(output),
                     MineTweakerMC.getLiquidStack(fluidInput),
-                    MineTweakerMC.getItemStack(input1),
                     MineTweakerMC.getItemStack(DataStick),
+                    MineTweakerMC.getItemStack(input1),
                     duration,
                     euPerTick);
         }
