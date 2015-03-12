@@ -39,16 +39,16 @@ public class Brewery {
 // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-	
-        private final ILiquidStack fluidOutput;
+
         private final IItemStack Ingredient;
+        private final ILiquidStack fluidOutput;
         private final ILiquidStack fluidInput;
         private final boolean Hidden;
 
         public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Ingredient, ILiquidStack fluidInput, boolean Hidden) {
 
-            this.fluidOutput = fluidOutput;		
             this.Ingredient = Ingredient;
+            this.fluidOutput = fluidOutput;		
             this.fluidInput = fluidInput;
             this.Hidden = Hidden;
         }
@@ -56,8 +56,8 @@ public class Brewery {
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addBrewingRecipe(
-			        MineTweakerMC.getLiquidStack(fluidOutput).getFluid(),
                     MineTweakerMC.getItemStack(Ingredient),
+			        MineTweakerMC.getLiquidStack(fluidOutput).getFluid(),
                     MineTweakerMC.getLiquidStack(fluidInput).getFluid(),
                     Hidden);
 

@@ -24,17 +24,17 @@ public class Distillery {
     /**
      * Adds a Distillery recipe.
      *
-     * @param Circuit primary input
-     * @param fluidInput1 primary fluidInput
-     * @param fluidOutput1  first output
+     * @param fluidOutput  Fluid output
+     * @param Circuit Circuit
+     * @param fluidInput fluidInput
      * @param durationTicks reaction time, in ticks
      * @param euPerTick eu consumption per tick
      * @param Hidden hidden
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack Circuit, ILiquidStack fluidInput1, ILiquidStack fluidOutput1, int durationTicks, int euPerTick, boolean Hidden) {
-        MineTweakerAPI.apply(new AddRecipeAction(Circuit, fluidInput1, fluidOutput1, durationTicks, euPerTick, Hidden));
+    public static void addRecipe(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int durationTicks, int euPerTick, boolean Hidden) {
+        MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, Circuit, fluidInput, durationTicks, euPerTick, Hidden));
     }
 
     // ######################
@@ -43,18 +43,18 @@ public class Distillery {
 
     private static class AddRecipeAction extends OneWayAction {
 
+        private final ILiquidStack fluidOutput;
         private final IItemStack Circuit;
-        private final ILiquidStack fluidInput1;
-        private final ILiquidStack fluidOutput1;
+        private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
         private final boolean Hidden;
 
-        public AddRecipeAction(IItemStack Circuit, ILiquidStack fluidInput1, ILiquidStack fluidOutput1, int duration, int euPerTick, boolean Hidden) {
+        public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int duration, int euPerTick, boolean Hidden) {
 
+            this.fluidOutput = fluidOutput;
             this.Circuit = Circuit;
-            this.fluidInput1 = fluidInput1;
-            this.fluidOutput1 = fluidOutput1;
+            this.fluidInput = fluidInput;
             this.duration = duration;
             this.euPerTick = euPerTick;
             this.Hidden = Hidden;
@@ -64,8 +64,8 @@ public class Distillery {
         public void apply() {
             GregTech_API.sRecipeAdder.addDistilleryRecipe(
                     MineTweakerMC.getItemStack(Circuit),
-                    MineTweakerMC.getLiquidStack(fluidInput1),
-                    MineTweakerMC.getLiquidStack(fluidOutput1),
+                    MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getLiquidStack(fluidOutput),
                     duration,
                     euPerTick,
                     Hidden);
@@ -73,7 +73,7 @@ public class Distillery {
 
         @Override
         public String describe() {
-            return "Adding chemical bath recipe for " + fluidOutput1 ;
+            return "Adding chemical bath recipe for " + fluidOutput ;
         }
 
         @Override
@@ -84,9 +84,9 @@ public class Distillery {
         @Override
         public int hashCode() {
             int hash = 9;
+            hash = 8 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
             hash = 8 * hash + (this.Circuit != null ? this.Circuit.hashCode() : 0);
-            hash = 8 * hash + (this.fluidInput1 != null ? this.fluidInput1.hashCode() : 0);
-            hash = 8 * hash + (this.fluidOutput1 != null ? this.fluidOutput1.hashCode() : 0);
+            hash = 8 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 8 * hash + this.duration;
             hash = 8 * hash + this.euPerTick;
 
@@ -102,13 +102,13 @@ public class Distillery {
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
+            if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
+                return false;
+            }
             if (this.Circuit != other.Circuit && (this.Circuit == null || !this.Circuit.equals(other.Circuit))) {
 
             }
-            if (this.fluidInput1 != other.fluidInput1 && (this.fluidInput1 == null || !this.fluidInput1.equals(other.fluidInput1))) {
-                return false;
-            }
-            if (this.fluidOutput1 != other.fluidOutput1 && (this.fluidOutput1 == null || !this.fluidOutput1.equals(other.fluidOutput1))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
              if (this.duration != other.duration) {

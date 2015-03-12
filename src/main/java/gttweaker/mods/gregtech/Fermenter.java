@@ -22,15 +22,15 @@ public class Fermenter {
     /**
      * Adds a Fermenter recipe.
      *
-     * @param fluidInput1   primary fluidInput
-     * @param fluidOutput1  primary fluidOutput
+     * @param fluidOutput  primary fluidOutput
+     * @param fluidInput  primary fluidInput
      * @param duration reaction time, in ticks
      * @param Hidden hidden
      *
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack fluidInput1, ILiquidStack fluidOutput1, int duration, boolean Hidden) {
-        MineTweakerAPI.apply(new AddRecipeAction(fluidInput1, fluidOutput1, duration, Hidden));
+    public static void addRecipe(ILiquidStack fluidOutput, ILiquidStack fluidInput, int duration, boolean Hidden) {
+        MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, fluidInput, duration, Hidden));
     }
 
     // ######################
@@ -39,15 +39,15 @@ public class Fermenter {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final ILiquidStack fluidInput1;
-        private final ILiquidStack fluidOutput1;
+        private final ILiquidStack fluidOutput;
+        private final ILiquidStack fluidInput;
         private final int duration;
         private final boolean Hidden;
 
-        public AddRecipeAction(ILiquidStack fluidInput1, ILiquidStack fluidOutput1, int duration, boolean Hidden) {
+        public AddRecipeAction(ILiquidStack fluidOutput, ILiquidStack fluidInput, int duration, boolean Hidden) {
 
-            this.fluidInput1 = fluidInput1;
-            this.fluidOutput1 = fluidOutput1;
+            this.fluidOutput = fluidOutput;
+            this.fluidInput = fluidInput;
             this.duration = duration;
             this.Hidden = Hidden;
         }
@@ -55,8 +55,8 @@ public class Fermenter {
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addFermentingRecipe(
-                    MineTweakerMC.getLiquidStack(fluidInput1),
-                    MineTweakerMC.getLiquidStack(fluidOutput1),
+                    MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getLiquidStack(fluidOutput),
                     duration,
                     Hidden);
 
@@ -65,7 +65,7 @@ public class Fermenter {
 
         @Override
         public String describe() {
-            return "Adding Fermenter recipe for " + fluidOutput1 ;
+            return "Adding Fermenter recipe for " + fluidOutput ;
         }
 
         @Override
@@ -76,8 +76,8 @@ public class Fermenter {
         @Override
         public int hashCode() {
             int hash = 2;
-            hash = 12 * hash + (this.fluidInput1 != null ? this.fluidInput1.hashCode() : 0);
-            hash = 12 * hash + (this.fluidOutput1 != null ? this.fluidOutput1.hashCode() : 0);
+            hash = 12 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
+            hash = 12 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 12 * hash + this.duration;
             return hash;
         }
@@ -91,10 +91,10 @@ public class Fermenter {
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.fluidInput1 != other.fluidInput1 && (this.fluidInput1 == null || !this.fluidInput1.equals(other.fluidInput1))) {
+            if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
                 return false;
             }
-            if (this.fluidOutput1 != other.fluidOutput1 && (this.fluidOutput1 == null || !this.fluidOutput1.equals(other.fluidOutput1))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.duration != other.duration) {

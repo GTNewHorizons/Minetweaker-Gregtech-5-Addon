@@ -22,51 +22,56 @@ public class FormingPress{
     /**
      * Adds a Forming Press recipe.
      *
+     * @param output recipe output
      * @param input1 Item input
      * @param input2 Press Form input
-     * @param output recipe output
      * @param durationTicks reaction time, in ticks
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack input1, IItemStack input2, IItemStack output, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(input1, input2, output, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
     }
     // ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
+
+        private final IItemStack output;
         private final IItemStack input1;
         private final IItemStack input2;
-        private final IItemStack output;
         private final int duration;
         private final int euPerTick;
-        public AddRecipeAction(IItemStack input1, IItemStack input2, IItemStack output, int duration, int euPerTick) {
+
+        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, int duration, int euPerTick) {
+
+            this.output = output;
             this.input1 = input1;
             this.input2 = input2;
-            this.output = output;
             this.duration = duration;
             this.euPerTick = euPerTick;
         }
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addFormingPressRecipe(
+                    MineTweakerMC.getItemStack(output),
                     MineTweakerMC.getItemStack(input1),
                     MineTweakerMC.getItemStack(input2),
-                    MineTweakerMC.getItemStack(output),
                     duration,
                     euPerTick);
         }
         @Override
         public String describe() {return "Adding Forming Press recipe for " + output;}
+
         @Override
         public Object getOverrideKey() {return null;}
+
         @Override
         public int hashCode() {
             int hash = 3;
+            hash = 39 * hash + (this.output != null ? this.output.hashCode() : 0);
             hash = 39 * hash + (this.input1 != null ? this.input1.hashCode() : 0);
             hash = 39 * hash + (this.input2 != null ? this.input2.hashCode() : 0);
-            hash = 39 * hash + (this.output != null ? this.output.hashCode() : 0);
             hash = 39 * hash + this.duration;
             hash = 39 * hash + this.euPerTick;
             return hash;
@@ -80,13 +85,13 @@ public class FormingPress{
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
+            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
+                return false;
+            }
             if (this.input1 != other.input1 && (this.input1 == null || !this.input1.equals(other.input1))) {
                 return false;
             }
             if (this.input2 != other.input2 && (this.input2 == null || !this.input2.equals(other.input2))) {
-                return false;
-            }
-            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
             if (this.duration != other.duration) {
