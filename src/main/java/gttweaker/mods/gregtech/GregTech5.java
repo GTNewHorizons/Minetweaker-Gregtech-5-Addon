@@ -14,5 +14,7 @@ public class GregTech5 {
         MineTweakerAPI.registerClass(PrecisionLaser.class);
         MineTweakerAPI.registerClass(FormingPress.class);
         MineTweakerAPI.registerClass(Fermenter.class);
+        MineTweakerAPI.registerClass(SawLiq.class);
+        MineTweakerAPI.registerClass(Printer.class);
 	}
 }

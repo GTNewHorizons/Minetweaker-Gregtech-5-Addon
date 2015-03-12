@@ -70,7 +70,7 @@ public class SawLiq {
 
         @Override
         public String describe() {
-            return "Adding mixer recipe for " + input;
+            return "Adding Cutting Saw recipe for " + input;
         }
 
         @Override
