@@ -23,32 +23,32 @@ public class Autoclave {
     /**
      * Adds an Autoclave recipe.
      *
-     * @param input1 primary input
-     * @param fluidInput1 primary fluidInput
-     * @param output1 primery output
+     * @param output primery output	 
+     * @param input primary input
+     * @param fluidInput primary fluidInput
      * @param chances chances (not working now)
      * @param durationTicks assembling duration, in ticks
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack input1, ILiquidStack fluidInput1, IItemStack output1, int chances, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(input1, fluidInput1, output1, chances, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
     }
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
-        private final IItemStack input1;
-        private final ILiquidStack fluidInput1;
-        private final IItemStack output1;
+	    private final IItemStack output;
+        private final IItemStack input;
+        private final ILiquidStack fluidInput;
         private final int chances;
         private final int duration;
         private final int euPerTick;
-        public AddRecipeAction(IItemStack input1, ILiquidStack fluidInput1, IItemStack output1, int chances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
 
-            this.input1 = input1;
-            this.fluidInput1 = fluidInput1;
-            this.output1 = output1;
+            this.output = output;		
+            this.input = input;
+            this.fluidInput = fluidInput;
             this.chances = chances;
             this.duration = duration;
             this.euPerTick = euPerTick;
@@ -56,16 +56,16 @@ public class Autoclave {
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addAutoclaveRecipe(
-                    MineTweakerMC.getItemStack(input1),
-                    MineTweakerMC.getLiquidStack(fluidInput1),
-                    MineTweakerMC.getItemStack(output1),
-                    chances,
-                    duration,
-                    euPerTick);
+                   MineTweakerMC.getItemStack(output),                   
+				   MineTweakerMC.getItemStack(input),
+                   MineTweakerMC.getLiquidStack(fluidInput),
+                   chances,
+                   duration,
+                   euPerTick);
         }
         @Override
         public String describe() {
-            return "Adding assembler recipe for " + output1;
+            return "Adding assembler recipe for " + output;
         }
         @Override
         public Object getOverrideKey() {
@@ -74,9 +74,9 @@ public class Autoclave {
         @Override
         public int hashCode() {
             int hash = 7;
-            hash = 22 * hash + (this.input1 != null ? this.input1.hashCode() : 0);
-            hash = 22 * hash + (this.fluidInput1 != null ? this.fluidInput1.hashCode() : 0);
-            hash = 22 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
+			hash = 22 * hash + (this.output != null ? this.output.hashCode() : 0);
+            hash = 22 * hash + (this.input != null ? this.input.hashCode() : 0);
+            hash = 22 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 77 * hash + this.duration;
             hash = 77 * hash + this.euPerTick;
             return hash;
@@ -90,13 +90,13 @@ public class Autoclave {
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.input1 != other.input1 && (this.input1 == null || !this.input1.equals(other.input1))) {
+			if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
-            if (this.fluidInput1 != other.fluidInput1 && (this.fluidInput1 == null || !this.fluidInput1.equals(other.fluidInput1))) {
+            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
-            if (this.output1 != other.output1 && (this.output1 == null || !this.output1.equals(other.output1))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.chances != other.chances) {
