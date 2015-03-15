@@ -19,9 +19,9 @@ import static gregtech.api.enums.GT_Values.MOD_ID;
  * @author DreamMasterXXL
  * @author Blood Asp
  */
-@ZenClass("mods.gregtech.ChemicalBath")
+@ZenClass("mods.gregtech.ChemicalBathLiq")
 @ModOnly(MOD_ID)
-public class ChemicalBath {
+public class ChemicalBathLiq {
     /**
      * Adds a Chemical Bath recipe.
      *
@@ -128,9 +128,9 @@ public class ChemicalBath {
             }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
 
-             }
-             if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
-                 return false;
+            }
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
+                return false;
             }
             if (this.chances != other.chances) {
                 return false;
