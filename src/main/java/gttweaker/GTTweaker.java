@@ -6,7 +6,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.3.2")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.4.0")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -24,5 +24,9 @@ public class GTTweaker {
                 MineTweakerAPI.registerClass(Printer.class);
                 MineTweakerAPI.registerClass(CentrifugeLiq.class);
                 MineTweakerAPI.registerClass(ElectrolyzerLiq.class);
+                MineTweakerAPI.registerClass(Sifter.class);
+                MineTweakerAPI.registerClass(Pulverizer.class);
+                MineTweakerAPI.registerClass(FluidSolidifier.class);
+                MineTweakerAPI.registerClass(FluidExtractor.class);
             }
 }
