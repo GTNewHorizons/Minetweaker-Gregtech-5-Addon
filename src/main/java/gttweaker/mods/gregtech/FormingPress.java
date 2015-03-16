@@ -54,9 +54,9 @@ public class FormingPress{
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addFormingPressRecipe(
-                    MineTweakerMC.getItemStack(output),
                     MineTweakerMC.getItemStack(input1),
                     MineTweakerMC.getItemStack(input2),
+                    MineTweakerMC.getItemStack(output),
                     duration,
                     euPerTick);
         }
