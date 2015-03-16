@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dreamcraft",
+  "name": "GTTweaker",
+  "description": "Minetweaker Addon for GT 5.",
+  "version": "0.3.4",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["DreamMasterXXL, Blood Asp"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
