@@ -56,9 +56,9 @@ public class Autoclave {
         @Override
         public void apply() {
             GregTech_API.sRecipeAdder.addAutoclaveRecipe(
-                   MineTweakerMC.getItemStack(output),
+                   MineTweakerMC.getItemStack(input),
                    MineTweakerMC.getLiquidStack(fluidInput),
-				   MineTweakerMC.getItemStack(input),
+				   MineTweakerMC.getItemStack(output),
                    chances,
                    duration,
                    euPerTick);
