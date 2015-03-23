@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech;
 
-import gregtech.api.GregTech_API;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
@@ -11,6 +10,8 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 /**
  * Provides access to the Centrifuge recipes.
  *
@@ -93,7 +94,7 @@ public class CentrifugeLiq {
 
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addCentrifugeRecipe(
+            RA.addCentrifugeRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getItemStack(cells),
                     MineTweakerMC.getLiquidStack(fluidOutput),

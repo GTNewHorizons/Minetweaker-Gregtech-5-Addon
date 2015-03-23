@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech;
 
-import gregtech.api.GregTech_API;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
@@ -10,6 +9,8 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 /**
  * Provides access to the Forming Press recipes.
  *
@@ -53,7 +54,7 @@ public class FormingPress{
         }
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addFormingPressRecipe(
+            RA.addFormingPressRecipe(
                     MineTweakerMC.getItemStack(input1),
                     MineTweakerMC.getItemStack(input2),
                     MineTweakerMC.getItemStack(output),

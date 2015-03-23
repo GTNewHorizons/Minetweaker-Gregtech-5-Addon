@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech;
 
-import gregtech.api.GregTech_API;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
@@ -11,6 +10,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
 
 /**
  * Provides access to the Fluid Solidifier recipes.
@@ -59,7 +59,7 @@ public class FluidSolidifier {
 
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addFluidSolidifierRecipe(
+            RA.addFluidSolidifierRecipe(
                     MineTweakerMC.getItemStack(Mold),
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getItemStack(output),

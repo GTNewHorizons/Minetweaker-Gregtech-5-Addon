@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech;
 
-import gregtech.api.GregTech_API;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
@@ -11,6 +10,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Autoclave recipes.
  *
@@ -55,12 +55,12 @@ public class Autoclave {
         }
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addAutoclaveRecipe(
-                   MineTweakerMC.getItemStack(input),
-                   MineTweakerMC.getLiquidStack(fluidInput),
-				   MineTweakerMC.getItemStack(output),
-                   chances,
-                   duration,
+            RA.addAutoclaveRecipe(
+                    MineTweakerMC.getItemStack(input),
+                    MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getItemStack(output),
+                    chances,
+                    duration,
                    euPerTick);
         }
         @Override

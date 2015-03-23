@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech;
 
-import gregtech.api.GregTech_API;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
@@ -11,6 +10,8 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 /**
  * Provides access to the Brewing Machine recipes.
  *
@@ -55,7 +56,7 @@ public class Brewery {
 
         @Override
         public void apply() {
-            GregTech_API.sRecipeAdder.addBrewingRecipe(
+            RA.addBrewingRecipe(
                     MineTweakerMC.getItemStack(Ingredient),
 			        MineTweakerMC.getLiquidStack(fluidOutput).getFluid(),
                     MineTweakerMC.getLiquidStack(fluidInput).getFluid(),

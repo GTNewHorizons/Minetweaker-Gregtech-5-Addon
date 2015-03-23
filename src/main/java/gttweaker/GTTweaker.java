@@ -28,5 +28,6 @@ public class GTTweaker {
                 MineTweakerAPI.registerClass(Pulverizer.class);
                 MineTweakerAPI.registerClass(FluidSolidifier.class);
                 MineTweakerAPI.registerClass(FluidExtractor.class);
+                MineTweakerAPI.registerClass(BlastFurnaceLiq.class);
             }
 }
