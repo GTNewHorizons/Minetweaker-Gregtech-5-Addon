@@ -17,9 +17,9 @@ import static gregtech.api.enums.GT_Values.RA;
  * @author Stan Hebben
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.FusionReactor")
+@ZenClass("mods.gregtech.FusionReactorLiq")
 @ModOnly(MOD_ID)
-public class FusionReactor {
+public class FusionReactorLiq {
     /**
      * Adds a Mixer recipe.
      *
@@ -35,7 +35,7 @@ public class FusionReactor {
         MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, fluidInput1, fluidInput2, durationTicks, euPerTick, startEU));
     }
 
-// ######################
+    // ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {

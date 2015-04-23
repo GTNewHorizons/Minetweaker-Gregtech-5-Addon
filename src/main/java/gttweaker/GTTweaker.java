@@ -7,7 +7,7 @@ import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.6.0")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "required-after:MineTweaker3", version = "0.6.1")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -24,8 +24,7 @@ public class GTTweaker {
                 MineTweakerAPI.registerClass(FluidSolidifier.class);
                 MineTweakerAPI.registerClass(FormingPress.class);
                 if(GregTech_API.VERSION>=508){
-                MineTweakerAPI.registerClass(FusionReactor.class);}
-                MineTweakerAPI.registerClass(FusionReactor.class);
+                MineTweakerAPI.registerClass(FusionReactorLiq.class);}
                 MineTweakerAPI.registerClass(Mixer.class);
                 MineTweakerAPI.registerClass(PrecisionLaser.class);
                 MineTweakerAPI.registerClass(Printer.class);
