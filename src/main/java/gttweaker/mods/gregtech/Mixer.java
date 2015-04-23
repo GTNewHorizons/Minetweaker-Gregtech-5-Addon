@@ -54,7 +54,7 @@ public class Mixer {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack input1, IItemStack input2, IItemStack input3, IItemStack input4, ILiquidStack fluidInput, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack input1, IItemStack input2, IItemStack input3, IItemStack input4, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;
@@ -64,7 +64,7 @@ public class Mixer {
             this.input4 = input4;
             this.fluidInput = fluidInput;
             this.duration = duration;
-            this.euPerTick = euPerTick1;
+            this.euPerTick = euPerTick;
         }
 
         @Override
