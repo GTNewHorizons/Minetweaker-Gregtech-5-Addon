@@ -61,7 +61,7 @@ public class Unpacker{
                     euPerTick);
         }
         @Override
-        public String describe() {return "Adding Packer recipe for " + input;}
+        public String describe() {return "Adding Unpacker recipe for " + input;}
 
         @Override
         public Object getOverrideKey() {return null;}

@@ -13,27 +13,25 @@ import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
 /**
- * Provides access to the Fluid Extractor recipes.
+ * Provides access to the Fluid Canner recipes.
  *
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.FluidExtractor")
+@ZenClass("mods.gregtech.FluidCanner")
 @ModOnly(MOD_ID)
-public class FluidExtractor {
+public class FluidCanner {
     /**
-     * Adds a Fluid Extractor recipe.
+     * Adds a Fluid Canner recipe.
      *
      * @param output        output Slot
      * @param input         input Slot
-     * @param fluidOutput   fluidOutput Slot
-     * @param durationTicks reaction time, in ticks
-     * @param euPerTick     eu consumption per tick
-     * @param chance        chance output slot
+     * @param fluidOutput   fluid Output Slot
+     * @param fluidInput    fluid Input Slot
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, ILiquidStack fluidOutput, int durationTicks, int euPerTick, int chance) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidOutput, durationTicks, euPerTick, chance));
+    public static void addRecipe(IItemStack output, IItemStack input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidOutput, fluidInput));
     }
 
     // ######################
@@ -45,35 +43,31 @@ public class FluidExtractor {
         private final IItemStack output;
         private final IItemStack input;
         private final ILiquidStack fluidOutput;
-        private final int duration;
-        private final int euPerTick;
-        private final int chance;
+        private final ILiquidStack fluidInput;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, ILiquidStack fluidOutput, int duration, int euPerTick, int chance) {
+
+        public AddRecipeAction(IItemStack output, IItemStack input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
 
             this.output = output;
             this.input = input;
             this.fluidOutput = fluidOutput;
-            this.duration = duration;
-            this.euPerTick = euPerTick;
-            this.chance = chance;
+            this.fluidInput = fluidInput;
+
         }
 
         @Override
         public void apply() {
-            RA.addFluidExtractionRecipe(
+            RA.addFluidCannerRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getItemStack(output),
-                    MineTweakerMC.getLiquidStack(fluidOutput),
-                    duration,
-                    euPerTick,
-                    chance);
+                    MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getLiquidStack(fluidOutput));
 
         }
 
         @Override
         public String describe() {
-            return "Adding Fluid Extractor recipe for " + input ;
+            return "Adding Fluid Canner recipe for " + input ;
         }
 
         @Override
@@ -83,13 +77,11 @@ public class FluidExtractor {
 
         @Override
         public int hashCode() {
-            int hash = 3;
-            hash = 94 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 94 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 94 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
-            hash = 94 * hash + this.duration;
-            hash = 94 * hash + this.euPerTick;
-            hash = 94 * hash + this.chance;
+            int hash = 5;
+            hash = 91 * hash + (this.output != null ? this.output.hashCode() : 0);
+            hash = 91 * hash + (this.input != null ? this.input.hashCode() : 0);
+            hash = 91 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
+            hash = 91 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
 
             return hash;
         }
@@ -112,15 +104,10 @@ public class FluidExtractor {
             if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
                 return false;
             }
-            if (this.duration != other.duration) {
-                return false;
-            }
-            if (this.euPerTick != other.euPerTick) {
-                    return false;
-            }
-            if (this.chance != other.chance) {
-                return false;
-            }
+
+        if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
+            return false;
+        }
             return true;
         }
     }
