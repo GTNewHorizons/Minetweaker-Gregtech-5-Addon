@@ -12,66 +12,66 @@ import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
 /**
- * Provides access to the Forming Press recipes.
+ * Provides access to the Unpacker recipes.
  *
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.FormingPress")
+@ZenClass("mods.gregtech.Unpacker")
 @ModOnly(MOD_ID)
-public class FormingPress{
+public class Unpacker{
     /**
-     * Adds a Forming Press recipe.
+     * Adds a Unpacker recipe.
      *
-     * @param output        recipe output
-     * @param input1        Item input
-     * @param input2        Press Form input
-     * @param durationTicks reaction time, in ticks
+     * @param output1       recipe output Slot 1
+     * @param output2       recipe output Slot 2
+     * @param input         recipe Input Slot
+     * @param durationTicks duration time, in ticks
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack output1, IItemStack output2, IItemStack input, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, input, durationTicks, euPerTick));
     }
 // ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output;
-        private final IItemStack input1;
-        private final IItemStack input2;
+        private final IItemStack output1;
+        private final IItemStack output2;
+        private final IItemStack input;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input, int duration, int euPerTick) {
 
-            this.output = output;
-            this.input1 = input1;
-            this.input2 = input2;
+            this.output1 = output1;
+            this.output2 = output2;
+            this.input = input;
             this.duration = duration;
             this.euPerTick = euPerTick;
         }
         @Override
         public void apply() {
-            RA.addFormingPressRecipe(
-                    MineTweakerMC.getItemStack(input1),
-                    MineTweakerMC.getItemStack(input2),
-                    MineTweakerMC.getItemStack(output),
+            RA.addUnboxingRecipe(
+                    MineTweakerMC.getItemStack(input),
+                    MineTweakerMC.getItemStack(output1),
+                    MineTweakerMC.getItemStack(output2),
                     duration,
                     euPerTick);
         }
         @Override
-        public String describe() {return "Adding Forming Press recipe for " + output;}
+        public String describe() {return "Adding Packer recipe for " + input;}
 
         @Override
         public Object getOverrideKey() {return null;}
 
         @Override
         public int hashCode() {
-            int hash = 3;
-            hash = 39 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 39 * hash + (this.input1 != null ? this.input1.hashCode() : 0);
-            hash = 39 * hash + (this.input2 != null ? this.input2.hashCode() : 0);
+            int hash = 9;
+            hash = 39 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
+            hash = 39 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
+            hash = 39 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 39 * hash + this.duration;
             hash = 39 * hash + this.euPerTick;
             return hash;
@@ -85,13 +85,13 @@ public class FormingPress{
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
+            if (this.output1 != other.output1 && (this.output1 == null || !this.output1.equals(other.output1))) {
                 return false;
             }
-            if (this.input1 != other.input1 && (this.input1 == null || !this.input1.equals(other.input1))) {
+            if (this.output2 != other.output2 && (this.output2 == null || !this.output2.equals(other.output2))) {
                 return false;
             }
-            if (this.input2 != other.input2 && (this.input2 == null || !this.input2.equals(other.input2))) {
+            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
             if (this.duration != other.duration) {

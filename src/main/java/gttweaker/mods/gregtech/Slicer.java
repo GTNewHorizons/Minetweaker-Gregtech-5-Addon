@@ -13,7 +13,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Slicer recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Slicer")
@@ -22,17 +21,17 @@ public class Slicer {
     /**
      * Adds an Slicer recipe.
      *
-     * @param output primery output
-     * @param input primary input
-     * @param blade blade Slot
+     * @param output        primary output
+     * @param input         primary input
+     * @param blade         blade Slot
      * @param durationTicks assembling duration, in ticks
-     * @param euPerTick eu consumption per tick
+     * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IItemStack input, IItemStack blade, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, blade, durationTicks, euPerTick));
     }
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {

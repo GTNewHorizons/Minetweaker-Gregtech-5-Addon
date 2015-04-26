@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
 * Provides access to the assembler recipes.
 *
-* @author Stan Hebben
 * @author Blood Asp
 * @author DreamMasterXXL
 */

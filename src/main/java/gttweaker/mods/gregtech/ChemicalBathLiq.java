@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Chemical Bath recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  * @author Blood Asp
  */
@@ -25,16 +24,16 @@ public class ChemicalBathLiq {
     /**
      * Adds a Chemical Bath recipe.
      *
-     * @param output1  first output
-     * @param output2  second output
-     * @param output3 third output
-     * @param input primary input
-     * @param fluidInput primary fluidInput
-     * @param chance1 chance of 1st output
-     * @param chance2 chance of 2nd output
-     * @param chance3 chance of 3rd output
+     * @param output1       first output
+     * @param output2       second output
+     * @param output3       third output
+     * @param input         primary input
+     * @param fluidInput    primary fluidInput
+     * @param chance1       chance of 1st output
+     * @param chance2       chance of 2nd output
+     * @param chance3       chance of 3rd output
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
+     * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
     public static void addRecipe(IItemStack output1, IItemStack output2, IItemStack output3, IItemStack input, ILiquidStack fluidInput, int chance1, int chance2, int chance3, int durationTicks, int euPerTick) {
@@ -86,7 +85,7 @@ public class ChemicalBathLiq {
 
         @Override
         public String describe() {
-            return "Adding chemical bath recipe for " + input ;
+            return "Adding Chemical Bath recipe for " + input ;
         }
 
         @Override

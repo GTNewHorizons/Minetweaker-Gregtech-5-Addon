@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Blast Furnace recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.BlastFurnaceLiq")

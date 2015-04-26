@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Fluid Extractor recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.FluidExtractor")
@@ -24,12 +23,12 @@ public class FluidExtractor {
     /**
      * Adds a Fluid Fluid Extractor recipe.
      *
-     * @param output  output Slot
-     * @param input   input Slot
-     * @param fluidOutput fluidOutput Slot
+     * @param output        output Slot
+     * @param input         input Slot
+     * @param fluidOutput   fluidOutput Slot
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
-     * @param chance  chance output slot
+     * @param euPerTick     eu consumption per tick
+     * @param chance        chance output slot
      *
      */
     @ZenMethod

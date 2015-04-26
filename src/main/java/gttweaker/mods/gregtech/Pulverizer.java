@@ -16,7 +16,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Pulverizer recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Pulverizer")
@@ -25,9 +24,9 @@ public class Pulverizer {
     /**
      * Adds a Pulverizer recipe.
      *
-     * @param outputs      recipe outputs
-     * @param input        primary input
-     * @param outChances   Chances for Outputs
+     * @param outputs       recipe outputs
+     * @param input         primary input
+     * @param outChances    Chances for Outputs
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */

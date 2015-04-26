@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
 * Provides access to the Mixer recipes.
 *
-* @author Stan Hebben
 * @author DreamMasterXXL
 */
 @ZenClass("mods.gregtech.Mixer")
@@ -25,12 +24,12 @@ public class Mixer {
      * Adds a Mixer recipe.
      *
      * @param output        recipe output
-     * @param fluidOutput  primary fluidInput
+     * @param fluidOutput   primary fluidInput
      * @param input1        primary input
      * @param input2        secondary input
      * @param input3        third input
      * @param input4        fourth input
-     * @param fluidInput   primary fluidInput
+     * @param fluidInput    primary fluidInput
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */
@@ -83,7 +82,7 @@ public class Mixer {
 
         @Override
         public String describe() {
-            return "Adding mixer recipe for " + output;
+            return "Adding Mixer recipe for " + output;
         }
 
         @Override

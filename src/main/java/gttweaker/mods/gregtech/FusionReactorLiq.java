@@ -14,7 +14,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Fusion Reactor recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.FusionReactorLiq")
@@ -35,7 +34,7 @@ public class FusionReactorLiq {
         MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, fluidInput1, fluidInput2, durationTicks, euPerTick, startEU));
     }
 
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {

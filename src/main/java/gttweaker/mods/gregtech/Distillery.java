@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Distillery recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Distillery")
@@ -24,12 +23,12 @@ public class Distillery {
     /**
      * Adds a Distillery recipe.
      *
-     * @param fluidOutput  Fluid output
-     * @param Circuit Circuit
-     * @param fluidInput fluidInput
+     * @param fluidOutput   Fluid output
+     * @param Circuit       Circuit
+     * @param fluidInput    fluidInput
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
-     * @param Hidden hidden
+     * @param euPerTick     eu consumption per tick
+     * @param Hidden        hidden
      *
      */
     @ZenMethod
@@ -73,7 +72,7 @@ public class Distillery {
 
         @Override
         public String describe() {
-            return "Adding chemical bath recipe for " + fluidOutput ;
+            return "Adding Distillery recipe for " + fluidOutput ;
         }
 
         @Override

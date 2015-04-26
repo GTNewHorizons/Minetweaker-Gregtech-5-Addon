@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Centrifuge recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.CentrifugeLiq")
@@ -24,24 +23,24 @@ public class CentrifugeLiq {
     /**
      * Adds a Centrifuge recipe.
      *
-     * @param output1  1st output
-     * @param output2  2nd output
-     * @param output3  3rd output
-     * @param output4  4rd output
-     * @param output5  5rd output
-     * @param output6  6rd output
-     * @param fluidOutput  primary fluid output
-     * @param input primary input
-     * @param cells Cell input
-     * @param fluidInput  primary fluid input
-     * @param chance1 chance of 1st output
-     * @param chance2 chance of 2nd output
-     * @param chance3 chance of 3rd output
-     * @param chance4 chance of 4rd output
-     * @param chance5 chance of 5rd output
-     * @param chance6 chance of 6rd output
+     * @param output1       1st output
+     * @param output2       2nd output
+     * @param output3       3rd output
+     * @param output4       4rd output
+     * @param output5       5rd output
+     * @param output6       6rd output
+     * @param fluidOutput   primary fluid output
+     * @param input         primary input
+     * @param cells         Cell input
+     * @param fluidInput    primary fluid input
+     * @param chance1       chance of 1st output
+     * @param chance2       chance of 2nd output
+     * @param chance3       chance of 3rd output
+     * @param chance4       chance of 4rd output
+     * @param chance5       chance of 5rd output
+     * @param chance6       chance of 6rd output
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
+     * @param euPerTick     eu consumption per tick
      *
      */
     @ZenMethod

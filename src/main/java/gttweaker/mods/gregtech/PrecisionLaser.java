@@ -14,7 +14,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Precision Laser recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.PrecisionLaser")
@@ -23,17 +22,17 @@ public class PrecisionLaser{
     /**
      * Adds a Laser Engraver recipe.
      *
-     * @param output recipe output
-     * @param input1 Item input
-     * @param input2 Lens input
+     * @param output        recipe output
+     * @param input1        Item input
+     * @param input2        Lens input
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
+     * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
     }
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {

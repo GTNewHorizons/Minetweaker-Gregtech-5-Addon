@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Brewing Machine recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Brewery")
@@ -25,9 +24,9 @@ public class Brewery {
      * Adds a Brewing Machine recipe.
      *
 	 * @param fluidOutput  primary fluid output
-     * @param Ingredient primary input
-     * @param fluidInput  primary fluid input
-     * @param Hidden hidden true or false
+     * @param Ingredient   primary input
+     * @param fluidInput   primary fluid input
+     * @param Hidden       hidden true or false
      *
      */
     @ZenMethod
@@ -66,7 +65,7 @@ public class Brewery {
 
         @Override
         public String describe() {
-            return "Adding brewery recipe for " + fluidOutput ;
+            return "Adding Brewery recipe for " + fluidOutput ;
         }
 
         @Override

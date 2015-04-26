@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Saw recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.SawLiq")
@@ -24,10 +23,10 @@ public class SawLiq {
     /**
      * Adds a Saw recipe.
      *
-     * @param output1      recipe output1
-     * @param output2      recipe output2
-     * @param input        primary input
-     * @param Lubricant   primary fluidInput
+     * @param output1       recipe output1
+     * @param output2       recipe output2
+     * @param input         primary input
+     * @param Lubricant     primary fluidInput
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */

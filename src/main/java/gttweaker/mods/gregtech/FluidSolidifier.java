@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Fluid Solidifier recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.FluidSolidifier")
@@ -24,11 +23,11 @@ public class FluidSolidifier {
     /**
      * Adds a Fluid Solidifier recipe.
      *
-     * @param output  output Slot
-     * @param Mold mold Slot
-     * @param fluidInput fluidInput
+     * @param output        output Slot
+     * @param Mold          mold Slot
+     * @param fluidInput    fluidInput
      * @param durationTicks reaction time, in ticks
-     * @param euPerTick eu consumption per tick
+     * @param euPerTick     eu consumption per tick
      *
      */
     @ZenMethod

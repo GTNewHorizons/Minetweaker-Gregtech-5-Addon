@@ -15,7 +15,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
 * Provides access to the Chemical Reactor recipes.
 *
-* @author Stan Hebben
 * @author DreamMasterXXL
 */
 @ZenClass("mods.gregtech.ChemicalReactorLiq")
@@ -36,7 +35,7 @@ public class ChemicalReactorLiq {
         MineTweakerAPI.apply(new AddRecipeAction(output, fluidOutput1, input1, input2, fluidInput1, durationTicks));
     }
 
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
@@ -69,7 +68,7 @@ public class ChemicalReactorLiq {
 
         @Override
         public String describe() {
-            return "Adding chemical reactor recipe for " + output;
+            return "Adding Chemical Reactor recipe for " + output;
         }
 
         @Override

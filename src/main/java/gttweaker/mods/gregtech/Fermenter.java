@@ -14,7 +14,6 @@ import static gregtech.api.enums.GT_Values.RA;
 /**
  * Provides access to the Fermenter recipes.
  *
- * @author Stan Hebben
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Fermenter")
@@ -24,9 +23,9 @@ public class Fermenter {
      * Adds a Fermenter recipe.
      *
      * @param fluidOutput  primary fluidOutput
-     * @param fluidInput  primary fluidInput
-     * @param duration reaction time, in ticks
-     * @param Hidden hidden
+     * @param fluidInput   primary fluidInput
+     * @param duration     reaction time, in ticks
+     * @param Hidden       hidden
      *
      */
     @ZenMethod
