@@ -1,7 +1,7 @@
 # Minetweaker-Gregtech-5-Addon
 Minetweaker Addon for all Gregtech 5 Machines
 
-Changelog:
+Changelog:<BR>
 0.6.9 Add Amplifabricator Support<BR>
 0.6.8 Add Fluid canner Support<BR>
 0.6.7 Add Fluid Heater, Polarizer and Separator Support<BR>
