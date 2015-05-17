@@ -16,7 +16,7 @@ import static gregtech.api.enums.GT_Values.RA;
  *
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.Amplifabricator")
+@ZenClass("mods.gregtech.AmplifabricatorUU")
 @ModOnly(MOD_ID)
 public class Amplifabricator {
     /**
