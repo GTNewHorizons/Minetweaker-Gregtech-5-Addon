@@ -2,7 +2,8 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
-0.7.0 Changing Amplifabricator to AmplifabricatorUU because of minetweaker
+0.7.1 Now Logistic Pipes Recipes works properly<BR>
+0.7.0 Changing Amplifabricator to AmplifabricatorUU because of minetweaker<BR>
 0.6.9 Add Amplifabricator Support<BR>
 0.6.8 Add Fluid canner Support<BR>
 0.6.7 Add Fluid Heater, Polarizer and Separator Support<BR>
