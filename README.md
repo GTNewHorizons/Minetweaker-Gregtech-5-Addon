@@ -2,6 +2,7 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
+0.7.2 Registered CentrifugeLiq now it works<BR>
 0.7.1 Now Logistic Pipes Recipes works properly<BR>
 0.7.0 Changing Amplifabricator to AmplifabricatorUU because of minetweaker<BR>
 0.6.9 Add Amplifabricator Support<BR>
