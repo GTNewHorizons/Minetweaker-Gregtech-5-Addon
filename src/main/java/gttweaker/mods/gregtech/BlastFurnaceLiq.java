@@ -36,7 +36,7 @@ public class BlastFurnaceLiq {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output1, IItemStack output2, ILiquidStack fluidOutput, ILiquidStack fluidInput, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick, int heat) {
-        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, fluidOutput, fluidInput, input1, input2, durationTicks, euPerTick, heat));
+        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, null, fluidInput, input1, input2, durationTicks, euPerTick, heat));
     }
 
 // ######################
