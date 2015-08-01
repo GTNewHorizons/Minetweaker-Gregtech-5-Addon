@@ -24,6 +24,7 @@ public class PlasmaArcFurnace {
      * Adds an Arc Furnace recipe.
      *
      * @param outputs       1-4 recipe output
+     * @param fluidOutput   primary fluidOutput
      * @param input         primary input
      * @param fluidInput    primary fluidInput
      * @param outChances    chances of 1-4 output
@@ -31,33 +32,35 @@ public class PlasmaArcFurnace {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack []outputs, IItemStack input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack []outputs, ILiquidStack fluidOutput, IItemStack input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Plasma Arc Furnace must have at least 1 output");
         } else if(outputs.length!=outChances.length){
             MineTweakerAPI.logError("Number of Outputs does not equal number of Chances");
         }else {
-            MineTweakerAPI.apply(new AddRecipeAction(outputs, input, fluidInput, outChances, durationTicks, euPerTick));
+            MineTweakerAPI.apply(new AddRecipeAction(outputs, fluidOutput, input, fluidInput, outChances, durationTicks, euPerTick));
         }
     }
 
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack [] output;
+        private final ILiquidStack fluidOutput;
         private final IItemStack input;
         private final ILiquidStack fluidInput;
         private final int [] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int [] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, ILiquidStack fluidOutput, IItemStack input, ILiquidStack fluidInput, int [] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;
             this.fluidInput = fluidInput;
+            this.fluidOutput = fluidOutput;
             this.chances = outChances;
             this.duration = duration;
             this.euPerTick = euPerTick;
@@ -69,6 +72,7 @@ public class PlasmaArcFurnace {
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getItemStacks(output),
+                    MineTweakerMC.getLiquidStack(fluidOutput),
                     chances,
                     duration,
                     euPerTick);
@@ -88,6 +92,7 @@ public class PlasmaArcFurnace {
         public int hashCode() {
             int hash = 5;
             hash = 9 * hash + (this.output != null ? this.output.hashCode() : 0);
+            hash = 9 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
             hash = 9 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 9 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 9 * hash + this.duration;
@@ -105,6 +110,9 @@ public class PlasmaArcFurnace {
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
+                return false;
+            }
+            if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
                 return false;
             }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
