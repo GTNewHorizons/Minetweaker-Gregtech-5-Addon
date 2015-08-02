@@ -1,0 +1,18 @@
+.gradle/
+eclipse/
+.settings/
+.classpath
+bin/
+out/
+mods/
+CREDITS-fml.txt
+GTTweaker.iml
+GTTweaker.ipr
+GTTweaker.iws
+LICENSE-fml.txt
+MinecraftForge-Credits.txt
+MinecraftForge-License.txt
+Neues Textdokument.txt
+README.txt
+forge-1.7.10-10.13.2.1291-changelog.txt
+libs/gregtech_1.7.10-5.08.26-test2.jar
