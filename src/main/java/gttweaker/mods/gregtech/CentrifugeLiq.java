@@ -149,31 +149,31 @@ public class CentrifugeLiq {
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
             if (this.output1 != other.output1 && (this.output1 == null || !this.output1.equals(other.output1))) {
-
+                return false;
             }
             if (this.output2 != other.output2 && (this.output2 == null || !this.output2.equals(other.output2))) {
-
+                return false;
             }
             if (this.output3 != other.output3 && (this.output3 == null || !this.output3.equals(other.output3))) {
-
+                return false;
             }
             if (this.output4 != other.output4 && (this.output4 == null || !this.output4.equals(other.output4))) {
-
+                return false;
             }
             if (this.output5 != other.output5 && (this.output5 == null || !this.output5.equals(other.output5))) {
-
+                return false;
             }
             if (this.output6 != other.output6 && (this.output6 == null || !this.output6.equals(other.output6))) {
-
+                return false;
             }
             if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
                 return false;
             }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
-
+                return false;
             }
             if (this.cells != other.cells && (this.cells == null || !this.cells.equals(other.cells))) {
-
+                return false;
             }
             if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
