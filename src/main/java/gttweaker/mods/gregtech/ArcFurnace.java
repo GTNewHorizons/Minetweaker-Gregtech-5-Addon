@@ -24,7 +24,6 @@ public class ArcFurnace {
      * Adds an Arc Furnace recipe.
      *
      * @param outputs       1-4 recipe output
-     * @param fluidOutput   primary fluidOutput
      * @param input         primary input
      * @param fluidInput    primary fluidInput
      * @param outChances    chances of 1-4 output
@@ -32,13 +31,13 @@ public class ArcFurnace {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack []outputs, ILiquidStack fluidOutput, IItemStack input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack []outputs, IItemStack input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Arc Furnace must have at least 1 output");
         } else if(outputs.length!=outChances.length){
             MineTweakerAPI.logError("Number of Outputs does not equal number of Chances");
         }else {
-            MineTweakerAPI.apply(new AddRecipeAction(outputs, fluidOutput, input, fluidInput, outChances, durationTicks, euPerTick));
+            MineTweakerAPI.apply(new AddRecipeAction(outputs, input, fluidInput, outChances, durationTicks, euPerTick));
         }
     }
 
@@ -48,19 +47,17 @@ public class ArcFurnace {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack [] output;
-        private final ILiquidStack fluidOutput;
         private final IItemStack input;
         private final ILiquidStack fluidInput;
         private final int [] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, ILiquidStack fluidOutput, IItemStack input, ILiquidStack fluidInput, int [] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int [] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;
             this.fluidInput = fluidInput;
-            this.fluidOutput = fluidOutput;
             this.chances = outChances;
             this.duration = duration;
             this.euPerTick = euPerTick;
@@ -68,11 +65,10 @@ public class ArcFurnace {
 
         @Override
         public void apply() {
-            RA.addPlasmaArcFurnaceRecipe(
+            RA.addSimpleArcFurnaceRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getItemStacks(output),
-                    MineTweakerMC.getLiquidStack(fluidOutput),
                     chances,
                     duration,
                     euPerTick);
@@ -92,9 +88,8 @@ public class ArcFurnace {
         public int hashCode() {
             int hash = 6;
             hash = 11 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 11 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
-            hash = 11 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 11 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
+            hash = 11 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 11 * hash + this.duration;
             hash = 11 * hash + this.euPerTick;
             return hash;
@@ -112,13 +107,10 @@ public class ArcFurnace {
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
-            if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
-                return false;
-            }
-            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.chances != other.chances){
