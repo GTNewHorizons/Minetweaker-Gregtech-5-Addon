@@ -2,6 +2,10 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
+0.7.6 Fixed the Arc Furnace input be a Plasma Arc Furnace<BR>
+0.7.5 Remove Blast Furnace liquid output because not usesed<BR>
+0.7.4 Adding Liquid Output Support to the Arc and Plasma Arc Furnace<BR>
+0.7.3 Changing some Code<BR>
 0.7.2 Registered CentrifugeLiq now it works<BR>
 0.7.1 Now Logistic Pipes Recipes works properly<BR>
 0.7.0 Changing Amplifabricator to AmplifabricatorUU because of minetweaker<BR>
