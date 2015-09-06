@@ -7,7 +7,7 @@ import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.0.0")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.0.1")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -33,7 +33,6 @@ public class GTTweaker {
                 MineTweakerAPI.registerClass(ForgeHammer.class);
                 MineTweakerAPI.registerClass(FormingPress.class);
                 MineTweakerAPI.registerClass(Fuels.class);
-                MineTweakerAPI.registerClass(Grinder.class);
                 MineTweakerAPI.registerClass(ImplosionCompressor.class);
                 MineTweakerAPI.registerClass(Lathe.class);
                 MineTweakerAPI.registerClass(Mixer.class);
@@ -47,7 +46,6 @@ public class GTTweaker {
                 MineTweakerAPI.registerClass(Separator.class);
                 MineTweakerAPI.registerClass(Sifter.class);
                 MineTweakerAPI.registerClass(Slicer.class);
-                MineTweakerAPI.registerClass(Sonictron.class);
                 MineTweakerAPI.registerClass(Unpacker.class);
                 MineTweakerAPI.registerClass(VacuumFreezer.class);
                 MineTweakerAPI.registerClass(Wiremill.class);
