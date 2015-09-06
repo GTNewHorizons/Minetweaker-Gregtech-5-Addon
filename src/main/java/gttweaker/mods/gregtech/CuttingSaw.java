@@ -16,26 +16,27 @@ import static gregtech.api.enums.GT_Values.RA;
  * Provides access to the Saw recipes.
  *
  * @author DreamMasterXXL
+ * @author bculkin2442
  */
-@ZenClass("mods.gregtech.SawLiq")
+@ZenClass("mods.gregtech.CuttingSaw")
 @ModOnly(MOD_ID)
 public class CuttingSaw {
     /**
-     * Adds a Saw recipe.
+     * Adds a Cutting Saw recipe.
      *
      * @param output1       recipe output1
      * @param output2       recipe output2
      * @param input         primary input
-     * @param Lubricant     primary fluidInput
+     * @param lubricant     primary fluidInput
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output1, IItemStack output2, IItemStack input, ILiquidStack Lubricant, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, input, Lubricant, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack output1, IItemStack output2, IItemStack input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, input, lubricant, durationTicks, euPerTick));
     }
 
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
@@ -43,29 +44,38 @@ public class CuttingSaw {
         private final IItemStack output1;
         private final IItemStack output2;
         private final IItemStack input;
-        private final ILiquidStack Lubricant;
+        private final ILiquidStack lubricant;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input, ILiquidStack Lubricant, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input, ILiquidStack lubricant, int duration, int euPerTick1) {
 
             this.output1 = output1;
             this.output2 = output2;
             this.input = input;
-            this.Lubricant = Lubricant;
+            this.lubricant = lubricant;
             this.duration = duration;
             this.euPerTick = euPerTick1;
         }
 
         @Override
         public void apply() {
-            RA.addCutterRecipe(
-                    MineTweakerMC.getItemStack(input),
-                    MineTweakerMC.getLiquidStack(Lubricant),
-                    MineTweakerMC.getItemStack(output1),
-                    MineTweakerMC.getItemStack(output2),
-                    duration,
-                    euPerTick);
+            if (lubricant == null) {
+                RA.addCutterRecipe(MineTweakerMC.getItemStack(input),
+                        MineTweakerMC.getItemStack(output1),
+                        MineTweakerMC.getItemStack(output2),
+                        duration,
+                        euPerTick);
+
+            } else {
+                RA.addCutterRecipe(
+                        MineTweakerMC.getItemStack(input),
+                        MineTweakerMC.getLiquidStack(lubricant),
+                        MineTweakerMC.getItemStack(output1),
+                        MineTweakerMC.getItemStack(output2),
+                        duration,
+                        euPerTick);
+            }
         }
 
         @Override
@@ -84,7 +94,7 @@ public class CuttingSaw {
             hash = 99 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
             hash = 99 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
             hash = 99 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 99 * hash + (this.Lubricant != null ? this.Lubricant.hashCode() : 0);
+            hash = 99 * hash + (this.lubricant != null ? this.lubricant.hashCode() : 0);
             hash = 99 * hash + this.duration;
             hash = 99 * hash + this.euPerTick;
             return hash;
@@ -105,7 +115,7 @@ public class CuttingSaw {
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
-            if (this.Lubricant != other.Lubricant && (this.Lubricant == null || !this.Lubricant.equals(other.Lubricant))) {
+            if (this.lubricant != other.lubricant && (this.lubricant == null || !this.lubricant.equals(other.lubricant))) {
                 return false;
             }
             if (this.duration != other.duration) {

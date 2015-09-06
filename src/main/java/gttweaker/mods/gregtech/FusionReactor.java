@@ -16,7 +16,7 @@ import static gregtech.api.enums.GT_Values.RA;
  *
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.FusionReactorLiq")
+@ZenClass("mods.gregtech.FusionReactor")
 @ModOnly(MOD_ID)
 public class FusionReactor {
     /**

@@ -60,7 +60,6 @@ public class Fermenter {
                     duration,
                     Hidden);
 
-
         }
 
         @Override

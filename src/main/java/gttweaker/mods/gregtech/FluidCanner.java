@@ -105,9 +105,9 @@ public class FluidCanner {
                 return false;
             }
 
-        if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
             return false;
-        }
+            }
             return true;
         }
     }

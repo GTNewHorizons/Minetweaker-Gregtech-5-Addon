@@ -17,8 +17,9 @@ import static gregtech.api.enums.GT_Values.RA;
  *
  * @author Blood Asp
  * @author DreamMasterXXL
+ * @author bculkin2442
  */
-@ZenClass("mods.gregtech.AssemblerLiq")
+@ZenClass("mods.gregtech.Assembler")
 @ModOnly(MOD_ID)
 public class Assembler {
     /**
@@ -33,13 +34,55 @@ public class Assembler {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, fluidInput1, durationTicks, euPerTick));
+        MineTweakerAPI.apply(new AddFluidRecipeAction(output, input1, input2, fluidInput1, durationTicks, euPerTick));
     }
-
+    @ZenMethod
+    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
+    }
 // ######################
 // ### Action classes ###
 // ######################
-    private static class AddRecipeAction extends OneWayAction {
+
+        private static class AddRecipeAction extends OneWayAction {
+
+            private final IItemStack output;
+            private final IItemStack input1;
+            private final IItemStack input2;
+            private final int duration;
+            private final int euPerTick;
+
+            public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, int duration, int euPerTick) {
+
+                this.output = output;
+                this.input1 = input1;
+                this.input2 = input2;
+                this.duration = duration;
+                this.euPerTick = euPerTick;
+            }
+
+            @Override
+            public void apply() {
+                RA.addAssemblerRecipe(
+                        MineTweakerMC.getItemStack(input1),
+                        MineTweakerMC.getItemStack(input2),
+                        MineTweakerMC.getItemStack(output),
+                        duration,
+                        euPerTick);
+            }
+
+            @Override
+            public String describe() {
+                return "Adding assembler recipe for " + output;
+            }
+
+            @Override
+            public Object getOverrideKey() {
+                return null;
+            }
+        }
+
+    private static class AddFluidRecipeAction extends OneWayAction {
 
         private final IItemStack output;
         private final IItemStack input1;
@@ -48,7 +91,7 @@ public class Assembler {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int duration, int euPerTick) {
+        public AddFluidRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int duration, int euPerTick) {
 
             this.output = output;
             this.input1 = input1;
@@ -71,7 +114,7 @@ public class Assembler {
 
         @Override
         public String describe() {
-            return "Adding assembler recipe for " + output;
+            return "Adding assembler recipe with fluid Support for " + output;
         }
 
         @Override
@@ -99,7 +142,7 @@ public class Assembler {
             if (getClass() != obj.getClass()) {
                 return false;
             }
-            final AddRecipeAction other = (AddRecipeAction) obj;
+            final AddFluidRecipeAction other = (AddFluidRecipeAction) obj;
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }

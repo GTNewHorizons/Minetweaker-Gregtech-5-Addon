@@ -18,7 +18,7 @@ import static gregtech.api.enums.GT_Values.RA;
  * @author DreamMasterXXL
  * @author Blood Asp
  */
-@ZenClass("mods.gregtech.ChemicalBathLiq")
+@ZenClass("mods.gregtech.ChemicalBath")
 @ModOnly(MOD_ID)
 public class ChemicalBath {
     /**

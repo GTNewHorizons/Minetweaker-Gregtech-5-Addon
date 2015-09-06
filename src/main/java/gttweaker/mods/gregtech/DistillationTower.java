@@ -21,7 +21,7 @@ import static gregtech.api.enums.GT_Values.RA;
  * @author DreamMasterXXL
  * @author Blood Asp
  */
-@ZenClass("mods.gregtech.DistillationTowerLiq")
+@ZenClass("mods.gregtech.DistillationTower")
 @ModOnly(MOD_ID)
 public class DistillationTower {
     /**
@@ -42,7 +42,7 @@ public class DistillationTower {
         }
     }
 
-    // ######################
+// ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
@@ -80,7 +80,7 @@ public class DistillationTower {
 
         @Override
         public String describe() {
-            return "Adding Distillation Tower recipe for " + fluidInput;
+            return "Adding Distillation Tower recipe for " + fluidInput.getDisplayName();
         }
 
         @Override

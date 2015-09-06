@@ -24,7 +24,7 @@ public class Sifter {
     /**
      * Adds a Sifter recipe.
      *
-     * @param outputs       1-9 output
+     * @param outputs       1-9 outputs
      * @param input         primary input
      * @param outChances    chances of 1-9 output
      * @param durationTicks reaction time, in ticks

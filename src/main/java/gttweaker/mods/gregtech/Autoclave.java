@@ -22,7 +22,7 @@ public class Autoclave {
     /**
      * Adds an Autoclave recipe.
      *
-     * @param output primery output
+     * @param output primary output
      * @param input primary input
      * @param fluidInput primary fluidInput
      * @param chances chances
@@ -60,11 +60,11 @@ public class Autoclave {
                     MineTweakerMC.getItemStack(output),
                     chances,
                     duration,
-                   euPerTick);
+                    euPerTick);
         }
         @Override
         public String describe() {
-            return "Adding assembler recipe for " + output;
+            return "Adding Autoclave recipe for " + output;
         }
         @Override
         public Object getOverrideKey() {
