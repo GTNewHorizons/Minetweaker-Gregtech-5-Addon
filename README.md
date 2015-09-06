@@ -2,6 +2,8 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
+1.0.1 Deleting old Machines that not exists any more like CNC, Grinder, Sonictron<BR>
+1.0.0 Adding now full GT 5 support for Minetweaker Version 3.10<BR>
 0.7.6 Fixed the Arc Furnace input be a Plasma Arc Furnace<BR>
 0.7.5 Remove Blast Furnace liquid output because not usesed<BR>
 0.7.4 Adding Liquid Output Support to the Arc and Plasma Arc Furnace<BR>
