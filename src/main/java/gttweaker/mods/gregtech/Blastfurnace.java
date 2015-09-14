@@ -62,7 +62,7 @@ public class Blastfurnace {
         private final int euPerTick;
         private final int heat;
 
-        public AddRecipeAction(IItemStack input1, IItemStack input2, IItemStack output1, IItemStack output2, int duration, int euPerTick, int heat) {
+        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input1, IItemStack input2, int duration, int euPerTick, int heat) {
 
             this.output1 = output1;
             this.output2 = output2;
