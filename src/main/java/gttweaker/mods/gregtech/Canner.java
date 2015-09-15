@@ -22,25 +22,25 @@ public class Canner {
 	/**
 	 * Adds a canner recipe with a single output.
 	 * 
-	 * @param output crafting output
-	 * @param input1 primary input
-	 * @param input2 secondary input (optional
+	 * @param output 		crafting output
+	 * @param input1 		primary input
+	 * @param input2 		secondary input (optional
 	 * @param durationTicks crafting duration, in ticks
-	 * @param euPerTick eu consumption per tick
+	 * @param euPerTick 	eu consumption per tick
 	 */
 	@ZenMethod
 	public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
 		MineTweakerAPI.apply(new AddRecipeAction(output, null, input1, input2, durationTicks, euPerTick));
 	}
-	
+
 	/**
 	 * Adds a canner recipe with multiple outputs.
 	 * 
-	 * @param output array with 1 or 2 outputs
-	 * @param input1 primary input
-	 * @param input2 secondary input (optional, can be null)
+	 * @param output 		array with 1 or 2 outputs
+	 * @param input1  		primary inputs
+	 * @param input2  		secondary inputs
 	 * @param durationTicks crafting duration, in ticks
- 	 * @param euPerTick eu consumption per tick
+ 	 * @param euPerTick 	eu consumption per tick
 	 */
 	@ZenMethod
 	public static void addRecipe(IItemStack[] output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {

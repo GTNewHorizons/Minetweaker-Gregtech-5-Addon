@@ -32,7 +32,11 @@ public class ChemicalBath {
      */
     @ZenMethod
     public static void addRecipe(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
+        if (output.length == 0) {
+            MineTweakerAPI.logError("chemical bath requires at least 1 output");
+        } else {
+            MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
+        }
     }
 
 // ######################

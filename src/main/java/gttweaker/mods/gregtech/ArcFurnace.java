@@ -46,14 +46,14 @@ public class ArcFurnace {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack [] output;
+        private final IItemStack[] output;
         private final IItemStack input;
         private final ILiquidStack fluidInput;
-        private final int [] chances;
+        private final int[] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int [] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int[] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;

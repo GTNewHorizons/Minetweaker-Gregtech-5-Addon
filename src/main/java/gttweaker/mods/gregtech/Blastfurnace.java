@@ -23,11 +23,9 @@ public class Blastfurnace {
     /**
      * Adds a Blast Furnace recipe.
      *
-     * @param output1       recipe output 1
-     * @param output2       recipe output 2
+     * @param output        recipe output 1+2
      * @param fluidInput    primary fluidInput
-     * @param input1        primary input
-     * @param input2        secondary input
+     * @param input         recipes input  1+2
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      * @param heat          heat in Kelvin
@@ -35,15 +33,15 @@ public class Blastfurnace {
      */
 
     @ZenMethod
-    public static void addRecipe(IItemStack output1, IItemStack output2, ILiquidStack fluidInput, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick, int heat) {
-        MineTweakerAPI.apply(new AddFluidRecipeAction(output1, output2, fluidInput, input1, input2, durationTicks, euPerTick, heat));
+    public static void addRecipe(IItemStack[]output, ILiquidStack fluidInput, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
+        MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidInput, input, durationTicks, euPerTick, heat));
     }
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick, int heat) {
+    public static void addRecipe(IItemStack[] output, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddRecipeAction(output[0], output.length > 1 ? output[1] : null, input1, input2, durationTicks, euPerTick, heat));
+            MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick, heat));
         }
 
     }
@@ -54,20 +52,16 @@ public class Blastfurnace {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output1;
-        private final IItemStack output2;
-        private final IItemStack input1;
-        private final IItemStack input2;
+        private final IItemStack[] output;
+        private final IItemStack[] input;
         private final int duration;
         private final int euPerTick;
         private final int heat;
 
-        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input1, IItemStack input2, int duration, int euPerTick, int heat) {
+        public AddRecipeAction(IItemStack[] output, IItemStack[] input, int duration, int euPerTick, int heat) {
 
-            this.output1 = output1;
-            this.output2 = output2;
-            this.input1 = input1;
-            this.input2 = input2;
+            this.output = output;
+            this.input = input;
             this.duration = duration;
             this.euPerTick = euPerTick;
             this.heat = heat;
@@ -76,12 +70,12 @@ public class Blastfurnace {
         @Override
         public void apply() {
             RA.addBlastRecipe(
-                    MineTweakerMC.getItemStack(input1),
-                    MineTweakerMC.getItemStack(input2),
+                    MineTweakerMC.getItemStack(input[0]),
+                    output.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
                     MineTweakerMC.getLiquidStack(null),
                     MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getItemStack(output1),
-                    MineTweakerMC.getItemStack(output2),
+                    MineTweakerMC.getItemStack(output[0]),
+                    output.length > 1 ? MineTweakerMC.getItemStack(output[1]) : null,
                     duration,
                     euPerTick,
                     heat);
@@ -89,7 +83,7 @@ public class Blastfurnace {
 
         @Override
         public String describe() {
-            return "Adding Blast furnace recipe for " + output1;
+            return "Adding Blast furnace recipe for " + output;
         }
 
         @Override
@@ -100,22 +94,18 @@ public class Blastfurnace {
 
     private static class AddFluidRecipeAction extends OneWayAction {
 
-        private final IItemStack output1;
-        private final IItemStack output2;
+        private final IItemStack[] output;
         private final ILiquidStack fluidInput;
-        private final IItemStack input1;
-        private final IItemStack input2;
+        private final IItemStack[] input;
         private final int duration;
         private final int euPerTick;
         private final int heat;
 
-        public AddFluidRecipeAction(IItemStack output1, IItemStack output2, ILiquidStack fluidInput, IItemStack input1, IItemStack input2, int duration, int euPerTick, int heat) {
+        public AddFluidRecipeAction(IItemStack[] output, ILiquidStack fluidInput, IItemStack[] input, int duration, int euPerTick, int heat) {
 
-            this.output1 = output1;
-            this.output2 = output2;
+            this.output = output;
             this.fluidInput = fluidInput;
-            this.input1 = input1;
-            this.input2 = input2;
+            this.input = input;
             this.duration = duration;
             this.euPerTick = euPerTick;
             this.heat = heat;
@@ -124,12 +114,12 @@ public class Blastfurnace {
         @Override
         public void apply() {
             RA.addBlastRecipe(
-                    MineTweakerMC.getItemStack(input1),
-                    MineTweakerMC.getItemStack(input2),
+                    MineTweakerMC.getItemStack(input[0]),
+                    output.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getItemStack(output1),
-                    MineTweakerMC.getItemStack(output2),
+                    MineTweakerMC.getItemStack(output[0]),
+                    output.length > 1 ? MineTweakerMC.getItemStack(output[1]) : null,
                     duration,
                     euPerTick,
                     heat);
@@ -137,7 +127,7 @@ public class Blastfurnace {
 
         @Override
         public String describe() {
-            return "Adding Blast furnace recipe for " + output1;
+            return "Adding Blast furnace recipe for " + output;
         }
 
         @Override
@@ -148,11 +138,9 @@ public class Blastfurnace {
         @Override
         public int hashCode() {
             int hash = 4;
-            hash = 67 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
-            hash = 67 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
+            hash = 67 * hash + (this.output != null ? this.output.hashCode() : 0);
             hash = 67 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
-            hash = 67 * hash + (this.input1 != null ? this.input1.hashCode() : 0);
-            hash = 67 * hash + (this.input2 != null ? this.input2.hashCode() : 0);
+            hash = 67 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 67 * hash + this.duration;
             hash = 67 * hash + this.euPerTick;
             hash = 67 * hash + this.heat;
@@ -168,16 +156,10 @@ public class Blastfurnace {
                 return false;
             }
             final AddFluidRecipeAction other = (AddFluidRecipeAction) obj;
-            if (this.output1 != other.output1 && (this.output1 == null || !this.output1.equals(other.output1))) {
+            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
-            if (this.output2 != other.output2 && (this.output2 == null || !this.output2.equals(other.output2))) {
-                return false;
-            }
-            if (this.input1 != other.input1 && (this.input1 == null || !this.input1.equals(other.input1))) {
-                return false;
-            }
-            if (this.input2 != other.input2 && (this.input2 == null || !this.input2.equals(other.input2))) {
+            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
             if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
