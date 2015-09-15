@@ -32,7 +32,7 @@ public class Sifter {
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack []outputs, IItemStack input, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] outputs, IItemStack input, int[] outChances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Sifter must have at least 1 output");
         } else if(outputs.length!=outChances.length){
@@ -50,7 +50,7 @@ public class Sifter {
 
         private final IItemStack[] output;
         private final IItemStack input;
-        private final int [] chances;
+        private final int[] chances;
         private final int duration;
         private final int euPerTick;
 

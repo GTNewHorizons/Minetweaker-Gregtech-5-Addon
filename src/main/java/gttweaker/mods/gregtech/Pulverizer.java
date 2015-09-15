@@ -46,13 +46,13 @@ public class Pulverizer {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack [] output;
+        private final IItemStack[] output;
         private final IItemStack input;
-        private final int [] chances;
+        private final int[] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack [] output, IItemStack input, int[] outChances, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, int[] outChances, int duration, int euPerTick1) {
 
             this.output = output;
             this.input = input;

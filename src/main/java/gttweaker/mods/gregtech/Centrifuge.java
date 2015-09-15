@@ -36,8 +36,14 @@ public class Centrifuge {
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IItemStack input, IItemStack cells, ILiquidStack fluidInput, int [] chances, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddFluidRecipeAction(outputs, fluidOutput, input, cells, fluidInput, chances, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IItemStack input, IItemStack cells, ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
+        if (outputs.length < 1) {
+            MineTweakerAPI.logError("Centrifuge must have at least 1 output");
+        } else if(outputs.length!=chances.length){
+            MineTweakerAPI.logError("Number of Outputs does not equal number of Chances");
+        }else {
+            MineTweakerAPI.apply(new AddFluidRecipeAction(outputs, fluidOutput, input, cells, fluidInput, chances, durationTicks, euPerTick));
+        }
     }
 
     @ZenMethod
