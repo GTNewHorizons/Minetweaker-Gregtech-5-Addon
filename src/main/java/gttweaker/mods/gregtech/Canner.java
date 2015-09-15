@@ -74,7 +74,7 @@ public class Canner {
 
 		@Override
 		public void apply() {
-			GregTech_API.sRecipeAdder.addCannerRecipe(
+			RA.addCannerRecipe(
 					MineTweakerMC.getItemStack(input1),
 					MineTweakerMC.getItemStack(input2),
 					MineTweakerMC.getItemStack(output1),
