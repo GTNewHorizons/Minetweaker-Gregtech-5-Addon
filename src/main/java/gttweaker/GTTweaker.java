@@ -7,7 +7,7 @@ import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.0.2")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.0.3")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
