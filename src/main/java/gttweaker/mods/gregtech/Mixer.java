@@ -162,8 +162,8 @@ public class Mixer {
                     input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
                     input.length > 2 ? MineTweakerMC.getItemStack(input[2]) : null,
                     input.length > 3 ? MineTweakerMC.getItemStack(input[3]) : null,
-                    MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getLiquidStack(null),
+                    MineTweakerMC.getLiquidStack(fluidInput),
+                    MineTweakerMC.getLiquidStack(fluidOutput),
                     MineTweakerMC.getItemStack(output),
                     duration,
                     euPerTick);
