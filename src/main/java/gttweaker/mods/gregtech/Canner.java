@@ -1,13 +1,15 @@
--package minetweaker.mods.gregtech.machines;
--
--import gregtechmod.api.GregTech_API;
--import minetweaker.MineTweakerAPI;
--import minetweaker.OneWayAction;
--import minetweaker.annotations.ModOnly;
--import minetweaker.api.item.IItemStack;
--import minetweaker.api.minecraft.MineTweakerMC;
--import stanhebben.zenscript.annotations.ZenClass;
--import stanhebben.zenscript.annotations.ZenMethod;
+package gttweaker.mods.gregtech;
+import minetweaker.MineTweakerAPI;
+import minetweaker.OneWayAction;
+import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IItemStack;
+import minetweaker.api.liquid.ILiquidStack;
+import minetweaker.api.minecraft.MineTweakerMC;
+import stanhebben.zenscript.annotations.ZenClass;
+import stanhebben.zenscript.annotations.ZenMethod;
+
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
 -
 -/**
 - * Provider access to the Canner recipes.
