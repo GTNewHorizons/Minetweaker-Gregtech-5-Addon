@@ -35,14 +35,23 @@ public class Mixer {
         if (input.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddRecipeAction(output, fluidOutput, input, fluidInput, durationTicks, euPerTick));
+            MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput, input, fluidInput, durationTicks, euPerTick));
+        }
+    }
+
+    @ZenMethod
+    public static void addRecipe(IItemStack output, IItemStack[] input, int durationTicks, int euPerTick) {
+        if (input.length == 0) {
+            MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
+        } else {
+            MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick));
         }
     }
 
 // ######################
 // ### Action classes ###
 // ######################
-    private static class AddRecipeAction extends OneWayAction {
+    private static class AddFluidRecipeAction extends OneWayAction {
 
         private final IItemStack output;
         private final ILiquidStack fluidOutput;
@@ -51,7 +60,7 @@ public class Mixer {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;
@@ -105,7 +114,7 @@ public class Mixer {
             if (getClass() != obj.getClass()) {
                 return false;
             }
-            final AddRecipeAction other = (AddRecipeAction) obj;
+            final AddFluidRecipeAction other = (AddFluidRecipeAction) obj;
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
@@ -116,6 +125,79 @@ public class Mixer {
                 return false;
             }
             if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
+                return false;
+            }
+            if (this.duration != other.duration) {
+                return false;
+            }
+            if (this.euPerTick != other.euPerTick) {
+                return false;
+            }
+            return true;
+        }
+    }
+    private static class AddRecipeAction extends OneWayAction {
+
+        private final IItemStack output;
+        private final IItemStack[] input;
+        private final int duration;
+        private final int euPerTick;
+
+        public AddRecipeAction(IItemStack output, IItemStack[] input, int duration, int euPerTick) {
+
+            this.output = output;
+            this.input = input;
+            this.duration = duration;
+            this.euPerTick = euPerTick;
+        }
+
+        @Override
+        public void apply() {
+            RA.addMixerRecipe(
+                    MineTweakerMC.getItemStack(input[0]),
+                    input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
+                    input.length > 2 ? MineTweakerMC.getItemStack(input[2]) : null,
+                    input.length > 3 ? MineTweakerMC.getItemStack(input[3]) : null,
+                    MineTweakerMC.getLiquidStack(null),
+                    MineTweakerMC.getLiquidStack(null),
+                    MineTweakerMC.getItemStack(output),
+                    duration,
+                    euPerTick);
+        }
+
+        @Override
+        public String describe() {
+            return "Adding Mixer recipe for " + output;
+        }
+
+        @Override
+        public Object getOverrideKey() {
+            return null;
+        }
+
+        @Override
+        public int hashCode() {
+            int hash = 7;
+            hash = 17 * hash + (this.output != null ? this.output.hashCode() : 0);
+            hash = 17 * hash + (this.input != null ? this.input.hashCode() : 0);
+            hash = 17 * hash + this.duration;
+            hash = 17 * hash + this.euPerTick;
+            return hash;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (obj == null) {
+                return false;
+            }
+            if (getClass() != obj.getClass()) {
+                return false;
+            }
+            final AddRecipeAction other = (AddRecipeAction) obj;
+            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
+                return false;
+            }
+            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
             if (this.duration != other.duration) {

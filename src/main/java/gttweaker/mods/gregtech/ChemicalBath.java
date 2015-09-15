@@ -48,7 +48,7 @@ public class ChemicalBath {
         private final IItemStack[] output;
         private final IItemStack input;
         private final ILiquidStack fluidInput;
-        private final int [] chances;
+        private final int[] chances;
         private final int duration;
         private final int euPerTick;
 

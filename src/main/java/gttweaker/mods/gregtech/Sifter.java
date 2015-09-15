@@ -54,7 +54,7 @@ public class Sifter {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, IItemStack input, int [] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, int[] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;
