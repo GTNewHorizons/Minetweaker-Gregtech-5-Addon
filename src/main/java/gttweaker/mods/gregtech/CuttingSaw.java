@@ -36,6 +36,15 @@ public class CuttingSaw {
         MineTweakerAPI.apply(new AddRecipeAction(output1, output2, input, lubricant, durationTicks, euPerTick));
     }
 
+    @ZenMethod
+    public static void addRecipe(IItemStack[] output, IItemStack input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
+        if (output.length == 0) {
+            MineTweakerAPI.logError("canner requires at least 1 output");
+        } else {
+            MineTweakerAPI.apply(new AddRecipeAction(output[0], output.length > 1 ? output[1] : null, input, lubricant, durationTicks, euPerTick));
+        }
+    }
+
 // ######################
 // ### Action classes ###
 // ######################
