@@ -2,6 +2,11 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
+1.0.6 Fix Mixer recipes<BR>
+1.0.5 Mixer have now shorter recipes if have less than 4 ingredients<BR>
+1.0.4 Fixing Blastfurnace, Separator, Centrifuge, Canner, Chemical Bath<BR>
+1.0.3 Adding missing Fluid Class<BR>
+1.0.2 Changing In and Outputs of the Blasfurnace<BR>
 1.0.1 Deleting old Machines that not exists any more like CNC, Grinder, Sonictron<BR>
 1.0.0 Adding now full GT 5 support for Minetweaker Version 3.10<BR>
 0.7.6 Fixed the Arc Furnace input be a Plasma Arc Furnace<BR>
