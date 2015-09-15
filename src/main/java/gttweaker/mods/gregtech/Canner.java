@@ -17,7 +17,7 @@ import static gregtech.api.enums.GT_Values.RA;
  * @author Stan Hebben
  */
 @ZenClass("mods.gregtech.Canner")
-@ModOnly("gregtech_addon")
+@ModOnly(MOD_ID)
 public class Canner {
 	/**
 	 * Adds a canner recipe with a single output.
