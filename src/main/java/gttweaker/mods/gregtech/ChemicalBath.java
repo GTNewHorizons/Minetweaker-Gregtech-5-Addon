@@ -16,7 +16,6 @@ import static gregtech.api.enums.GT_Values.RA;
  * Provides access to the Chemical Bath recipes.
  *
  * @author DreamMasterXXL
- * @author Blood Asp
  */
 @ZenClass("mods.gregtech.ChemicalBath")
 @ModOnly(MOD_ID)
@@ -24,20 +23,16 @@ public class ChemicalBath {
     /**
      * Adds a Chemical Bath recipe.
      *
-     * @param output1       first output
-     * @param output2       second output
-     * @param output3       third output
+     * @param output        outputs 1-3
      * @param input         primary input
      * @param fluidInput    primary fluidInput
-     * @param chance1       chance of 1st output
-     * @param chance2       chance of 2nd output
-     * @param chance3       chance of 3rd output
+     * @param chances       chance of 3 outputs
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output1, IItemStack output2, IItemStack output3, IItemStack input, ILiquidStack fluidInput, int chance1, int chance2, int chance3, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output1, output2, output3, input, fluidInput, chance1, chance2,  chance3, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
     }
 
 // ######################
@@ -46,26 +41,19 @@ public class ChemicalBath {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output1;
-        private final IItemStack output2;
-        private final IItemStack output3;
+        private final IItemStack[] output;
         private final IItemStack input;
         private final ILiquidStack fluidInput;
         private final int [] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack output3, IItemStack input, ILiquidStack fluidInput, int chance1, int chance2, int chance3 , int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, ILiquidStack fluidInput, int[] chances, int duration, int euPerTick) {
 
-            this.output1 = output1;
-            this.output2 = output2;
-            this.output3 = output3;
+            this.output = output;
             this.input = input;
             this.fluidInput = fluidInput;
-            this.chances = new int[3];
-            this.chances[0] =chance1;
-            this.chances[1] =chance2;
-            this.chances[2] =chance3;
+            this.chances = chances;
             this.duration = duration;
             this.euPerTick = euPerTick;
         }
@@ -75,9 +63,9 @@ public class ChemicalBath {
             RA.addChemicalBathRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getLiquidStack(fluidInput),
-                    MineTweakerMC.getItemStack(output1),
-                    MineTweakerMC.getItemStack(output2),
-                    MineTweakerMC.getItemStack(output3),
+                    MineTweakerMC.getItemStack(output[0]),
+                    output.length > 1 ? MineTweakerMC.getItemStack(output[1]) : null,
+                    output.length > 2 ? MineTweakerMC.getItemStack(output[2]) : null,
                     chances,
                     duration,
                     euPerTick);
@@ -96,9 +84,7 @@ public class ChemicalBath {
         @Override
         public int hashCode() {
             int hash = 9;
-            hash = 8 * hash + (this.output1 != null ? this.output1.hashCode() : 0);
-            hash = 8 * hash + (this.output2 != null ? this.output2.hashCode() : 0);
-            hash = 8 * hash + (this.output3 != null ? this.output3.hashCode() : 0);
+            hash = 8 * hash + (this.output != null ? this.output.hashCode() : 0);
             hash = 8 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 8 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 8 * hash + this.duration;
@@ -116,13 +102,7 @@ public class ChemicalBath {
                 return false;
             }
             final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.output1 != other.output1 && (this.output1 == null || !this.output1.equals(other.output1))) {
-                return false;
-            }
-            if (this.output2 != other.output2 && (this.output2 == null || !this.output2.equals(other.output2))) {
-                return false;
-            }
-            if (this.output3 != other.output3 && (this.output3 == null || !this.output3.equals(other.output3))) {
+            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
