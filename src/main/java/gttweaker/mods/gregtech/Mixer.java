@@ -44,7 +44,7 @@ public class Mixer {
         if (input.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick));
+            MineTweakerAPI.apply(new AddRecipeAction(output, null, input, null, durationTicks, euPerTick));
         }
     }
 
@@ -139,14 +139,18 @@ public class Mixer {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack output;
+        private final ILiquidStack fluidOutput;
         private final IItemStack[] input;
+        private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack[] input, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
+            this.fluidOutput = fluidOutput;
             this.input = input;
+            this.fluidInput = fluidInput;
             this.duration = duration;
             this.euPerTick = euPerTick;
         }
@@ -177,9 +181,11 @@ public class Mixer {
 
         @Override
         public int hashCode() {
-            int hash = 7;
+            int hash = 1;
             hash = 17 * hash + (this.output != null ? this.output.hashCode() : 0);
+            hash = 17 * hash + (this.fluidOutput != null ? this.fluidOutput.hashCode() : 0);
             hash = 17 * hash + (this.input != null ? this.input.hashCode() : 0);
+            hash = 17 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
             hash = 17 * hash + this.duration;
             hash = 17 * hash + this.euPerTick;
             return hash;
@@ -197,7 +203,13 @@ public class Mixer {
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
+            if (this.fluidOutput != other.fluidOutput && (this.fluidOutput == null || !this.fluidOutput.equals(other.fluidOutput))) {
+                return false;
+            }
             if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
+                return false;
+            }
+            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
                 return false;
             }
             if (this.duration != other.duration) {
