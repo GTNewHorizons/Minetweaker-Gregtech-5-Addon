@@ -37,12 +37,12 @@ public class Electrolyzer {
      */
     @ZenMethod
     public static void addRecipe(IItemStack[] output, ILiquidStack fluidOutput, IItemStack input, IItemStack cells,  ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
-        if (outputs.length < 1) {
+        if (output.length < 1) {
             MineTweakerAPI.logError("Electrolyzer must have at least 1 output");
-        } else if(outputs.length!=outChances.length){
+        } else if(output.length!=chances.length){
             MineTweakerAPI.logError("Number of Outputs does not equal number of Chances");
         }else {
-            MineTweakerAPI.apply(new AddRecipeAction(output, fluidOutput, input, cells, fluidInput, chances, durationTicks, euPerTick));
+            MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput, input, cells, fluidInput, chances, durationTicks, euPerTick));
         }
     }
 

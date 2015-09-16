@@ -34,7 +34,11 @@ public class Blastfurnace {
 
     @ZenMethod
     public static void addRecipe(IItemStack[]output, ILiquidStack fluidInput, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
-        MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidInput, input, durationTicks, euPerTick, heat));
+        if (output.length == 0) {
+            MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
+        } else {
+            MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidInput, input, durationTicks, euPerTick, heat));
+        }
     }
     @ZenMethod
     public static void addRecipe(IItemStack[] output, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
@@ -71,7 +75,7 @@ public class Blastfurnace {
         public void apply() {
             RA.addBlastRecipe(
                     MineTweakerMC.getItemStack(input[0]),
-                    output.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
+                    input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
                     MineTweakerMC.getLiquidStack(null),
                     MineTweakerMC.getLiquidStack(null),
                     MineTweakerMC.getItemStack(output[0]),
@@ -115,7 +119,7 @@ public class Blastfurnace {
         public void apply() {
             RA.addBlastRecipe(
                     MineTweakerMC.getItemStack(input[0]),
-                    output.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
+                    input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
                     MineTweakerMC.getLiquidStack(fluidInput),
                     MineTweakerMC.getLiquidStack(null),
                     MineTweakerMC.getItemStack(output[0]),
