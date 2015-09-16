@@ -42,7 +42,12 @@ public class Electrolyzer {
 
     @ZenMethod
     public static void addRecipe(IItemStack[] output, IItemStack input, int cells, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input, cells, durationTicks, euPerTick));
+        if (output.length == 0) {
+            MineTweakerAPI.logError("Electrolyzer recipe requires at least 1 input");
+        } else {
+            MineTweakerAPI.apply(new AddRecipeAction(output, input, cells, durationTicks, euPerTick));
+        }
+
     }
 
 // ######################
