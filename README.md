@@ -2,6 +2,8 @@
 Minetweaker Addon for all Gregtech 5 Machines
 
 Changelog:<BR>
+1.0.8 remove Plate Cutter Class<BR>
+1.0.7 Fix Blastfurnace Input 2<BR>
 1.0.6 Fix Mixer recipes<BR>
 1.0.5 Mixer have now shorter recipes if have less than 4 ingredients<BR>
 1.0.4 Fixing Blastfurnace, Separator, Centrifuge, Canner, Chemical Bath<BR>
