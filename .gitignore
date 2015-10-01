@@ -6,3 +6,6 @@ out/
 GTTweaker.iml
 GTTweaker.ipr
 GTTweaker.iws
+Idea.bat
+SetupDevWorkspaces.bat
+SetupWorkspaces.bat
