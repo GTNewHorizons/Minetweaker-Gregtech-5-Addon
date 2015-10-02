@@ -47,14 +47,14 @@ public class Printer {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
 
             this.output = output;
             this.input1 = input1;
             this.DataStick = DataStick;
             this.ink = ink;
             this.duration = duration;
-            this.euPerTick = euPerTick1;
+            this.euPerTick = euPerTick;
         }
 
         @Override
