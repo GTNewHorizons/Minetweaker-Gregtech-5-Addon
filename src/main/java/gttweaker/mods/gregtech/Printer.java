@@ -24,15 +24,15 @@ public class Printer {
      * Adds a Printer recipe.
      *
      * @param output        recipe output
-     * @param input1        primary input
+     * @param input         primary input
      * @param DataStick     Data Stick
      * @param ink           ink fluidInput
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input1, DataStick, ink, durationTicks, euPerTick));
+    public static void addRecipe(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddRecipeAction(output, input, DataStick, ink, durationTicks, euPerTick));
     }
 
 // ######################
@@ -41,16 +41,16 @@ public class Printer {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack output;
-        private final IItemStack input1;
+        private final IItemStack input;
         private final IItemStack DataStick;
         private final ILiquidStack ink;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
 
             this.output = output;
-            this.input1 = input1;
+            this.input = input;
             this.DataStick = DataStick;
             this.ink = ink;
             this.duration = duration;
@@ -60,7 +60,7 @@ public class Printer {
         @Override
         public void apply() {
             RA.addPrinterRecipe(
-                    MineTweakerMC.getItemStack(input1),
+                    MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getLiquidStack(ink),
                     MineTweakerMC.getItemStack(DataStick),
                     MineTweakerMC.getItemStack(output),
@@ -82,7 +82,7 @@ public class Printer {
         public int hashCode() {
             int hash = 7;
             hash = 66 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 66 * hash + (this.input1 != null ? this.input1.hashCode() : 0);
+            hash = 66 * hash + (this.input != null ? this.input.hashCode() : 0);
             hash = 66 * hash + (this.DataStick != null ? this.DataStick.hashCode() : 0);
             hash = 66 * hash + (this.ink != null ? this.ink.hashCode() : 0);
             hash = 66 * hash + this.duration;
@@ -102,7 +102,7 @@ public class Printer {
             if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
                 return false;
             }
-            if (this.input1 != other.input1 && (this.input1 == null || !this.input1.equals(other.input1))) {
+            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
                 return false;
             }
             if (this.DataStick != other.DataStick && (this.DataStick == null || !this.DataStick.equals(other.DataStick))) {
