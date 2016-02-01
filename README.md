@@ -1,6 +1,8 @@
 # Minetweaker-Gregtech-5-Addon
 Minetweaker Addon for all Gregtech 5 Machines
 
+[![Build Status](http://jenkins.usrv.eu:8081/buildStatus/icon?job=GTTweaker)](http://jenkins.usrv.eu:8081/job/GTTweaker/)
+
 Changelog:<BR>
 1.0.9 Fix Printer<BR>
 1.0.8 Remove Plate Cutter Class<BR>
