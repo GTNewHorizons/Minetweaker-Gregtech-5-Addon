@@ -4,6 +4,7 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.eu:8081/buildStatus/icon?job=GTTweaker)](http://jenkins.usrv.eu:8081/job/GTTweaker/)
 
 Changelog:<BR>
+1.1.0 Added Pyroluse Oven adn Oil Cracker support for Gt 5.09**<BR>
 1.0.9 Fix Printer<BR>
 1.0.8 Remove Plate Cutter Class<BR>
 1.0.7 Fix Blastfurnace Input 2<BR>
