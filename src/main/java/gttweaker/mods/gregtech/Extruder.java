@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -30,7 +31,7 @@ public class Extruder {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, IItemStack shape, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, IIngredient input, IIngredient shape, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, shape, durationTicks, euPerTick));
     }
 
@@ -39,13 +40,13 @@ public class Extruder {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IItemStack output;
-        private final IItemStack input;
-        private final IItemStack shape;
+        private final IIngredient output;
+        private final IIngredient input;
+        private final IIngredient shape;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, IItemStack shape, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, IIngredient input, IIngredient shape, int duration, int euPerTick) {
             this.output = output;
             this.input = input;
             this.shape = shape;

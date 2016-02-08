@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -31,7 +32,7 @@ public class Printer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, IIngredient input, IIngredient DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, DataStick, ink, durationTicks, euPerTick));
     }
 
@@ -40,14 +41,14 @@ public class Printer {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output;
-        private final IItemStack input;
-        private final IItemStack DataStick;
+        private final IIngredient output;
+        private final IIngredient input;
+        private final IIngredient DataStick;
         private final ILiquidStack ink;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, IIngredient input, IIngredient DataStick, ILiquidStack ink, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;

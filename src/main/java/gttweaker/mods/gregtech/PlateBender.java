@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -29,7 +30,7 @@ public class PlateBender {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, IIngredient input, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick));
     }
 
@@ -38,12 +39,12 @@ public class PlateBender {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IItemStack output;
-        private final IItemStack input;
+        private final IIngredient output;
+        private final IIngredient input;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, IIngredient input, int duration, int euPerTick) {
             this.output = output;
             this.input = input;
             this.duration = duration;

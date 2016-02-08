@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -31,7 +32,7 @@ public class FluidSolidifier {
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack Mold, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, IIngredient Mold, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, Mold, fluidInput, durationTicks, euPerTick));
     }
 
@@ -41,13 +42,13 @@ public class FluidSolidifier {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output;
-        private final IItemStack Mold;
+        private final IIngredient output;
+        private final IIngredient Mold;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IItemStack Mold, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, IIngredient Mold, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.Mold = Mold;

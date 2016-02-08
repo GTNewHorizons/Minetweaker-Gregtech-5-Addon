@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -28,7 +29,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addDieselFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addDieselFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 0));
     }
 
@@ -41,7 +42,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addGasTurbineFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addGasTurbineFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 1));
     }
 
@@ -54,7 +55,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addThermalGeneratorFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addThermalGeneratorFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 2));
     }
 
@@ -67,7 +68,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addDenseFluidFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addDenseFluidFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 3));
     }
 
@@ -80,7 +81,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addPlasmaGeneratorFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addPlasmaGeneratorFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 4));
     }
 
@@ -93,7 +94,7 @@ public class Fuels {
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
-    public static void addMagicGeneratorFuel(IItemStack output, IItemStack input, int euPerMillibucket) {
+    public static void addMagicGeneratorFuel(IIngredient output, IIngredient input, int euPerMillibucket) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, euPerMillibucket, 5));
     }
 
@@ -111,12 +112,12 @@ public class Fuels {
                 "magic"
         };
 
-        private final IItemStack output;
-        private final IItemStack input;
+        private final IIngredient output;
+        private final IIngredient input;
         private final int euPerMillibucket;
         private final int type;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, int euPerMillibucket, int type) {
+        public AddRecipeAction(IIngredient output, IIngredient input, int euPerMillibucket, int type) {
             this.output = output;
             this.input = input;
             this.euPerMillibucket = euPerMillibucket;

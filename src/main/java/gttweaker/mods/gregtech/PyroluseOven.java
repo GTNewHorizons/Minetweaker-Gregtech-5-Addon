@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -32,7 +33,7 @@ public class PyroluseOven {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, int circuit, IItemStack input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, ILiquidStack fluidOutput, int circuit, IIngredient input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, fluidOutput, circuit, input, fluidInput, durationTicks, euPerTick));
     }
 
@@ -41,15 +42,15 @@ public class PyroluseOven {
     // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack output;
+        private final IIngredient output;
         private final ILiquidStack fluidOutput;
         private final int circuit;
-        private final IItemStack input;
+        private final IIngredient input;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, int circuit, IItemStack input, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, ILiquidStack fluidOutput, int circuit, IIngredient input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;

@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -30,20 +31,20 @@ public class Autoclave {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient output, IIngredient input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
     }
 // ######################
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends OneWayAction {
-	    private final IItemStack output;
-        private final IItemStack input;
+	    private final IIngredient output;
+        private final IIngredient input;
         private final ILiquidStack fluidInput;
         private final int chances;
         private final int duration;
         private final int euPerTick;
-        public AddRecipeAction(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient output, IIngredient input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
 
             this.output = output;		
             this.input = input;

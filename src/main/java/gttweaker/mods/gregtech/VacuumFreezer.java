@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -27,7 +28,7 @@ public class VacuumFreezer {
      * @param durationTicks freezing duration, in ticks
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, int durationTicks) {
+    public static void addRecipe(IIngredient output, IIngredient input, int durationTicks) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks));
     }
 
@@ -36,11 +37,11 @@ public class VacuumFreezer {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IItemStack output;
-        private final IItemStack input;
+        private final IIngredient output;
+        private final IIngredient input;
         private final int duration;
 
-        public AddRecipeAction(IItemStack output, IItemStack input, int duration) {
+        public AddRecipeAction(IIngredient output, IIngredient input, int duration) {
             this.output = output;
             this.input = input;
             this.duration = duration;

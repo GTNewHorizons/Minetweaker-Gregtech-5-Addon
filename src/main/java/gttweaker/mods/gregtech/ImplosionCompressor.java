@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -28,7 +29,7 @@ public class ImplosionCompressor {
      * @param tnt amount of TNT needed
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IItemStack input, int tnt) {
+    public static void addRecipe(IIngredient output, IIngredient input, int tnt) {
         MineTweakerAPI.apply(new AddRecipeAction(output, null, input, tnt));
     }
 
@@ -40,7 +41,7 @@ public class ImplosionCompressor {
      * @param tnt amount of TNT needed
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IItemStack input, int tnt) {
+    public static void addRecipe(IIngredient[] output, IIngredient input, int tnt) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Implosion compressor recipe requires at least 1 output");
         } else {
@@ -53,12 +54,12 @@ public class ImplosionCompressor {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IItemStack output1;
-        private final IItemStack output2;
-        private final IItemStack input1;
+        private final IIngredient output1;
+        private final IIngredient output2;
+        private final IIngredient input1;
         private final int tnt;
 
-        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input1, int tnt) {
+        public AddRecipeAction(IIngredient output1, IIngredient output2, IIngredient input1, int tnt) {
             this.output1 = output1;
             this.output2 = output2;
             this.input1 = input1;

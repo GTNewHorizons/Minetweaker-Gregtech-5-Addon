@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -30,7 +31,7 @@ public class Brewery {
      *
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack fluidOutput, IItemStack Ingredient, ILiquidStack fluidInput, boolean Hidden) {
+    public static void addRecipe(ILiquidStack fluidOutput, IIngredient Ingredient, ILiquidStack fluidInput, boolean Hidden) {
         MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, Ingredient, fluidInput, Hidden));
     }
 
@@ -40,12 +41,12 @@ public class Brewery {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack Ingredient;
+        private final IIngredient Ingredient;
         private final ILiquidStack fluidOutput;
         private final ILiquidStack fluidInput;
         private final boolean Hidden;
 
-        public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Ingredient, ILiquidStack fluidInput, boolean Hidden) {
+        public AddRecipeAction(ILiquidStack fluidOutput, IIngredient Ingredient, ILiquidStack fluidInput, boolean Hidden) {
 
             this.Ingredient = Ingredient;
             this.fluidOutput = fluidOutput;		

@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -28,7 +29,7 @@ public class Amplifabricator {
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack input,  int duration, int amount) {
+    public static void addRecipe(IIngredient input,  int duration, int amount) {
         MineTweakerAPI.apply(new AddRecipeAction(input, duration, amount));
     }
 
@@ -38,11 +39,11 @@ public class Amplifabricator {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack input;
+        private final IIngredient input;
         private final int duration;
         private final int amount;
 
-        public AddRecipeAction(IItemStack input, int duration, int amount) {
+        public AddRecipeAction(IIngredient input, int duration, int amount) {
 
             this.input = input;
             this.duration = duration;

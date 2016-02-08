@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -31,7 +32,7 @@ public class FluidHeater {
      *
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(ILiquidStack fluidOutput, IIngredient Circuit, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, Circuit, fluidInput, durationTicks, euPerTick));
     }
 
@@ -42,12 +43,12 @@ public class FluidHeater {
     private static class AddRecipeAction extends OneWayAction {
 
         private final ILiquidStack fluidOutput;
-        private final IItemStack Circuit;
+        private final IIngredient Circuit;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(ILiquidStack fluidOutput, IIngredient Circuit, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.fluidOutput = fluidOutput;
             this.Circuit = Circuit;

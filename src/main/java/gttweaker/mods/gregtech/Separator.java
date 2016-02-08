@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -29,7 +30,7 @@ public class Separator{
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IItemStack input, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IIngredient[] output, IIngredient input, int[] outChances, int durationTicks, int euPerTick) {
         if (output.length < 1) {
             MineTweakerAPI.logError("Seperator must have at least 1 output");
         } else if(output.length!=outChances.length){
@@ -43,13 +44,13 @@ public class Separator{
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IItemStack[] output;
-        private final IItemStack input;
+        private final IIngredient[] output;
+        private final IIngredient input;
         private final int[] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, IItemStack input, int[] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IIngredient[] output, IIngredient input, int[] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;

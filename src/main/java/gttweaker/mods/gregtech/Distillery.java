@@ -3,6 +3,7 @@ package gttweaker.mods.gregtech;
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
+import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
@@ -32,7 +33,7 @@ public class Distillery {
      *
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int durationTicks, int euPerTick, boolean Hidden) {
+    public static void addRecipe(ILiquidStack fluidOutput, IIngredient Circuit, ILiquidStack fluidInput, int durationTicks, int euPerTick, boolean Hidden) {
         MineTweakerAPI.apply(new AddRecipeAction(fluidOutput, Circuit, fluidInput, durationTicks, euPerTick, Hidden));
     }
 
@@ -43,13 +44,13 @@ public class Distillery {
     private static class AddRecipeAction extends OneWayAction {
 
         private final ILiquidStack fluidOutput;
-        private final IItemStack Circuit;
+        private final IIngredient Circuit;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
         private final boolean Hidden;
 
-        public AddRecipeAction(ILiquidStack fluidOutput, IItemStack Circuit, ILiquidStack fluidInput, int duration, int euPerTick, boolean Hidden) {
+        public AddRecipeAction(ILiquidStack fluidOutput, IIngredient Circuit, ILiquidStack fluidInput, int duration, int euPerTick, boolean Hidden) {
 
             this.fluidOutput = fluidOutput;
             this.Circuit = Circuit;
