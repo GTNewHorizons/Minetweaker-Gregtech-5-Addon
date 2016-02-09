@@ -31,7 +31,7 @@ public class Extruder {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IIngredient output, IIngredient input, IIngredient shape, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IIngredient input, IIngredient shape, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, shape, durationTicks, euPerTick));
     }
 
@@ -40,13 +40,13 @@ public class Extruder {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IIngredient output;
+        private final IItemStack output;
         private final IIngredient input;
         private final IIngredient shape;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IIngredient output, IIngredient input, IIngredient shape, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IIngredient input, IIngredient shape, int duration, int euPerTick) {
             this.output = output;
             this.input = input;
             this.shape = shape;

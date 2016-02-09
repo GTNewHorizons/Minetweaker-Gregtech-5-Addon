@@ -33,7 +33,7 @@ public class PlasmaArcFurnace {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IIngredient[] outputs, ILiquidStack fluidOutput, IIngredient input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IIngredient input, ILiquidStack fluidInput, int[] outChances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Plasma Arc Furnace must have at least 1 output");
         } else if(outputs.length!=outChances.length){
@@ -48,7 +48,7 @@ public class PlasmaArcFurnace {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IIngredient[] output;
+        private final IItemStack[] output;
         private final ILiquidStack fluidOutput;
         private final IIngredient input;
         private final ILiquidStack fluidInput;
@@ -56,7 +56,7 @@ public class PlasmaArcFurnace {
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IIngredient[] output, ILiquidStack fluidOutput, IIngredient input, ILiquidStack fluidInput, int[] outChances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, ILiquidStack fluidOutput, IIngredient input, ILiquidStack fluidInput, int[] outChances, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;
@@ -72,7 +72,7 @@ public class PlasmaArcFurnace {
             RA.addPlasmaArcFurnaceRecipe(
                     MineTweakerMC.getItemStack(input),
                     MineTweakerMC.getLiquidStack(fluidInput),
-                    MineTweakerMC.getItemStacks((IItemStack[]) output),
+                    MineTweakerMC.getItemStacks(output),
                     MineTweakerMC.getLiquidStack(fluidOutput),
                     chances,
                     duration,

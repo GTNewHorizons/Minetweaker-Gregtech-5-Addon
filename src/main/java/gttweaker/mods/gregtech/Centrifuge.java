@@ -37,7 +37,7 @@ public class Centrifuge {
      *
      */
     @ZenMethod
-    public static void addRecipe(IIngredient[] outputs, ILiquidStack fluidOutput, IIngredient input, IIngredient cells, ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IIngredient input, IIngredient cells, ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Centrifuge must have at least 1 output");
         } else if(outputs.length!=chances.length){
@@ -48,7 +48,7 @@ public class Centrifuge {
     }
 
     @ZenMethod
-    public static void addRecipeFuelCan(IIngredient[] outputs, IIngredient input, int numCans, int duration) {
+    public static void addRecipeFuelCan(IItemStack[] outputs, IIngredient input, int numCans, int duration) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("centrifuge must have at least 1 output");
         } else {
@@ -57,7 +57,7 @@ public class Centrifuge {
     }
 
     @ZenMethod
-    public static void addRecipe(IIngredient[] outputs, IIngredient input, int cells, int durationTicks) {
+    public static void addRecipe(IItemStack[] outputs, IIngredient input, int cells, int durationTicks) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("centrifuge must have at least 1 output");
         } else {
@@ -71,12 +71,13 @@ public class Centrifuge {
 // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IIngredient[] output;
+        private final IItemStack[] output;
         private final IIngredient input;
         private final int cells;
         private final int duration;
 
-        public AddRecipeAction(IIngredient[] output, IIngredient input, int cells, int duration) {
+        public AddRecipeAction(IItemStack[] output, IIngredient input, int cells, int duration) {
+
             this.output = output;
             this.input = input;
             this.cells = cells;
@@ -144,7 +145,7 @@ public class Centrifuge {
 
     private static class AddFluidRecipeAction extends OneWayAction {
 
-        private final IIngredient[] outputs;
+        private final IItemStack[] outputs;
         private final ILiquidStack fluidOutput;
         private final IIngredient input;
         private final IIngredient cells;
@@ -153,7 +154,7 @@ public class Centrifuge {
         private final int duration;
         private final int euPerTick;
 
-        public AddFluidRecipeAction(IIngredient[] outputs, ILiquidStack fluidOutput, IIngredient input, IIngredient cells, ILiquidStack fluidInput, int[] chances, int duration, int euPerTick) {
+        public AddFluidRecipeAction(IItemStack[] outputs, ILiquidStack fluidOutput, IIngredient input, IIngredient cells, ILiquidStack fluidInput, int[] chances, int duration, int euPerTick) {
 
             this.outputs = outputs;
             this.fluidOutput = fluidOutput;

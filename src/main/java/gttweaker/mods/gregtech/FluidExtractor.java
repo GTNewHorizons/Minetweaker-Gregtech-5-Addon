@@ -33,7 +33,7 @@ public class FluidExtractor {
      *
      */
     @ZenMethod
-    public static void addRecipe(IIngredient output, IIngredient input, ILiquidStack fluidOutput, int durationTicks, int euPerTick, int chance) {
+    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidOutput, int durationTicks, int euPerTick, int chance) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidOutput, durationTicks, euPerTick, chance));
     }
 
@@ -43,14 +43,14 @@ public class FluidExtractor {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IIngredient output;
+        private final IItemStack output;
         private final IIngredient input;
         private final ILiquidStack fluidOutput;
         private final int duration;
         private final int euPerTick;
         private final int chance;
 
-        public AddRecipeAction(IIngredient output, IIngredient input, ILiquidStack fluidOutput, int duration, int euPerTick, int chance) {
+        public AddRecipeAction(IItemStack output, IIngredient input, ILiquidStack fluidOutput, int duration, int euPerTick, int chance) {
 
             this.output = output;
             this.input = input;

@@ -33,12 +33,12 @@ public class CuttingSaw {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IIngredient output1, IIngredient output2, IIngredient input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output1, IItemStack output2, IIngredient input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output1, output2, input, lubricant, durationTicks, euPerTick));
     }
 
     @ZenMethod
-    public static void addRecipe(IIngredient[] output, IIngredient input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] output, IIngredient input, ILiquidStack lubricant, int durationTicks, int euPerTick) {
         if (output.length == 0) {
             MineTweakerAPI.logError("canner requires at least 1 output");
         } else {
@@ -51,14 +51,14 @@ public class CuttingSaw {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IIngredient output1;
-        private final IIngredient output2;
+        private final IItemStack output1;
+        private final IItemStack output2;
         private final IIngredient input;
         private final ILiquidStack lubricant;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IIngredient output1, IIngredient output2, IIngredient input, ILiquidStack lubricant, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack output1, IItemStack output2, IIngredient input, ILiquidStack lubricant, int duration, int euPerTick1) {
 
             this.output1 = output1;
             this.output2 = output2;

@@ -30,7 +30,7 @@ public class PlateBender {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IIngredient output, IIngredient input, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IIngredient input, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick));
     }
 
@@ -39,12 +39,12 @@ public class PlateBender {
     // ######################
 
     private static class AddRecipeAction extends OneWayAction {
-        private final IIngredient output;
+        private final IItemStack output;
         private final IIngredient input;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IIngredient output, IIngredient input, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IIngredient input, int duration, int euPerTick) {
             this.output = output;
             this.input = input;
             this.duration = duration;

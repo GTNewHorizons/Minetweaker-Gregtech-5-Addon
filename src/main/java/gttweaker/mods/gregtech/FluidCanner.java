@@ -31,7 +31,7 @@ public class FluidCanner {
      *
      */
     @ZenMethod
-    public static void addRecipe(IIngredient output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
+    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidOutput, fluidInput));
     }
 
@@ -41,13 +41,13 @@ public class FluidCanner {
 
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IIngredient output;
+        private final IItemStack output;
         private final IIngredient input;
         private final ILiquidStack fluidOutput;
         private final ILiquidStack fluidInput;
 
 
-        public AddRecipeAction(IIngredient output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
+        public AddRecipeAction(IItemStack output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
 
             this.output = output;
             this.input = input;

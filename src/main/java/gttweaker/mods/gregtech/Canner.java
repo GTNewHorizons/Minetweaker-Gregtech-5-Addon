@@ -30,8 +30,8 @@ public class Canner {
 	 * @param euPerTick 	eu consumption per tick
 	 */
 	@ZenMethod
-	public static void addRecipe(IIngredient output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-		MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, null, durationTicks, euPerTick));
+	public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+		MineTweakerAPI.apply(new AddRecipeAction(output, null, input1, input2, durationTicks, euPerTick));
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class Canner {
  	 * @param euPerTick 	eu consumption per tick
 	 */
 	@ZenMethod
-	public static void addRecipe(IIngredient[] output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+	public static void addRecipe(IItemStack[] output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
 		if (output.length == 0) {
 			MineTweakerAPI.logError("canner requires at least 1 output");
 		} else {
@@ -57,14 +57,15 @@ public class Canner {
 	// ######################
 	
 	private static class AddRecipeAction extends OneWayAction {
-		private final IIngredient output1;
-		private final IIngredient output2;
+		private final IItemStack output1;
+		private final IItemStack output2;
 		private final IIngredient input1;
 		private final IIngredient input2;
 		private final int duration;
 		private final int euPerTick;
 		
-		public AddRecipeAction(IIngredient output1, IIngredient output2, IIngredient input1, IIngredient input2, int duration, int euPerTick) {
+		public AddRecipeAction(IItemStack output1, IItemStack output2, IIngredient input1, IIngredient input2, int duration, int euPerTick) {
+
 			this.output1 = output1;
 			this.output2 = output2;
 			this.input1 = input1;

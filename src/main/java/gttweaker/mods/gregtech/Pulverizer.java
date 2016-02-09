@@ -32,7 +32,7 @@ public class Pulverizer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IIngredient[] outputs, IIngredient input, int[] outChances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] outputs, IIngredient input, int[] outChances, int durationTicks, int euPerTick) {
         if (outputs.length < 1) {
             MineTweakerAPI.logError("Pulverizer must have at least 1 output");
         } else if (outputs.length != outChances.length) {
@@ -47,13 +47,13 @@ public class Pulverizer {
 // ######################
     private static class AddRecipeAction extends OneWayAction {
 
-        private final IIngredient[] output;
+        private final IItemStack[] output;
         private final IIngredient input;
         private final int[] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IIngredient[] output, IIngredient input, int[] outChances, int duration, int euPerTick1) {
+        public AddRecipeAction(IItemStack[] output, IIngredient input, int[] outChances, int duration, int euPerTick1) {
 
             this.output = output;
             this.input = input;
@@ -66,7 +66,7 @@ public class Pulverizer {
         public void apply() {
             RA.addPulveriserRecipe(
                     MineTweakerMC.getItemStack(input),
-                    MineTweakerMC.getItemStacks((IItemStack[]) output),
+                    MineTweakerMC.getItemStacks(output),
                     chances,
                     duration,
                     euPerTick);

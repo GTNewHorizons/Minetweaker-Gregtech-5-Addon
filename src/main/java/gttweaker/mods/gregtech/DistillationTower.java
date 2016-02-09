@@ -35,7 +35,7 @@ public class DistillationTower {
      * @param euPerTick      eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack[] fluidOutput, IIngredient itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         if (fluidOutput.length < 1) {
             MineTweakerAPI.logError("Distillation Twower must have at least 1 Fluid output");
         }else {
@@ -49,12 +49,12 @@ public class DistillationTower {
     private static class AddRecipeAction extends OneWayAction {
 
         private final FluidStack[] fluidOutput;
-        private final IIngredient itemOutput;
+        private final IItemStack itemOutput;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(ILiquidStack[] fluidOutput, IIngredient itemOutput, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.fluidOutput = new FluidStack[fluidOutput.length];
             this.itemOutput = itemOutput;
