@@ -14,15 +14,15 @@ import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
 /**
- * Provides access to the PyroluseOven recipes.
+ * Provides access to the PyrolyseOven recipes.
  *
  * @author DreamMasterXXL
  */
-@ZenClass("mods.gregtech.PyroluseOven")
+@ZenClass("mods.gregtech.PyrolyseOven")
 @ModOnly(MOD_ID)
-public class PyroluseOven {
+public class PyrolyseOven {
     /**
-     * Adds a Pyroluse Oven recipe.
+     * Adds a Pyrolyse Oven recipe.
      *
      * @param output        recipe output
      * @param fluidOutput   recipe Fluid output
@@ -75,7 +75,7 @@ public class PyroluseOven {
 
         @Override
         public String describe() {
-            return "Adding Pyroluse Oven recipe for " + output;
+            return "Adding Pyrolyse Oven recipe for " + output;
         }
 
         @Override

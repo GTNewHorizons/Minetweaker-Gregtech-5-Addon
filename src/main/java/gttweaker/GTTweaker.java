@@ -7,7 +7,7 @@ import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.2.1")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.2.2")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -55,7 +55,7 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
         }
         if (GregTech_API.VERSION >= 509) {
-            MineTweakerAPI.registerClass(PyroluseOven.class);
+            MineTweakerAPI.registerClass(PyrolyseOven.class);
             MineTweakerAPI.registerClass(OilCracker.class);
         }
     }
