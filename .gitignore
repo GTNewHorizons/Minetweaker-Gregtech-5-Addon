@@ -3,6 +3,7 @@ eclipse/
 out/
 *.txt
 .gradle/
+.idea/
 GTTweaker.iml
 GTTweaker.ipr
 GTTweaker.iws
