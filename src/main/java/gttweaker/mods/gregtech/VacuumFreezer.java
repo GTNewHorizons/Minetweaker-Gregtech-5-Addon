@@ -28,7 +28,7 @@ public class VacuumFreezer {
      * @param durationTicks freezing duration, in ticks
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, int durationTicks) {
+    public static void addRecipe(IItemStack output, IItemStack input, int durationTicks) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks));
     }
 
@@ -38,10 +38,10 @@ public class VacuumFreezer {
 
     private static class AddRecipeAction extends OneWayAction {
         private final IItemStack output;
-        private final IIngredient input;
+        private final IItemStack input;
         private final int duration;
 
-        public AddRecipeAction(IItemStack output, IIngredient input, int duration) {
+        public AddRecipeAction(IItemStack output, IItemStack input, int duration) {
             this.output = output;
             this.input = input;
             this.duration = duration;

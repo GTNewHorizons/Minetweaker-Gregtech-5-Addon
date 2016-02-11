@@ -37,7 +37,7 @@ public class Electrolyzer {
      *
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, ILiquidStack fluidOutput, IIngredient input, IIngredient cells,  ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] output, ILiquidStack fluidOutput, IItemStack input, IItemStack cells,  ILiquidStack fluidInput, int[] chances, int durationTicks, int euPerTick) {
         if (output.length < 1) {
             MineTweakerAPI.logError("Electrolyzer must have at least 1 output");
         } else if(output.length!=chances.length){
@@ -48,7 +48,7 @@ public class Electrolyzer {
     }
 
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IIngredient input, int cells, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] output, IItemStack input, int cells, int durationTicks, int euPerTick) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Electrolyzer recipe requires at least 1 input");
         } else {
@@ -63,12 +63,12 @@ public class Electrolyzer {
 
     private static class AddRecipeAction extends OneWayAction {
         private final IItemStack[] output;
-        private final IIngredient input;
+        private final IItemStack input;
         private final int cells;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack[] output, IIngredient input, int cells, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack[] output, IItemStack input, int cells, int duration, int euPerTick) {
             this.output = output;
             this.input = input;
             this.cells = cells;
@@ -144,14 +144,14 @@ public class Electrolyzer {
 
         private final IItemStack [] output;
         private final ILiquidStack fluidOutput;
-        private final IIngredient input;
-        private final IIngredient cells;
+        private final IItemStack input;
+        private final IItemStack cells;
         private final ILiquidStack fluidInput;
         private final int [] chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddFluidRecipeAction(IItemStack [] output, ILiquidStack fluidOutput, IIngredient input, IIngredient cells, ILiquidStack fluidInput, int [] chances, int duration, int euPerTick) {
+        public AddFluidRecipeAction(IItemStack [] output, ILiquidStack fluidOutput, IItemStack input, IItemStack cells, ILiquidStack fluidInput, int [] chances, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;

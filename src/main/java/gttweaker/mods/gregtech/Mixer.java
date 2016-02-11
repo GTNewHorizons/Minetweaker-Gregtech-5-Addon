@@ -32,7 +32,7 @@ public class Mixer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, IIngredient[] input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         if (input.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
@@ -41,7 +41,7 @@ public class Mixer {
     }
 
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient[] input, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IItemStack[] input, int durationTicks, int euPerTick) {
         if (input.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
@@ -56,12 +56,12 @@ public class Mixer {
 
         private final IItemStack output;
         private final ILiquidStack fluidOutput;
-        private final IIngredient[] input;
+        private final IItemStack[] input;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput, IIngredient[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;
@@ -141,12 +141,12 @@ public class Mixer {
 
         private final IItemStack output;
         private final ILiquidStack fluidOutput;
-        private final IIngredient[] input;
+        private final IItemStack[] input;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IIngredient[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, IItemStack[] input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;

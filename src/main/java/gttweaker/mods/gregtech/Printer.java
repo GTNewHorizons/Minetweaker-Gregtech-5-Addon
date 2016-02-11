@@ -32,7 +32,7 @@ public class Printer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, IItemStack DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, DataStick, ink, durationTicks, euPerTick));
     }
 
@@ -42,13 +42,13 @@ public class Printer {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack output;
-        private final IIngredient input;
+        private final IItemStack input;
         private final IItemStack DataStick;
         private final ILiquidStack ink;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IIngredient input, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IItemStack input, IItemStack DataStick, ILiquidStack ink, int duration, int euPerTick) {
 
             this.output = output;
             this.input = input;

@@ -31,7 +31,7 @@ public class Autoclave {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
     }
 // ######################
@@ -40,13 +40,13 @@ public class Autoclave {
     private static class AddRecipeAction extends OneWayAction {
 
 	    private final IItemStack output;
-        private final IIngredient input;
+        private final IItemStack input;
         private final ILiquidStack fluidInput;
         private final int chances;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IItemStack input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
 
             this.output = output;		
             this.input = input;

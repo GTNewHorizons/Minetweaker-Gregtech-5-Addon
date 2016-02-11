@@ -32,12 +32,12 @@ public class ChemicalReactor {
      * @param durationTicks reaction time, in ticks
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IIngredient input1, IIngredient input2, ILiquidStack fluidInput1, int durationTicks) {
+    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks) {
         MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput1, input1, input2, fluidInput1, durationTicks));
     }
 
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2,  int durationTicks) {
+    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2,  int durationTicks) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks));
     }
 
@@ -48,11 +48,11 @@ public class ChemicalReactor {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack output;
-        private final IIngredient input1;
-        private final IIngredient input2;
+        private final IItemStack input1;
+        private final IItemStack input2;
         private final int duration;
 
-        public AddRecipeAction(IItemStack output, IIngredient input1, IIngredient input2, int duration) {
+        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, int duration) {
 
             this.output = output;
             this.input1 = input1;
@@ -118,12 +118,12 @@ public class ChemicalReactor {
 
         private final IItemStack output;
         private final ILiquidStack fluidOutput1;
-        private final IIngredient input1;
-        private final IIngredient input2;
+        private final IItemStack input1;
+        private final IItemStack input2;
         private final ILiquidStack fluidInput1;
         private final int duration;
 
-        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput1, IIngredient input1, IIngredient input2, ILiquidStack fluidInput1, int duration) {
+        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int duration) {
 
             this.output = output;
             this.fluidOutput1 = fluidOutput1;

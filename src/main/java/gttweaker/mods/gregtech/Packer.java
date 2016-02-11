@@ -30,7 +30,7 @@ public class Packer{
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IItemStack input1, IItemStack input2, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
     }
 // ######################
@@ -39,12 +39,12 @@ public class Packer{
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack output;
-        private final IIngredient input1;
-        private final IIngredient input2;
+        private final IItemStack input1;
+        private final IItemStack input2;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, IIngredient input1, IIngredient input2, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, IItemStack input1, IItemStack input2, int duration, int euPerTick) {
 
             this.output = output;
             this.input1 = input1;

@@ -30,7 +30,7 @@ public class Lathe {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IItemStack input, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, null, input, durationTicks, euPerTick));
     }
 
@@ -43,7 +43,7 @@ public class Lathe {
      * @param euPerTick eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] outputs, IIngredient input, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] outputs, IItemStack input, int durationTicks, int euPerTick) {
         if (outputs.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
@@ -58,11 +58,11 @@ public class Lathe {
     private static class AddRecipeAction extends OneWayAction {
         private final IItemStack output1;
         private final IItemStack output2;
-        private final IIngredient input;
+        private final IItemStack input;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output1, IItemStack output2, IIngredient input, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output1, IItemStack output2, IItemStack input, int duration, int euPerTick) {
             this.output1 = output1;
             this.output2 = output2;
             this.input = input;

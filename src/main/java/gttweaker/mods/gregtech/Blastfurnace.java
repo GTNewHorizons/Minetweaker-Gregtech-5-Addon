@@ -34,7 +34,7 @@ public class Blastfurnace {
      */
 
     @ZenMethod
-    public static void addRecipe(IItemStack[]output, ILiquidStack fluidInput, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
+    public static void addRecipe(IItemStack[]output, ILiquidStack fluidInput, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
         } else {
@@ -42,7 +42,7 @@ public class Blastfurnace {
         }
     }
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
+    public static void addRecipe(IItemStack[] output, IItemStack[] input, int durationTicks, int euPerTick, int heat) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
         } else {
@@ -58,12 +58,12 @@ public class Blastfurnace {
     private static class AddRecipeAction extends OneWayAction {
 
         private final IItemStack[] output;
-        private final IIngredient[] input;
+        private final IItemStack[] input;
         private final int duration;
         private final int euPerTick;
         private final int heat;
 
-        public AddRecipeAction(IItemStack[] output, IIngredient[] input, int duration, int euPerTick, int heat) {
+        public AddRecipeAction(IItemStack[] output, IItemStack[] input, int duration, int euPerTick, int heat) {
 
             this.output = output;
             this.input = input;
@@ -101,12 +101,12 @@ public class Blastfurnace {
 
         private final IItemStack[] output;
         private final ILiquidStack fluidInput;
-        private final IIngredient[] input;
+        private final IItemStack[] input;
         private final int duration;
         private final int euPerTick;
         private final int heat;
 
-        public AddFluidRecipeAction(IItemStack[] output, ILiquidStack fluidInput, IIngredient[] input, int duration, int euPerTick, int heat) {
+        public AddFluidRecipeAction(IItemStack[] output, ILiquidStack fluidInput, IItemStack[] input, int duration, int euPerTick, int heat) {
 
             this.output = output;
             this.fluidInput = fluidInput;

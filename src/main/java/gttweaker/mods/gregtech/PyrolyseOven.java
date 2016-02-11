@@ -33,7 +33,7 @@ public class PyrolyseOven {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, int circuit, IIngredient input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, int circuit, IItemStack input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         MineTweakerAPI.apply(new AddRecipeAction(output, fluidOutput, circuit, input, fluidInput, durationTicks, euPerTick));
     }
 
@@ -45,12 +45,12 @@ public class PyrolyseOven {
         private final IItemStack output;
         private final ILiquidStack fluidOutput;
         private final int circuit;
-        private final IIngredient input;
+        private final IItemStack input;
         private final ILiquidStack fluidInput;
         private final int duration;
         private final int euPerTick;
 
-        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, int circuit, IIngredient input, ILiquidStack fluidInput, int duration, int euPerTick) {
+        public AddRecipeAction(IItemStack output, ILiquidStack fluidOutput, int circuit, IItemStack input, ILiquidStack fluidInput, int duration, int euPerTick) {
 
             this.output = output;
             this.fluidOutput = fluidOutput;
