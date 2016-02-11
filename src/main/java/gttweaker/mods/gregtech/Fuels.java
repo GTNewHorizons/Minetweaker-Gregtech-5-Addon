@@ -1,4 +1,4 @@
-package gttweaker.mods.gregtech.machines;
+package gttweaker.mods.gregtech;
 
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;

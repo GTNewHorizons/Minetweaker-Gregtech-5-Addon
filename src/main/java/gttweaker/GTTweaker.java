@@ -3,6 +3,7 @@ package gttweaker;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import gttweaker.mods.gregtech.Fuels;
 import gttweaker.mods.gregtech.machines.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
