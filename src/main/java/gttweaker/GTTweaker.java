@@ -2,7 +2,7 @@ package gttweaker;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.*;
 import gttweaker.mods.gregtech.*;
 import minetweaker.MineTweakerAPI;
 import gregtech.api.*;
@@ -58,5 +58,10 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(PyrolyseOven.class);
             MineTweakerAPI.registerClass(OilCracker.class);
         }
+    }
+    
+    @EventHandler
+    public void onPostInit(FMLPostInitializationEvent ev) {
+        MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
     }
 }
