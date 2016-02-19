@@ -1,13 +1,17 @@
 package gttweaker.mods.gregtech;
 
-import gttweaker.util.exception.EmptyOreDictException;
+import gttweaker.util.exception.AnyIngredientException;
+import gttweaker.util.exception.EmptyIngredientException;
+import gttweaker.util.exception.OutOfStackSizeException;
+import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.api.item.IIngredient;
+import minetweaker.api.item.IItemStack;
+import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
-import minetweaker.api.oredict.IOreDictEntry;
+import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Techlone
@@ -15,19 +19,15 @@ import java.util.List;
 public abstract class AddMultipleRecipeAction extends OneWayAction {
     private static void extendBySingle(Object singleArg, List<List<Object>> recipesData) {
         for (List<Object> recipeData : recipesData) {
-            if (singleArg instanceof IIngredient) {
-                recipeData.add(MineTweakerMC.getItemStack((IIngredient) singleArg));
-            } else {
-                recipeData.add(singleArg);
-            }
+            recipeData.add(singleArg);
         }
     }
 
-    private static void extendByPlural(IOreDictEntry oreDictArg, List<List<Object>> recipesData) {
-        List<List<Object>> oldData = fullCopy(recipesData);
+    private static void extendByPlural(List args, List<List<Object>> recipesData) {
+        List<List<Object>> originData = fullCopy(recipesData);
         recipesData.clear();
-        for (Object singleArg : oreDictArg.getItems()) {
-            List<List<Object>> tmp = fullCopy(oldData);
+        for (Object singleArg : args) {
+            List<List<Object>> tmp = fullCopy(originData);
             extendBySingle(singleArg, tmp);
             recipesData.addAll(tmp);
         }
@@ -44,28 +44,58 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
     protected String description;
     private List<List<Object>> recipesData;
 
-    public AddMultipleRecipeAction(String description, Object... recipeArgs) throws EmptyOreDictException {
-        this(recipeArgs);
+    protected AddMultipleRecipeAction(String description, Object... recipeArgs) {
         this.description = description;
-    }
 
-    protected AddMultipleRecipeAction(Object... recipeArgs) throws EmptyOreDictException {
         recipesData = new ArrayList<List<Object>>(recipeArgs.length);
         recipesData.add(new ArrayList<Object>());
 
-        for (Object recipeArg : recipeArgs) {
-            if (recipeArg instanceof IOreDictEntry) {
-                if (((IOreDictEntry) recipeArg).getItems().size() == 0) {
-                    throw new EmptyOreDictException((IOreDictEntry) recipeArg);
-                }
-                extendByPlural((IOreDictEntry) recipeArg, recipesData);
-            } else {
-                extendBySingle(recipeArg, recipesData);
+        try {
+            for (Object recipeArg : recipeArgs) {
+                addArgument(recipeArg);
             }
+        } catch (Exception e) {
+            MineTweakerAPI.logError(e.toString());
         }
     }
 
-    protected abstract void applySingleRecipe(Object... recipeArgs);
+    protected void addArgument(Object recipeArg) {
+        if (recipeArg == null) {
+            throw new NullPointerException("Null argument at '" + description + "'");
+        }
+        if (recipeArg instanceof ILiquidStack) {
+            extendBySingle(MineTweakerMC.getLiquidStack((ILiquidStack) recipeArg), recipesData);
+        } else if (recipeArg instanceof ILiquidStack[]) {
+            extendBySingle(MineTweakerMC.getLiquidStacks((ILiquidStack[]) recipeArg), recipesData);
+        } else if (recipeArg instanceof IItemStack[]) {
+            extendBySingle(MineTweakerMC.getItemStacks((IItemStack[]) recipeArg), recipesData);
+        } else if (recipeArg instanceof IIngredient) {
+            IIngredient ingredientArg = (IIngredient) recipeArg;
+            List<IItemStack> items = ingredientArg.getItems();
+            if (items == null) {
+                throw new AnyIngredientException();
+            }
+            if (items.size() == 0) {
+                throw new EmptyIngredientException(ingredientArg);
+            }
+            List<ItemStack> itemStackList = Arrays.asList(MineTweakerMC.getItemStacks(items));
+            int amount = ingredientArg.getAmount();
+            if (amount < 0) {
+                throw new RuntimeException("Negative amount for ingredient " + ingredientArg);
+            }
+            for (ItemStack stack : itemStackList) {
+                if (amount > stack.getMaxStackSize()) {
+                    throw new OutOfStackSizeException(ingredientArg, amount);
+                }
+                stack.stackSize = amount;
+            }
+            extendByPlural(itemStackList, recipesData);
+        } else {
+            extendBySingle(recipeArg, recipesData);
+        }
+    }
+
+    protected abstract void applySingleRecipe(Object[] recipeArgs);
 
     @Override
     public void apply() {

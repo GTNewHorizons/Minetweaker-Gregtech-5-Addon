@@ -1,13 +1,11 @@
 package gttweaker.mods.gregtech.machines;
 
 import gttweaker.mods.gregtech.AddMultipleRecipeAction;
-import gttweaker.util.exception.EmptyOreDictException;
+import gttweaker.util.exception.EmptyIngredientException;
 import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
 import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
@@ -34,11 +32,7 @@ public class AlloySmelter {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-        try {
-            MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
-        } catch (EmptyOreDictException e) {
-            MineTweakerAPI.logError(e.toString());
-        }
+        MineTweakerAPI.apply(new AddRecipeAction(output, input1, input2, durationTicks, euPerTick));
     }
 
     // ######################
@@ -47,7 +41,7 @@ public class AlloySmelter {
 
     private static class AddRecipeAction extends AddMultipleRecipeAction {
 
-        public AddRecipeAction(IItemStack output, IIngredient input1, IIngredient input2, int duration, int euPerTick) throws EmptyOreDictException {
+        public AddRecipeAction(IItemStack output, IIngredient input1, IIngredient input2, int duration, int euPerTick) {
             super("Adding alloy smelter recipe for " + output, input1, input2, output, duration, euPerTick);
         }
 
