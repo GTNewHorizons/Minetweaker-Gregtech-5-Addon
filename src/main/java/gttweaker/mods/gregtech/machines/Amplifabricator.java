@@ -1,11 +1,10 @@
 package gttweaker.mods.gregtech.machines;
 
+import gttweaker.mods.gregtech.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
-import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
+import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -37,65 +36,17 @@ public class Amplifabricator {
     // ### Action classes ###
     // ######################
 
-    private static class AddRecipeAction extends OneWayAction {
-
-        private final IIngredient input;
-        private final int duration;
-        private final int amount;
-
+    private static class AddRecipeAction extends AddMultipleRecipeAction {
         public AddRecipeAction(IIngredient input, int duration, int amount) {
-
-            this.input = input;
-            this.duration = duration;
-            this.amount = amount;
+            super("Adding Amplifabricator recipe for " + input, input, duration, amount);
         }
 
         @Override
-        public void apply() {
+        protected void applySingleRecipe(Object[] args) {
             RA.addAmplifier(
-                    MineTweakerMC.getItemStack(input),
-                    duration,
-                    amount);
-        }
-
-        @Override
-        public String describe() {
-            return "Adding Amplifabricator recipe for " + input ;
-        }
-
-        @Override
-        public Object getOverrideKey() {
-            return null;
-        }
-
-        @Override
-        public int hashCode() {
-            int hash = 1;
-            hash = 12 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 12 * hash + this.duration;
-            hash = 12 * hash + this.amount;
-            return hash;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
-                return false;
-            }
-            if (this.duration != other.duration) {
-                return false;
-            }
-            if (this.amount != other.amount) {
-                return false;
-            }
-            return true;
+                    (ItemStack) args[0],
+                    (Integer) args[1],
+                    (Integer) args[2]);
         }
     }
 }

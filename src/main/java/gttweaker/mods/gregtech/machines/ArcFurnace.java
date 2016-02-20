@@ -47,13 +47,12 @@ public class ArcFurnace {
 // ### Action classes ###
 // ######################
     private static class AddRecipeAction extends AddMultipleRecipeAction {
-
         public AddRecipeAction(IItemStack[] output, IIngredient input, ILiquidStack fluidInput, int[] outChances, int duration, int euPerTick) {
             super("Adding Arc Furnace recipe for " + input, input, fluidInput, output, outChances, duration, euPerTick);
         }
 
         @Override
-        public void applySingleRecipe(Object... args) {
+        public void applySingleRecipe(Object[] args) {
             RA.addSimpleArcFurnaceRecipe(
                     (ItemStack) args[0],
                     (FluidStack) args[1],

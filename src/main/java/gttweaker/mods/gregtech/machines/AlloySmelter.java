@@ -1,7 +1,6 @@
 package gttweaker.mods.gregtech.machines;
 
 import gttweaker.mods.gregtech.AddMultipleRecipeAction;
-import gttweaker.util.exception.EmptyIngredientException;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
@@ -40,13 +39,12 @@ public class AlloySmelter {
     // ######################
 
     private static class AddRecipeAction extends AddMultipleRecipeAction {
-
         public AddRecipeAction(IItemStack output, IIngredient input1, IIngredient input2, int duration, int euPerTick) {
             super("Adding alloy smelter recipe for " + output, input1, input2, output, duration, euPerTick);
         }
 
         @Override
-        protected void applySingleRecipe(Object... args) {
+        protected void applySingleRecipe(Object[] args) {
             RA.addAlloySmelterRecipe(
                     (ItemStack) args[0],
                     (ItemStack) args[1],

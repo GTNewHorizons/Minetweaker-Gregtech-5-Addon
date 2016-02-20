@@ -41,7 +41,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         return result;
     }
 
-    protected String description;
+    private String description;
     private List<List<Object>> recipesData;
 
     protected AddMultipleRecipeAction(String description, Object... recipeArgs) {
@@ -59,7 +59,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         }
     }
 
-    protected void addArgument(Object recipeArg) {
+    private void addArgument(Object recipeArg) {
         if (recipeArg == null) {
             throw new NullPointerException("Null argument at '" + description + "'");
         }
@@ -95,7 +95,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         }
     }
 
-    protected abstract void applySingleRecipe(Object[] recipeArgs);
+    protected abstract void applySingleRecipe(Object[] args);
 
     @Override
     public void apply() {
