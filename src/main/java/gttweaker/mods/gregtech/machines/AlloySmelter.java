@@ -45,12 +45,14 @@ public class AlloySmelter {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addAlloySmelterRecipe(
-                    (ItemStack) args[0],
-                    (ItemStack) args[1],
-                    (ItemStack) args[2],
-                    (Integer) args[3],
-                    (Integer) args[4]);
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 }

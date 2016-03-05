@@ -53,13 +53,15 @@ public class ArcFurnace {
 
         @Override
         public void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addSimpleArcFurnaceRecipe(
-                    (ItemStack) args[0],
-                    (FluidStack) args[1],
-                    (ItemStack[]) args[2],
-                    (int[]) args[3],
-                    (Integer) args[4],
-                    (Integer) args[5]);
+                    (ItemStack) args[i++],
+                    (FluidStack) args[i++],
+                    (ItemStack[]) args[i++],
+                    (int[]) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 }

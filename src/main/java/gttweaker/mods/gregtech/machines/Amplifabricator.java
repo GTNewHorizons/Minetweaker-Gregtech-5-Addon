@@ -43,10 +43,12 @@ public class Amplifabricator {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addAmplifier(
-                    (ItemStack) args[0],
-                    (Integer) args[1],
-                    (Integer) args[2]);
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 }

@@ -54,12 +54,14 @@ public class Assembler {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addAssemblerRecipe(
-                    (ItemStack) args[0],
-                    (ItemStack) args[1],
-                    (ItemStack) args[2],
-                    (Integer) args[3],
-                    (Integer) args[4]);
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 
@@ -70,13 +72,15 @@ public class Assembler {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addAssemblerRecipe(
-                    (ItemStack) args[0],
-                    (ItemStack) args[1],
-                    (FluidStack) args[2],
-                    (ItemStack) args[3],
-                    (Integer) args[4],
-                    (Integer) args[5]);
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (FluidStack) args[i++],
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 }

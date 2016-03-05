@@ -46,11 +46,12 @@ public class Brewery {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addBrewingRecipe(
-                    (ItemStack) args[0],
-                    ((FluidStack) args[1]).getFluid(),
-                    ((FluidStack) args[2]).getFluid(),
-                    (Boolean) args[3]);
+                    (ItemStack) args[i++],
+                    ((FluidStack) args[i++]).getFluid(),
+                    ((FluidStack) args[i++]).getFluid(),
+                    (Boolean) args[i++]);
         }
     }
 }

@@ -66,16 +66,17 @@ public class Blastfurnace {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addBlastRecipe(
-                    (ItemStack) args[0],
-                    (ItemStack) args[1],
-                    null,
-                    null,
-                    (ItemStack) args[2],
-                    (ItemStack) args[3],
-                    (Integer) args[4],
-                    (Integer) args[5],
-                    (Integer) args[6]);
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    null, null,
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 
@@ -90,16 +91,18 @@ public class Blastfurnace {
 
         @Override
         protected void applySingleRecipe(Object[] args) {
+            int i = 0;
             RA.addBlastRecipe(
-                    (ItemStack) args[0],
-                    (ItemStack) args[1],
-                    (FluidStack) args[2],
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (FluidStack) args[i++],
                     null,
-                    (ItemStack) args[3],
-                    (ItemStack) args[4],
-                    (Integer) args[5],
-                    (Integer) args[6],
-                    (Integer) args[7]);
+                    (ItemStack) args[i++],
+                    (ItemStack) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++],
+                    (Integer) args[i++]
+            );
         }
     }
 }
