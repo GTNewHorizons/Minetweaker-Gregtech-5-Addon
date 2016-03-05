@@ -67,32 +67,41 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
             extendBySingle(MineTweakerMC.getLiquidStack((ILiquidStack) recipeArg), recipesData);
         } else if (recipeArg instanceof ILiquidStack[]) {
             extendBySingle(MineTweakerMC.getLiquidStacks((ILiquidStack[]) recipeArg), recipesData);
+        } else if (recipeArg instanceof IItemStack) {
+            extendBySingle(MineTweakerMC.getItemStack((IItemStack) recipeArg), recipesData);
         } else if (recipeArg instanceof IItemStack[]) {
             extendBySingle(MineTweakerMC.getItemStacks((IItemStack[]) recipeArg), recipesData);
         } else if (recipeArg instanceof IIngredient) {
-            IIngredient ingredientArg = (IIngredient) recipeArg;
-            List<IItemStack> items = ingredientArg.getItems();
-            if (items == null) {
-                throw new AnyIngredientException();
+            extendByPlural(getItemStacks((IIngredient) recipeArg), recipesData);
+        } else if (recipeArg instanceof IIngredient[]) {
+            for (IIngredient recipeSubArg : (IIngredient[]) recipeArg) {
+                extendByPlural(getItemStacks(recipeSubArg), recipesData);
             }
-            if (items.size() == 0) {
-                throw new EmptyIngredientException(ingredientArg);
-            }
-            List<ItemStack> itemStackList = Arrays.asList(MineTweakerMC.getItemStacks(items));
-            int amount = ingredientArg.getAmount();
-            if (amount < 0) {
-                throw new RuntimeException("Negative amount for ingredient " + ingredientArg);
-            }
-            for (ItemStack stack : itemStackList) {
-                if (amount > stack.getMaxStackSize()) {
-                    throw new OutOfStackSizeException(ingredientArg, amount);
-                }
-                stack.stackSize = amount;
-            }
-            extendByPlural(itemStackList, recipesData);
         } else {
             extendBySingle(recipeArg, recipesData);
         }
+    }
+
+    private List<ItemStack> getItemStacks(IIngredient ingredientArg) {
+        List<IItemStack> items = ingredientArg.getItems();
+        if (items == null) {
+            throw new AnyIngredientException();
+        }
+        if (items.size() == 0) {
+            throw new EmptyIngredientException(ingredientArg);
+        }
+        List<ItemStack> itemStackList = Arrays.asList(MineTweakerMC.getItemStacks(items));
+        int amount = ingredientArg.getAmount();
+        if (amount < 0) {
+            throw new RuntimeException("Negative amount for ingredient " + ingredientArg);
+        }
+        for (ItemStack stack : itemStackList) {
+            if (amount > stack.getMaxStackSize()) {
+                throw new OutOfStackSizeException(ingredientArg, amount);
+            }
+            stack.stackSize = amount;
+        }
+        return itemStackList;
     }
 
     protected abstract void applySingleRecipe(Object[] args);
