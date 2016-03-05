@@ -1,12 +1,13 @@
 package gttweaker.mods.gregtech.machines;
 
+import gttweaker.mods.gregtech.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import minetweaker.api.minecraft.MineTweakerMC;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -55,131 +56,50 @@ public class Blastfurnace {
 // ### Action classes ###
 // ######################
 
-    private static class AddRecipeAction extends OneWayAction {
-
-        private final IItemStack[] output;
-        private final IIngredient[] input;
-        private final int duration;
-        private final int euPerTick;
-        private final int heat;
-
+    private static class AddRecipeAction extends AddMultipleRecipeAction {
         public AddRecipeAction(IItemStack[] output, IIngredient[] input, int duration, int euPerTick, int heat) {
-
-            this.output = output;
-            this.input = input;
-            this.duration = duration;
-            this.euPerTick = euPerTick;
-            this.heat = heat;
+            super("Adding Blast furnace recipe for " + output,
+                    input[0], input.length > 1 ? input[1] : null,
+                    output[0], output.length > 1 ? output[1] : null,
+                    duration, euPerTick, heat);
         }
 
         @Override
-        public void apply() {
+        protected void applySingleRecipe(Object[] args) {
             RA.addBlastRecipe(
-                    MineTweakerMC.getItemStack(input[0]),
-                    input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
-                    MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getItemStack(output[0]),
-                    output.length > 1 ? MineTweakerMC.getItemStack(output[1]) : null,
-                    duration,
-                    euPerTick,
-                    heat);
-        }
-
-        @Override
-        public String describe() {
-            return "Adding Blast furnace recipe for " + output;
-        }
-
-        @Override
-        public Object getOverrideKey() {
-            return null;
+                    (ItemStack) args[0],
+                    (ItemStack) args[1],
+                    null,
+                    null,
+                    (ItemStack) args[2],
+                    (ItemStack) args[3],
+                    (Integer) args[4],
+                    (Integer) args[5],
+                    (Integer) args[6]);
         }
     }
 
-    private static class AddFluidRecipeAction extends OneWayAction {
-
-        private final IItemStack[] output;
-        private final ILiquidStack fluidInput;
-        private final IIngredient[] input;
-        private final int duration;
-        private final int euPerTick;
-        private final int heat;
-
+    private static class AddFluidRecipeAction extends AddMultipleRecipeAction {
         public AddFluidRecipeAction(IItemStack[] output, ILiquidStack fluidInput, IIngredient[] input, int duration, int euPerTick, int heat) {
-
-            this.output = output;
-            this.fluidInput = fluidInput;
-            this.input = input;
-            this.duration = duration;
-            this.euPerTick = euPerTick;
-            this.heat = heat;
+            super("Adding Blast furnace recipe for " + output,
+                    input[0], input.length > 1 ? input[1] : null,
+                    fluidInput,
+                    output[0], output.length > 1 ? output[1] : null,
+                    duration, euPerTick, heat);
         }
 
         @Override
-        public void apply() {
+        protected void applySingleRecipe(Object[] args) {
             RA.addBlastRecipe(
-                    MineTweakerMC.getItemStack(input[0]),
-                    input.length > 1 ? MineTweakerMC.getItemStack(input[1]) : null,
-                    MineTweakerMC.getLiquidStack(fluidInput),
-                    MineTweakerMC.getLiquidStack(null),
-                    MineTweakerMC.getItemStack(output[0]),
-                    output.length > 1 ? MineTweakerMC.getItemStack(output[1]) : null,
-                    duration,
-                    euPerTick,
-                    heat);
-        }
-
-        @Override
-        public String describe() {
-            return "Adding Blast furnace recipe for " + output;
-        }
-
-        @Override
-        public Object getOverrideKey() {
-            return null;
-        }
-
-        @Override
-        public int hashCode() {
-            int hash = 4;
-            hash = 67 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 67 * hash + (this.fluidInput != null ? this.fluidInput.hashCode() : 0);
-            hash = 67 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 67 * hash + this.duration;
-            hash = 67 * hash + this.euPerTick;
-            hash = 67 * hash + this.heat;
-            return hash;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            final AddFluidRecipeAction other = (AddFluidRecipeAction) obj;
-            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
-                return false;
-            }
-            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
-                return false;
-            }
-            if (this.fluidInput != other.fluidInput && (this.fluidInput == null || !this.fluidInput.equals(other.fluidInput))) {
-                return false;
-            }
-            if (this.duration != other.duration) {
-                return false;
-            }
-            if (this.euPerTick != other.euPerTick) {
-                return false;
-            }
-            if (this.heat != other.heat) {
-                return false;
-            }
-            return true;
+                    (ItemStack) args[0],
+                    (ItemStack) args[1],
+                    (FluidStack) args[2],
+                    null,
+                    (ItemStack) args[3],
+                    (ItemStack) args[4],
+                    (Integer) args[5],
+                    (Integer) args[6],
+                    (Integer) args[7]);
         }
     }
 }
