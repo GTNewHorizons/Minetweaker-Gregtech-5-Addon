@@ -23,7 +23,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         }
     }
 
-    private static void extendByPlural(List args, List<List<Object>> recipesData) {
+    private static void extendByMultiple(List args, List<List<Object>> recipesData) {
         List<List<Object>> originData = fullCopy(recipesData);
         recipesData.clear();
         for (Object singleArg : args) {
@@ -60,9 +60,6 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
     }
 
     private void addArgument(Object recipeArg) {
-        if (recipeArg == null) {
-            throw new NullPointerException("Null argument at '" + description + "'");
-        }
         if (recipeArg instanceof ILiquidStack) {
             extendBySingle(MineTweakerMC.getLiquidStack((ILiquidStack) recipeArg), recipesData);
         } else if (recipeArg instanceof ILiquidStack[]) {
@@ -72,11 +69,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         } else if (recipeArg instanceof IItemStack[]) {
             extendBySingle(MineTweakerMC.getItemStacks((IItemStack[]) recipeArg), recipesData);
         } else if (recipeArg instanceof IIngredient) {
-            extendByPlural(getItemStacks((IIngredient) recipeArg), recipesData);
-        } else if (recipeArg instanceof IIngredient[]) {
-            for (IIngredient recipeSubArg : (IIngredient[]) recipeArg) {
-                extendByPlural(getItemStacks(recipeSubArg), recipesData);
-            }
+            extendByMultiple(getItemStacks((IIngredient) recipeArg), recipesData);
         } else {
             extendBySingle(recipeArg, recipesData);
         }
