@@ -10,6 +10,7 @@ import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import java.util.*;
 
@@ -43,21 +44,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
 
     private String description;
     private List<List<Object>> recipesData;
-
-    protected AddMultipleRecipeAction(String description, Object... recipeArgs) {
-        this.description = description;
-
-        recipesData = new ArrayList<List<Object>>(recipeArgs.length);
-        recipesData.add(new ArrayList<Object>());
-
-        try {
-            for (Object recipeArg : recipeArgs) {
-                addArgument(recipeArg);
-            }
-        } catch (Exception e) {
-            MineTweakerAPI.logError(e.toString());
-        }
-    }
+    private int aid; // argument index, equate to zero before applySingleRecipe call
 
     private void addArgument(Object recipeArg) {
         if (recipeArg instanceof ILiquidStack) {
@@ -97,12 +84,63 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         return itemStackList;
     }
 
-    protected abstract void applySingleRecipe(Object[] args);
+    protected AddMultipleRecipeAction(String description, Object... recipeArgs) {
+        this.description = description;
+
+        recipesData = new ArrayList<List<Object>>(recipeArgs.length);
+        recipesData.add(new ArrayList<Object>());
+
+        try {
+            for (Object recipeArg : recipeArgs) {
+                addArgument(recipeArg);
+            }
+        } catch (Exception e) {
+            MineTweakerAPI.logError(e.toString());
+        }
+    }
+
+    protected abstract void applySingleRecipe(ArgIterator i);
+
+    protected static class ArgIterator {
+        private Iterator<Object> iterator;
+
+        public ArgIterator(List<Object> args) {
+            this.iterator = args.iterator();
+        }
+
+        public ItemStack nextItem() {
+            return (ItemStack) iterator.next();
+        }
+
+        public ItemStack[] nextItemArr() {
+            return (ItemStack[]) iterator.next();
+        }
+
+        public FluidStack nextFluid() {
+            return (FluidStack) iterator.next();
+        }
+
+        public FluidStack[] nextFluidArr() {
+            return (FluidStack[]) iterator.next();
+        }
+
+        public int nextInt() {
+            return (Integer) iterator.next();
+        }
+
+        public int[] nextIntArr() {
+            return (int[]) iterator.next();
+        }
+
+        public boolean nextBool() {
+            return (Boolean) iterator.next();
+        }
+    }
 
     @Override
     public void apply() {
         for (List<Object> recipeData : recipesData) {
-            applySingleRecipe(recipeData.toArray());
+            applySingleRecipe(new ArgIterator(recipeData));
         }
     }
 
@@ -122,9 +160,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         if (o == null || getClass() != o.getClass()) return false;
 
         AddMultipleRecipeAction that = (AddMultipleRecipeAction) o;
-
         return recipesData != null ? recipesData.equals(that.recipesData) : that.recipesData == null;
-
     }
 
     @Override
