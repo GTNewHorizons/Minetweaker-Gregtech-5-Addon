@@ -1,11 +1,9 @@
 package gttweaker.mods.gregtech;
 
 import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -24,8 +22,8 @@ public class Fuels {
      * Adds a Diesel Engine fuel. If the given item does not contain any liquid,
      * it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -37,8 +35,8 @@ public class Fuels {
      * Adds a Gas Turbine fuel. If the given item does not contain any liquid,
      * it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -50,8 +48,8 @@ public class Fuels {
      * Adds a Thermal Generator fuel. If the given item does not contain any
      * liquid, it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -63,8 +61,8 @@ public class Fuels {
      * Adds a Dense Fluid Generator fuel. If the given item does not contain any
      * liquid, it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -76,8 +74,8 @@ public class Fuels {
      * Adds a Plasma Generator fuel. If the given item does not contain any
      * liquid, it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -89,8 +87,8 @@ public class Fuels {
      * Adds a Magic Generator fuel. If the given item does not contain any liquid,
      * it will generate the equivalent of 1000 millibuckets.
      *
-     * @param output output item (optional, can be null)
-     * @param input input item
+     * @param output           output item (optional, can be null)
+     * @param input            input item
      * @param euPerMillibucket eu production per millibucket
      */
     @ZenMethod
@@ -102,79 +100,16 @@ public class Fuels {
     // ### Action classes ###
     // ######################
 
-    private static class AddRecipeAction extends OneWayAction {
-        private static final String[] GENERATORS = {
-                "diesel",
-                "gas turbine",
-                "thermal",
-                "dense fluid",
-                "plasma",
-                "magic"
-        };
-
-        private final IItemStack output;
-        private final IIngredient input;
-        private final int euPerMillibucket;
-        private final int type;
+    private static class AddRecipeAction extends AddMultipleRecipeAction {
+        private static final String[] GENERATORS = {"diesel", "gas turbine", "thermal", "dense fluid", "plasma", "magic"};
 
         public AddRecipeAction(IItemStack output, IIngredient input, int euPerMillibucket, int type) {
-            this.output = output;
-            this.input = input;
-            this.euPerMillibucket = euPerMillibucket;
-            this.type = type;
+            super("Adding " + GENERATORS[type] + " fuel " + input, input, output, euPerMillibucket, type);
         }
 
         @Override
-        public void apply() {
-            RA.addFuel(
-                    MineTweakerMC.getItemStack(input),
-                    MineTweakerMC.getItemStack(output),
-                    euPerMillibucket,
-                    type);
-        }
-
-        @Override
-        public String describe() {
-            return "Adding " + GENERATORS[type] + " fuel " + input;
-        }
-
-        @Override
-        public Object getOverrideKey() {
-            return null;
-        }
-
-        @Override
-        public int hashCode() {
-            int hash = 5;
-            hash = 59 * hash + (this.output != null ? this.output.hashCode() : 0);
-            hash = 59 * hash + (this.input != null ? this.input.hashCode() : 0);
-            hash = 59 * hash + this.euPerMillibucket;
-            hash = 59 * hash + this.type;
-            return hash;
-        }
-
-        @Override
-        public boolean equals(Object obj) {
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            final AddRecipeAction other = (AddRecipeAction) obj;
-            if (this.output != other.output && (this.output == null || !this.output.equals(other.output))) {
-                return false;
-            }
-            if (this.input != other.input && (this.input == null || !this.input.equals(other.input))) {
-                return false;
-            }
-            if (this.euPerMillibucket != other.euPerMillibucket) {
-                return false;
-            }
-            if (this.type != other.type) {
-                return false;
-            }
-            return true;
+        protected void applySingleRecipe(ArgIterator i) {
+            RA.addFuel(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
         }
     }
 }

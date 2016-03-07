@@ -6,8 +6,6 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -34,28 +32,11 @@ public class Autoclave {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, input, fluidInput, chances, durationTicks, euPerTick));
-    }
-
-// ######################
-// ### Action classes ###
-// ######################
-    private static class AddRecipeAction extends AddMultipleRecipeAction {
-        public AddRecipeAction(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chances, int duration, int euPerTick) {
-            super("Adding Autoclave recipe for " + output, input, fluidInput, output, chances, duration, euPerTick);
-        }
-
-        @Override
-        protected void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addAutoclaveRecipe(
-                    (ItemStack) args[i++],
-                    (FluidStack) args[i++],
-                    (ItemStack) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++]
-            );
-        }
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Autoclave recipe for " + output, input, fluidInput, output, chances, durationTicks, euPerTick) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                RA.addAutoclaveRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextInt());
+            }
+        });
     }
 }

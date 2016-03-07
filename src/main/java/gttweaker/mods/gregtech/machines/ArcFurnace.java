@@ -6,8 +6,6 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -39,29 +37,12 @@ public class ArcFurnace {
         } else if (outputs.length != outChances.length) {
             MineTweakerAPI.logError("Number of Outputs does not equal number of Chances");
         } else {
-            MineTweakerAPI.apply(new AddRecipeAction(outputs, input, fluidInput, outChances, durationTicks, euPerTick));
-        }
-    }
-
-// ######################
-// ### Action classes ###
-// ######################
-    private static class AddRecipeAction extends AddMultipleRecipeAction {
-        public AddRecipeAction(IItemStack[] output, IIngredient input, ILiquidStack fluidInput, int[] outChances, int duration, int euPerTick) {
-            super("Adding Arc Furnace recipe for " + input, input, fluidInput, output, outChances, duration, euPerTick);
-        }
-
-        @Override
-        public void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addSimpleArcFurnaceRecipe(
-                    (ItemStack) args[i++],
-                    (FluidStack) args[i++],
-                    (ItemStack[]) args[i++],
-                    (int[]) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++]
-            );
+            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Arc Furnace recipe for " + input, input, fluidInput, outputs, outChances, durationTicks, euPerTick) {
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addSimpleArcFurnaceRecipe(i.nextItem(), i.nextFluid(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+                }
+            });
         }
     }
 }

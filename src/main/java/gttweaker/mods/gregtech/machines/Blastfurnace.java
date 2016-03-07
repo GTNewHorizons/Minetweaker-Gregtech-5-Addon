@@ -6,13 +6,12 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
+import static gttweaker.util.ArrayHelper.itemOrNull;
 
 /**
  * Provides access to the Blast Furnace recipes.
@@ -31,78 +30,23 @@ public class Blastfurnace {
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
      * @param heat          heat in Kelvin
-     *
      */
-
     @ZenMethod
-    public static void addRecipe(IItemStack[]output, ILiquidStack fluidInput, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
+    public static void addRecipe(IItemStack[] output, ILiquidStack fluidInput, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
         if (output.length == 0) {
             MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidInput, input, durationTicks, euPerTick, heat));
+            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Blast furnace recipe for " + output, input[0], itemOrNull(input, 1), fluidInput, output[0], itemOrNull(output, 1), durationTicks, euPerTick, heat) {
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addBlastRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), null, i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextInt());
+                }
+            });
         }
     }
+
     @ZenMethod
     public static void addRecipe(IItemStack[] output, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
-        if (output.length == 0) {
-            MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
-        } else {
-            MineTweakerAPI.apply(new AddRecipeAction(output, input, durationTicks, euPerTick, heat));
-        }
-
-    }
-
-// ######################
-// ### Action classes ###
-// ######################
-
-    private static class AddRecipeAction extends AddMultipleRecipeAction {
-        public AddRecipeAction(IItemStack[] output, IIngredient[] input, int duration, int euPerTick, int heat) {
-            super("Adding Blast furnace recipe for " + output,
-                    input[0], input.length > 1 ? input[1] : null,
-                    output[0], output.length > 1 ? output[1] : null,
-                    duration, euPerTick, heat);
-        }
-
-        @Override
-        protected void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addBlastRecipe(
-                    (ItemStack) args[i++],
-                    (ItemStack) args[i++],
-                    null, null,
-                    (ItemStack) args[i++],
-                    (ItemStack) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++]
-            );
-        }
-    }
-
-    private static class AddFluidRecipeAction extends AddMultipleRecipeAction {
-        public AddFluidRecipeAction(IItemStack[] output, ILiquidStack fluidInput, IIngredient[] input, int duration, int euPerTick, int heat) {
-            super("Adding Blast furnace recipe for " + output,
-                    input[0], input.length > 1 ? input[1] : null,
-                    fluidInput,
-                    output[0], output.length > 1 ? output[1] : null,
-                    duration, euPerTick, heat);
-        }
-
-        @Override
-        protected void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addBlastRecipe(
-                    (ItemStack) args[i++],
-                    (ItemStack) args[i++],
-                    (FluidStack) args[i++],
-                    null,
-                    (ItemStack) args[i++],
-                    (ItemStack) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++]
-            );
-        }
+        addRecipe(output, null, input, durationTicks, euPerTick, heat);
     }
 }

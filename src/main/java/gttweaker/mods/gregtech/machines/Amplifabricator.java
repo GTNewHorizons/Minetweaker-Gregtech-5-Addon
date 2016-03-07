@@ -4,7 +4,6 @@ import gttweaker.mods.gregtech.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
-import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -22,33 +21,16 @@ public class Amplifabricator {
     /**
      * Adds a Amplifabricator recipe.
      *
-     * @param input        primary Input
-     * @param duration     reaction time, in ticks
-     * @param amount       amount in mb of Liquid UU Output
-     *
+     * @param input    primary Input
+     * @param duration reaction time, in ticks
      */
     @ZenMethod
-    public static void addRecipe(IIngredient input,  int duration, int amount) {
-        MineTweakerAPI.apply(new AddRecipeAction(input, duration, amount));
-    }
-
-    // ######################
-    // ### Action classes ###
-    // ######################
-
-    private static class AddRecipeAction extends AddMultipleRecipeAction {
-        public AddRecipeAction(IIngredient input, int duration, int amount) {
-            super("Adding Amplifabricator recipe for " + input, input, duration, amount);
-        }
-
-        @Override
-        protected void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addAmplifier(
-                    (ItemStack) args[i++],
-                    (Integer) args[i++],
-                    (Integer) args[i++]
-            );
-        }
+    public static void addRecipe(IIngredient input, int duration, int amount) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Amplifabricator recipe for " + input, input, duration, amount) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                RA.addAmplifier(i.nextItem(), i.nextInt(), i.nextInt());
+            }
+        });
     }
 }

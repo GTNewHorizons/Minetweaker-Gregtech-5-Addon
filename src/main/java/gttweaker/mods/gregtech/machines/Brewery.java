@@ -5,8 +5,6 @@ import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -24,34 +22,18 @@ public class Brewery {
     /**
      * Adds a Brewing Machine recipe.
      *
-	 * @param output       primary fluid output
-     * @param ingredient   primary ingredient
-     * @param input        primary fluid ingredient
-     * @param hidden       hidden true or false
-     *
+     * @param output     primary fluid output
+     * @param ingredient primary ingredient
+     * @param input      primary fluid ingredient
+     * @param hidden     hidden true or false
      */
     @ZenMethod
     public static void addRecipe(ILiquidStack output, IIngredient ingredient, ILiquidStack input, boolean hidden) {
-        MineTweakerAPI.apply(new AddRecipeAction(output, ingredient, input, hidden));
-    }
-
-// ######################
-// ### Action classes ###
-// ######################
-
-    private static class AddRecipeAction extends AddMultipleRecipeAction {
-        public AddRecipeAction(ILiquidStack output, IIngredient ingredient, ILiquidStack input, boolean hidden) {
-            super("Adding Brewery recipe for " + output, ingredient, input, output, hidden);
-        }
-
-        @Override
-        protected void applySingleRecipe(Object[] args) {
-            int i = 0;
-            RA.addBrewingRecipe(
-                    (ItemStack) args[i++],
-                    ((FluidStack) args[i++]).getFluid(),
-                    ((FluidStack) args[i++]).getFluid(),
-                    (Boolean) args[i++]);
-        }
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Brewery recipe for " + output, ingredient, input, output, hidden) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                RA.addBrewingRecipe(i.nextItem(), i.nextFluid().getFluid(), i.nextFluid().getFluid(), i.nextBool());
+            }
+        });
     }
 }
