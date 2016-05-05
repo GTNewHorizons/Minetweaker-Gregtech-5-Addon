@@ -37,7 +37,7 @@ public class Mixer {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
             MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Mixer recipe for " + output, input[0], itemOrNull(input, 1),
-                    itemOrNull(input, 2), itemOrNull(input, 3), fluidInput, fluidOutput, durationTicks, euPerTick) {
+                    itemOrNull(input, 2), itemOrNull(input, 3), fluidInput, fluidOutput, output, durationTicks, euPerTick) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.addMixerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
