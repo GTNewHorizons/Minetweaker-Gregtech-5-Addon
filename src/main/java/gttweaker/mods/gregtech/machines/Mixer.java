@@ -34,10 +34,10 @@ public class Mixer {
     @ZenMethod
     public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, IIngredient[] input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         if (input.length == 0) {
-            MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
+            MineTweakerAPI.logError("Mixer recipe requires at least 1 input");
         } else {
             MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Mixer recipe for " + output, input[0], itemOrNull(input, 1),
-                    itemOrNull(input, 2), itemOrNull(input, 3), fluidInput, fluidOutput, durationTicks, euPerTick) {
+                    itemOrNull(input, 2), itemOrNull(input, 3), fluidInput, fluidOutput, output, durationTicks, euPerTick) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.addMixerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
