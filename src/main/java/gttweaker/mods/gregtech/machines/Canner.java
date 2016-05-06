@@ -10,6 +10,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
+import static gttweaker.util.ArrayHelper.itemOrNull;
 
 /**
  * Provider access to the Canner recipes.
@@ -47,8 +48,7 @@ public class Canner {
         if (output.length == 0) {
             MineTweakerAPI.logError("canner requires at least 1 output");
         } else {
-            IItemStack output1 = output.length > 1 ? output[1] : null;
-            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding canner recipe for " + output1, output[0], output1, input1, input2, durationTicks, euPerTick) {
+            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding canner recipe for " + output[0], input1, input2, output[0], itemOrNull(output, 1), durationTicks, euPerTick) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.addCannerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());

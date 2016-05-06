@@ -36,7 +36,7 @@ public class Blastfurnace {
         if (output.length == 0) {
             MineTweakerAPI.logError("Blast furnace recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Blast furnace recipe for " + output, input[0], itemOrNull(input, 1), fluidInput, output[0], itemOrNull(output, 1), durationTicks, euPerTick, heat) {
+            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Blast furnace recipe for " + output[0], input[0], itemOrNull(input, 1), fluidInput, output[0], itemOrNull(output, 1), durationTicks, euPerTick, heat) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.addBlastRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), null, i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextInt());

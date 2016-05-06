@@ -30,7 +30,7 @@ public class FluidSolidifier {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IItemStack mold, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fluid Solidifier recipe for " + output, mold, fluidInput, mold, durationTicks, euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fluid Solidifier recipe for " + output, mold, fluidInput, output, durationTicks, euPerTick) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
                 RA.addFluidSolidifierRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
