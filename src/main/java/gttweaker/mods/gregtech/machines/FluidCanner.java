@@ -30,7 +30,7 @@ public class FluidCanner {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fluid Canner recipe for " + input, input, fluidOutput, fluidInput) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fluid Canner recipe for " + input, input, output, fluidInput, fluidOutput) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
                 RA.addFluidCannerRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid());

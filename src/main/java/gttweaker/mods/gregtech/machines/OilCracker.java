@@ -28,7 +28,7 @@ public class OilCracker {
      */
     @ZenMethod
     public static void addRecipe(ILiquidStack fluidOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding OilCracker recipe for " + fluidOutput, fluidInput, fluidInput, durationTicks, euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding OilCracker recipe for " + fluidOutput, fluidInput, fluidOutput, durationTicks, euPerTick) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
                 RA.addCrackingRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt());

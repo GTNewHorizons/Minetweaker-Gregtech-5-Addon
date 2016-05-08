@@ -44,7 +44,6 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
 
     private String description;
     private List<List<Object>> recipesData;
-    private int aid; // argument index, equate to zero before applySingleRecipe call
 
     private void addArgument(Object recipeArg) {
         if (recipeArg instanceof ILiquidStack) {
