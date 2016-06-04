@@ -4,6 +4,12 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.eu:8081/buildStatus/icon?job=GTTweaker)](http://jenkins.usrv.eu:8081/job/GTTweaker/)
 
 Changelog:<BR>
+1.4.1 Fixes<BR>
+1.4.0 Even More Ordict rework<BR>
+1.3.0 More ordict rework<BR>
+1.2.2 fix pyrolyse oven spelling<BR>
+1.2.1 fixed ordict support<BR>
+1.2.0 Added Ore Dict support to Gt Machines (hope this Version works)<BR>
 1.1.0 Added Pyroluse Oven adn Oil Cracker support for Gt 5.09**<BR>
 1.0.9 Fix Printer<BR>
 1.0.8 Remove Plate Cutter Class<BR>
