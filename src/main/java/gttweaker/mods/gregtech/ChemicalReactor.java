@@ -31,8 +31,8 @@ public class ChemicalReactor {
      * @param durationTicks reaction time, in ticks
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks) {
-        MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput1, input1, input2, fluidInput1, durationTicks));
+    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput1, input1, input2, fluidInput1, durationTicks, euPerTick));
     }
 
     @ZenMethod
@@ -118,14 +118,16 @@ public class ChemicalReactor {
         private final IItemStack input2;
         private final ILiquidStack fluidInput1;
         private final int duration;
+        private final int euPerTick;
 
-        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int duration) {
+        public AddFluidRecipeAction(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int duration, int euPerTick) {
             this.output = output;
             this.fluidOutput1 = fluidOutput1;
             this.input1 = input1;
             this.input2 = input2;
             this.fluidInput1 = fluidInput1;
             this.duration = duration;
+            this.euPerTick = euPerTick;
         }
 
         @Override
@@ -136,7 +138,7 @@ public class ChemicalReactor {
                     MineTweakerMC.getLiquidStack(fluidInput1),
                     MineTweakerMC.getLiquidStack(fluidOutput1),
                     MineTweakerMC.getItemStack(output),
-                    duration);
+                    duration, euPerTick);
         }
 
         @Override
@@ -158,6 +160,7 @@ public class ChemicalReactor {
             hash = 12 * hash + (this.input2 != null ? this.input2.hashCode() : 0);
             hash = 12 * hash + (this.fluidInput1 != null ? this.fluidInput1.hashCode() : 0);
             hash = 12 * hash + this.duration;
+            hash = 12 * hash + this.euPerTick;
             return hash;
         }
 
@@ -186,6 +189,9 @@ public class ChemicalReactor {
                 return false;
             }
             if (this.duration != other.duration) {
+                return false;
+            }
+            if (this.euPerTick != other.euPerTick) {
                 return false;
             }
             return true;
