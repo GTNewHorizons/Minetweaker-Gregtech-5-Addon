@@ -41,9 +41,24 @@ public class PlasmaArcFurnace {
             MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Plasma Arc Furnace recipe for " + input, input, fluidInput, outputs, fluidOutput, outChances, durationTicks, euPerTick) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPlasmaArcFurnaceRecipe(i.nextItem(), i.nextFluid(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+                    RA.addPlasmaArcFurnaceRecipe(i.nextItem(), i.nextFluid(), i.nextItemArr(), i.nextFluid(), i.nextIntArr(), i.nextInt(), i.nextInt());
                 }
             });
         }
+    }
+
+    /**
+     * Adds an Arc Furnace recipe.
+     *
+     * @param outputs       1-4 recipe output
+     * @param fluidOutput   primary fluidOutput
+     * @param input         primary input
+     * @param outChances    chances of 1-4 output
+     * @param durationTicks assembling duration, in ticks
+     * @param euPerTick     eu consumption per tick
+     */
+    @ZenMethod
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IIngredient input, int[] outChances, int durationTicks, int euPerTick) {
+        addRecipe(outputs, fluidOutput, input, null, outChances, durationTicks, euPerTick);
     }
 }
