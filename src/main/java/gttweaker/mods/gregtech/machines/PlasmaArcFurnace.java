@@ -41,7 +41,7 @@ public class PlasmaArcFurnace {
             MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Plasma Arc Furnace recipe for " + input, input, fluidInput, outputs, fluidOutput, outChances, durationTicks, euPerTick) {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPlasmaArcFurnaceRecipe(i.nextItem(), i.nextFluid(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+                    RA.addPlasmaArcFurnaceRecipe(i.nextItem(), i.nextFluid(), i.nextItemArr(), i.nextFluid(), i.nextIntArr(), i.nextInt(), i.nextInt());
                 }
             });
         }
