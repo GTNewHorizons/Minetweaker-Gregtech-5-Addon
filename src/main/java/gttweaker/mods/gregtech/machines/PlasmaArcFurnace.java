@@ -46,4 +46,19 @@ public class PlasmaArcFurnace {
             });
         }
     }
+
+    /**
+     * Adds an Arc Furnace recipe.
+     *
+     * @param outputs       1-4 recipe output
+     * @param fluidOutput   primary fluidOutput
+     * @param input         primary input
+     * @param outChances    chances of 1-4 output
+     * @param durationTicks assembling duration, in ticks
+     * @param euPerTick     eu consumption per tick
+     */
+    @ZenMethod
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, IIngredient input, int[] outChances, int durationTicks, int euPerTick) {
+        addRecipe(outputs, fluidOutput, input, null, outChances, durationTicks, euPerTick);
+    }
 }
