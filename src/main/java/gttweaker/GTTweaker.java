@@ -1,12 +1,15 @@
-package src.main.java.gttweaker;
+package gttweaker;
 
 import gttweaker.mods.gregtech.*;
+import gttweaker.mods.gregtech.machines.*;
 import minetweaker.api.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import minetweaker.*;
 import gregtech.api.*;
+import gttweaker.mods.gregtech.AddMultipleRecipeAction;
+import gttweaker.mods.gregtech.Fuels;
 
 @Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.1.0")
 public class GTTweaker {
