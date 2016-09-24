@@ -51,15 +51,11 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(Unpacker.class);
         MineTweakerAPI.registerClass(VacuumFreezer.class);
         MineTweakerAPI.registerClass(Wiremill.class);
-        if (GregTech_API.VERSION >= 508) {
-            MineTweakerAPI.registerClass(ArcFurnace.class);
-            MineTweakerAPI.registerClass(DistillationTower.class);
-            MineTweakerAPI.registerClass(FusionReactor.class);
-            MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
+        MineTweakerAPI.registerClass(ArcFurnace.class);
+        MineTweakerAPI.registerClass(DistillationTower.class);
+        MineTweakerAPI.registerClass(FusionReactor.class);
+        MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
+        MineTweakerAPI.registerClass(PyroluseOven.class);
+        MineTweakerAPI.registerClass(OilCracker.class);
         }
-        if (GregTech_API.VERSION >= 509) {
-            MineTweakerAPI.registerClass(PyroluseOven.class);
-            MineTweakerAPI.registerClass(OilCracker.class);
-        }
-    }
 }
