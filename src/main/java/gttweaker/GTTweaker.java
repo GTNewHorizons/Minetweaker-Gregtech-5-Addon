@@ -1,14 +1,16 @@
 package gttweaker;
 
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.event.*;
-import gttweaker.mods.gregtech.Fuels;
+import gttweaker.mods.gregtech.*;
 import gttweaker.mods.gregtech.machines.*;
-import minetweaker.MineTweakerAPI;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import minetweaker.*;
 import gregtech.api.*;
+import gttweaker.mods.gregtech.AddMultipleRecipeAction;
+import gttweaker.mods.gregtech.Fuels;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.4.1")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.1.0")
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -56,13 +58,8 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
         }
         if (GregTech_API.VERSION >= 509) {
-            MineTweakerAPI.registerClass(PyrolyseOven.class);
+            MineTweakerAPI.registerClass(PyroluseOven.class);
             MineTweakerAPI.registerClass(OilCracker.class);
         }
-    }
-    
-    @EventHandler
-    public void onPostInit(FMLPostInitializationEvent ev) {
-        MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
     }
 }
