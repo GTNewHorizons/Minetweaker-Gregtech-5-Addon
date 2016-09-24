@@ -2,7 +2,6 @@ package gttweaker;
 
 import gttweaker.mods.gregtech.*;
 import gttweaker.mods.gregtech.machines.*;
-import minetweaker.api.*;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
