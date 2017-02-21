@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="gradle-wrapper" level="project" />
+    <orderEntry type="library" name="forge-1.10.2-12.18.3.2234-srgBin" level="project" />
+  </component>
+</module>
