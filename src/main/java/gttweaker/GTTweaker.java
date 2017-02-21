@@ -1,12 +1,13 @@
 package gttweaker;
 
-import gttweaker.mods.gregtech.*;
+import gttweaker.mods.gregtech.Fuels;
+import gttweaker.mods.gregtech.machines.*;
 import minetweaker.MineTweakerAPI;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 
-
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.1.0")
+@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.4.1")
 public class GTTweaker {
 	@Mod.EventHandler
 	public void init(FMLInitializationEvent event) {
@@ -51,18 +52,11 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(DistillationTower.class);
         MineTweakerAPI.registerClass(FusionReactor.class);
         MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
-        MineTweakerAPI.registerClass(PyroluseOven.class);
+        MineTweakerAPI.registerClass(PyrolyseOven.class);
         MineTweakerAPI.registerClass(OilCracker.class);
-        }
-
-        if (GregTech_API.VERSION >= 509) {
-            MineTweakerAPI.registerClass(PyrolyseOven.class);
-            MineTweakerAPI.registerClass(OilCracker.class);
-            MineTweakerAPI.registerClass(AssemblyLine.class);
-        }
     }
     
-    @EventHandler
+    @Mod.EventHandler
     public void onPostInit(FMLPostInitializationEvent ev) {
         MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
     }
