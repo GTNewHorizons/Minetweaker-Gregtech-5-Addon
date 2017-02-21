@@ -29,9 +29,11 @@ public class ChemicalReactor {
      * @param input2        secondary input
      * @param fluidInput1   primary fluidInput
      * @param durationTicks reaction time, in ticks
+     * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks) {
+
+  public static void addRecipe(IItemStack output, ILiquidStack fluidOutput1, IItemStack input1, IItemStack input2, ILiquidStack fluidInput1, int durationTicks) {
         MineTweakerAPI.apply(new AddFluidRecipeAction(output, fluidOutput1, input1, input2, fluidInput1, durationTicks));
     }
 
@@ -190,5 +192,6 @@ public class ChemicalReactor {
             }
             return true;
         }
+
     }
 }

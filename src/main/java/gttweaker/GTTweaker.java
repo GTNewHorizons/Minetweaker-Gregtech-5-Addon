@@ -5,6 +5,7 @@ import minetweaker.MineTweakerAPI;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
+
 @Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.1.0")
 public class GTTweaker {
 	@Mod.EventHandler
@@ -53,4 +54,16 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(PyroluseOven.class);
         MineTweakerAPI.registerClass(OilCracker.class);
         }
+
+        if (GregTech_API.VERSION >= 509) {
+            MineTweakerAPI.registerClass(PyrolyseOven.class);
+            MineTweakerAPI.registerClass(OilCracker.class);
+            MineTweakerAPI.registerClass(AssemblyLine.class);
+        }
+    }
+    
+    @EventHandler
+    public void onPostInit(FMLPostInitializationEvent ev) {
+        MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
+    }
 }
