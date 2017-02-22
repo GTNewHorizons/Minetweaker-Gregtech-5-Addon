@@ -1,7 +1,7 @@
 # Minetweaker-Gregtech-5-Addon
 Minetweaker Addon for all Gregtech 5 Machines
 
-[![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon/)
+[![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
 1.4.3 Ass Line support<BR>
