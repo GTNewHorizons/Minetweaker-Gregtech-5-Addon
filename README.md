@@ -4,7 +4,9 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
-1.4.3 Ass Line support<BR>
+1.5.0 Supporting CircuitAssembler, Compressor, Extractor, OreWasher, ThermalCentrifuge<BR>
+1.4.4 Fix Assembly Line and Chem Reactor<BR>
+1.4.3 Assembly Line support<BR>
 1.4.2 Fix Plasma Arc Furnace<BR>
 1.4.1 Fixes<BR>
 1.4.0 Even More Ordict rework<BR>
