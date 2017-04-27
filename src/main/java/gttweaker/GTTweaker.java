@@ -51,7 +51,7 @@ import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 
-@Mod(modid = "GTTweaker", name = "GTTweaker", dependencies = "", version = "1.4.1")
+@Mod(modid = "GTTweaker", useMetadata = true)
 public class GTTweaker {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {

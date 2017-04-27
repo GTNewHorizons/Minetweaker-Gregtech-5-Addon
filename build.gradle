@@ -17,8 +17,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.4.4"
-group= "gttweaker" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.7.10-1.5.0"
+group = "gttweaker" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "GTTweaker"
 
 minecraft {
