@@ -1,4 +1,5 @@
-
+run/
+classes/
 eclipse/
 out/
 *.txt
