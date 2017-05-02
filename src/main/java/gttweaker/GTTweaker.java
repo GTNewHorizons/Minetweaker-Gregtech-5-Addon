@@ -1,55 +1,14 @@
 package gttweaker;
 
-import gregtech.api.GregTech_API;
-import gttweaker.mods.gregtech.Fuels;
-import gttweaker.mods.gregtech.machines.AlloySmelter;
-import gttweaker.mods.gregtech.machines.Amplifabricator;
-import gttweaker.mods.gregtech.machines.ArcFurnace;
-import gttweaker.mods.gregtech.machines.Assembler;
-import gttweaker.mods.gregtech.machines.AssemblyLine;
-import gttweaker.mods.gregtech.machines.Autoclave;
-import gttweaker.mods.gregtech.machines.Blastfurnace;
-import gttweaker.mods.gregtech.machines.Brewery;
-import gttweaker.mods.gregtech.machines.Canner;
-import gttweaker.mods.gregtech.machines.Centrifuge;
-import gttweaker.mods.gregtech.machines.ChemicalBath;
-import gttweaker.mods.gregtech.machines.ChemicalReactor;
-import gttweaker.mods.gregtech.machines.CuttingSaw;
-import gttweaker.mods.gregtech.machines.DistillationTower;
-import gttweaker.mods.gregtech.machines.Distillery;
-import gttweaker.mods.gregtech.machines.Electrolyzer;
-import gttweaker.mods.gregtech.machines.Extruder;
-import gttweaker.mods.gregtech.machines.Fermenter;
-import gttweaker.mods.gregtech.machines.FluidCanner;
-import gttweaker.mods.gregtech.machines.FluidExtractor;
-import gttweaker.mods.gregtech.machines.FluidHeater;
-import gttweaker.mods.gregtech.machines.FluidSolidifier;
-import gttweaker.mods.gregtech.machines.ForgeHammer;
-import gttweaker.mods.gregtech.machines.FormingPress;
-import gttweaker.mods.gregtech.machines.FusionReactor;
-import gttweaker.mods.gregtech.machines.ImplosionCompressor;
-import gttweaker.mods.gregtech.machines.Lathe;
-import gttweaker.mods.gregtech.machines.Mixer;
-import gttweaker.mods.gregtech.machines.OilCracker;
-import gttweaker.mods.gregtech.machines.Packer;
-import gttweaker.mods.gregtech.machines.PlasmaArcFurnace;
-import gttweaker.mods.gregtech.machines.PlateBender;
-import gttweaker.mods.gregtech.machines.Polarizer;
-import gttweaker.mods.gregtech.machines.PrecisionLaser;
-import gttweaker.mods.gregtech.machines.Printer;
-import gttweaker.mods.gregtech.machines.Pulverizer;
-import gttweaker.mods.gregtech.machines.PyrolyseOven;
-import gttweaker.mods.gregtech.machines.Separator;
-import gttweaker.mods.gregtech.machines.Sifter;
-import gttweaker.mods.gregtech.machines.Slicer;
-import gttweaker.mods.gregtech.machines.Unpacker;
-import gttweaker.mods.gregtech.machines.VacuumFreezer;
-import gttweaker.mods.gregtech.machines.Wiremill;
-import minetweaker.MineTweakerAPI;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import gregtech.api.GregTech_API;
+import gttweaker.mods.gregtech.Fuels;
+import gttweaker.mods.gregtech.machines.*;
+import gttweaker.mods.gtpp.machines.*;
+import minetweaker.MineTweakerAPI;
 
 @Mod(modid = "GTTweaker", useMetadata = true)
 public class GTTweaker {
@@ -102,6 +61,14 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(PyrolyseOven.class);
             MineTweakerAPI.registerClass(OilCracker.class);
             MineTweakerAPI.registerClass(AssemblyLine.class);
+        }
+        if (GregTech_API.mGTPlusPlus) {
+            MineTweakerAPI.registerClass(BlastSmelter.class);
+            MineTweakerAPI.registerClass(CokeOven.class);
+            MineTweakerAPI.registerClass(Dehydrator.class);
+            MineTweakerAPI.registerClass(FissionReactor.class);
+            MineTweakerAPI.registerClass(LFTR.class);
+            MineTweakerAPI.registerClass(MatterFabricator.class);
         }
     }
     

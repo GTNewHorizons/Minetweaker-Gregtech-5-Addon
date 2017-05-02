@@ -1,12 +1,10 @@
 package gttweaker.mods.gregtech.machines;
 
-import gttweaker.mods.gregtech.AddMultipleRecipeAction;
+import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import minetweaker.api.minecraft.MineTweakerMC;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 

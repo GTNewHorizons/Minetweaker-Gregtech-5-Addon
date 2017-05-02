@@ -1,5 +1,6 @@
 package gttweaker.mods.gregtech;
 
+import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;

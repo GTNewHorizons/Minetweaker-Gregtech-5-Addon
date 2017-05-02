@@ -1,4 +1,4 @@
-package gttweaker.mods.gregtech;
+package gttweaker.mods;
 
 import gttweaker.util.exception.AnyIngredientException;
 import gttweaker.util.exception.EmptyIngredientException;

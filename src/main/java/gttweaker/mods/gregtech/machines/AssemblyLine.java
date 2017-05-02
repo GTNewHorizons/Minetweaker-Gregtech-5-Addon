@@ -2,7 +2,7 @@ package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
-import gttweaker.mods.gregtech.AddMultipleRecipeAction;
+import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IItemStack;
