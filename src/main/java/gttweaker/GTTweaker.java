@@ -66,8 +66,6 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(BlastSmelter.class);
             MineTweakerAPI.registerClass(CokeOven.class);
             MineTweakerAPI.registerClass(Dehydrator.class);
-            MineTweakerAPI.registerClass(FissionReactor.class);
-            MineTweakerAPI.registerClass(LFTR.class);
             MineTweakerAPI.registerClass(MatterFabricator.class);
         }
     }
