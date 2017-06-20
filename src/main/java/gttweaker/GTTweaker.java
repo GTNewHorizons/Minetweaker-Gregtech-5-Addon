@@ -61,6 +61,11 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(PyrolyseOven.class);
             MineTweakerAPI.registerClass(OilCracker.class);
             MineTweakerAPI.registerClass(AssemblyLine.class);
+            MineTweakerAPI.registerClass(CircuitAssembler.class);
+            MineTweakerAPI.registerClass(Compressor.class);
+            MineTweakerAPI.registerClass(Extractor.class);
+            MineTweakerAPI.registerClass(OreWasher.class);
+            MineTweakerAPI.registerClass(ThermalCentrifuge.class);
         }
         if (GregTech_API.mGTPlusPlus) {
             MineTweakerAPI.registerClass(BlastSmelter.class);
