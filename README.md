@@ -4,7 +4,7 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
-1.6.2 Fix registration of machines from 1.5.0
+1.6.2 Fix registration of machines from 1.5.0<BR>
 1.6.1 [Removing LFTR and fission fuel support](https://github.com/GTNewHorizons/Minetweaker-Gregtech-5-Addon/issues/38#issuecomment-298780862)<BR>
 1.6.0 GT++ support<BR>
 1.5.0 Support CircuitAssembler, Compressor, Extractor, OreWasher, ThermalCentrifuge<BR>
