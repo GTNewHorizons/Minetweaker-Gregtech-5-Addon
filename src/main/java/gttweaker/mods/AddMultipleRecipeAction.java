@@ -18,6 +18,12 @@ import java.util.*;
  * Created by Techlone
  */
 public abstract class AddMultipleRecipeAction extends OneWayAction {
+    private static List<List<Object>> createNewMatrix(int initCount) {
+        return new ArrayList<List<Object>>(initCount) {{
+            this.add(new ArrayList<Object>());
+        }};
+    }
+
     private static void extendBySingle(Object singleArg, List<List<Object>> recipesData) {
         for (List<Object> recipeData : recipesData) {
             recipeData.add(singleArg);
@@ -56,9 +62,28 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
             extendBySingle(MineTweakerMC.getItemStacks((IItemStack[]) recipeArg), recipesData);
         } else if (recipeArg instanceof IIngredient) {
             extendByMultiple(getItemStacks((IIngredient) recipeArg), recipesData);
+        } else if (recipeArg instanceof IIngredient[]) {
+            extendByMultiple(getItemStackArrays((IIngredient[]) recipeArg), recipesData);
         } else {
             extendBySingle(recipeArg, recipesData);
         }
+    }
+
+    private List<ItemStack[]> getItemStackArrays(IIngredient[] recipeArg) {
+        List<List<Object>> tempArgs = createNewMatrix(recipeArg.length);
+        for (IIngredient ingredient : recipeArg) {
+            extendByMultiple(getItemStacks(ingredient), tempArgs);
+        }
+
+        List<ItemStack[]> result = new ArrayList<ItemStack[]>(tempArgs.size());
+        for (List<Object> tempArg : tempArgs) {
+            ItemStack[] arg = new ItemStack[tempArg.size()];
+            for (int i = 0; i < arg.length; i++)
+                arg[i] = (ItemStack) tempArg.get(i);
+            result.add(arg);
+        }
+
+        return result;
     }
 
     private List<ItemStack> getItemStacks(IIngredient ingredientArg) {
@@ -85,9 +110,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
 
     protected AddMultipleRecipeAction(String description, Object... recipeArgs) {
         this.description = description;
-
-        recipesData = new ArrayList<List<Object>>(recipeArgs.length);
-        recipesData.add(new ArrayList<Object>());
+        recipesData = createNewMatrix(recipeArgs.length);
 
         try {
             for (Object recipeArg : recipeArgs) {

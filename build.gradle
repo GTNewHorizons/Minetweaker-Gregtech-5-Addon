@@ -17,33 +17,20 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.6.2"
-group = "gttweaker" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+version = "1.7.10-1.6.3"
+group = "gttweaker"
 archivesBaseName = "GTTweaker"
 
 minecraft {
-    version = "1.7.10-10.13.2.1291"
+    version = "1.7.10-10.13.4.1566-1.7.10"
     runDir = "eclipse"
 }
 
-dependencies {
-    // you may put jars on which you depend on in ./libs
-    // or you may define them like so..
-    //compile "some.group:artifact:version:classifier"
-    //compile "some.group:artifact:version"
-      
-    // real examples
-    //compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
-    //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
+idea { module { inheritOutputDirs = true } }
 
-    // for more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
+dependencies { }
 
-}
-
-processResources
-{
+processResources {
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version

@@ -17,7 +17,6 @@ public class MatterFabricator {
         MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding matter fabricator recipe for " + fluidOutput, fluidInput, fluidOutput, durationTicks, euPerTick) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
-                //ItemStack aInputStack, FluidStack aFluidInput, FluidStack aFluidOutput, int aDuration, int aEUt
                 CORE.RA.addMatterFabricatorRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt());
             }
         });
