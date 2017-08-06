@@ -34,20 +34,21 @@ public class Assembler {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding assembler recipe with fluid Support for " + output, input1, input2, fluidInput, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addAssemblerRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+        addRecipe(output, new IIngredient[]{input1, input2}, fluidInput, durationTicks, euPerTick);
     }
 
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding assembler recipe for " + output, input1, input2, output, durationTicks, euPerTick) {
+        addRecipe(output, new IIngredient[]{input1, input2}, null, durationTicks, euPerTick);
+    }
+
+
+    @ZenMethod
+    public static void addRecipe(IItemStack output, IIngredient[] inputs, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding assembler recipe for " + output, inputs, fluidInput, output, durationTicks, euPerTick) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
-                RA.addAssemblerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                RA.addAssemblerRecipe(i.nextItemArr(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
             }
         });
     }

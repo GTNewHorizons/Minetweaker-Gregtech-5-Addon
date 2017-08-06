@@ -4,6 +4,7 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
+1.6.4 Added method for the six slots assembler<BR>
 1.6.3 Fix methods with array of inputs (Mixer, CircuitAssembler, Dehydrator, BlastFurnace). Fix type of inputs in OreWasher and ThermalCentrifuge<BR>
 1.6.2 Fix registration of machines from 1.5.0<BR>
 1.6.1 [Removing LFTR and fission fuel support](https://github.com/GTNewHorizons/Minetweaker-Gregtech-5-Addon/issues/38#issuecomment-298780862)<BR>
