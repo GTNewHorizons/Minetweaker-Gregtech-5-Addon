@@ -29,12 +29,17 @@ public class PrecisionLaser {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Precision Laser recipe for " + output, input1, input2, output, durationTicks, euPerTick) {
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick, boolean cleanroom) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Precision Laser recipe for " + output, input1, input2, output, durationTicks, euPerTick, cleanroom) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
-                RA.addLaserEngraverRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                RA.addLaserEngraverRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextBool());
             }
         });
     }
+    
+    @ZenMethod
+	public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+			addRecipe(output, input1, input2, durationTicks, euPerTick, false);
+	}
 }
