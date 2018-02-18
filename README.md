@@ -4,8 +4,7 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.de:8081/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.de:8081/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
-1.7.0 Added a low gravity flag in the autoclave; added a fluid output in the blast furnace; added a secondary output in the chem reactor;<BR>
-added addUniversalRecipe method in the distillation tower; changed addRecipe in the oil cracker; added a PrimitiveBlastFurnace support<BR>
+1.7.0 Added a low gravity flag in the autoclave; added a fluid output in the blast furnace; added a secondary output in the chem reactor; added addUniversalRecipe method in the distillation tower; changed addRecipe in the oil cracker; added a PrimitiveBlastFurnace support<BR>
 1.6.4 Added method for the six slots assembler<BR>
 1.6.3 Fix methods with array of inputs (Mixer, CircuitAssembler, Dehydrator, BlastFurnace). Fix type of inputs in OreWasher and ThermalCentrifuge<BR>
 1.6.2 Fix registration of machines from 1.5.0<BR>
