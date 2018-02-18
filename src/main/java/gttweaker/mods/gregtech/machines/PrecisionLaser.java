@@ -27,6 +27,7 @@ public class PrecisionLaser {
      * @param input2        Lens input
      * @param durationTicks reaction time, in ticks
      * @param euPerTick     eu consumption per tick
+     * @param cleanroom     the cleanroom requirement
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick, boolean cleanroom) {
@@ -40,6 +41,6 @@ public class PrecisionLaser {
     
     @ZenMethod
 	public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-			addRecipe(output, input1, input2, durationTicks, euPerTick, false);
+        addRecipe(output, input1, input2, durationTicks, euPerTick, false);
 	}
 }

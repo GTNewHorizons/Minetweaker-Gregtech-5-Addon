@@ -32,7 +32,7 @@ public class DistillationTower {
     @ZenMethod
     public static void addRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
         if (fluidOutput.length < 1) {
-            MineTweakerAPI.logError("Distillation Twower must have at least 1 Fluid output");
+            MineTweakerAPI.logError("Distillation Tower must have at least 1 Fluid output");
         } else {
             MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Distillation Tower recipe for " + fluidInput.getDisplayName(), fluidInput, fluidOutput, itemOutput, durationTicks, euPerTick) {
                 @Override
@@ -41,5 +41,15 @@ public class DistillationTower {
                 }
             });
         }
+    }
+
+    @ZenMethod
+    public static void addUniversalRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding universal distillation recipe for " + fluidInput.getDisplayName(), fluidInput, fluidOutput, itemOutput, durationTicks, euPerTick) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                RA.addUniversalDistillationRecipe(i.nextFluid(), i.nextFluidArr(), i.nextItem(), i.nextInt(), i.nextInt());
+            }
+        });
     }
 }

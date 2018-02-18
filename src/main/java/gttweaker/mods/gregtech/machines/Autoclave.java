@@ -26,17 +26,23 @@ public class Autoclave {
      * @param output        primary output
      * @param input         primary input
      * @param fluidInput    primary fluidInput
-     * @param chances       chances
+     * @param chance        chance
      * @param durationTicks assembling duration, in ticks
      * @param euPerTick     eu consumption per tick
+     * @param lowGravity    the low gravity requirement
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chances, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Autoclave recipe for " + output, input, fluidInput, output, chances, durationTicks, euPerTick) {
+    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chance, int durationTicks, int euPerTick, boolean lowGravity) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Autoclave recipe for " + output, input, fluidInput, output, chance, durationTicks, euPerTick, lowGravity) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
-                RA.addAutoclaveRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextInt());
+                RA.addAutoclaveRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextInt(), i.nextBool());
             }
         });
+    }
+
+    @ZenMethod
+    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidInput, int chance, int durationTicks, int euPerTick) {
+        addRecipe(output, input, fluidInput, chance, durationTicks, euPerTick, false);
     }
 }

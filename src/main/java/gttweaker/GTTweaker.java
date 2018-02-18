@@ -18,7 +18,7 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(Amplifabricator.class);
         MineTweakerAPI.registerClass(Assembler.class);
         MineTweakerAPI.registerClass(Autoclave.class);
-        MineTweakerAPI.registerClass(Blastfurnace.class);
+        MineTweakerAPI.registerClass(BlastFurnace.class);
         MineTweakerAPI.registerClass(Brewery.class);
         MineTweakerAPI.registerClass(Canner.class);
         MineTweakerAPI.registerClass(Centrifuge.class);
@@ -66,6 +66,7 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(Extractor.class);
             MineTweakerAPI.registerClass(OreWasher.class);
             MineTweakerAPI.registerClass(ThermalCentrifuge.class);
+            MineTweakerAPI.registerClass(PrimitiveBlastFurnace.class);
         }
         if (GregTech_API.mGTPlusPlus) {
             MineTweakerAPI.registerClass(BlastSmelter.class);
