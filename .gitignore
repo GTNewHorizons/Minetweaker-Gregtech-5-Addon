@@ -11,3 +11,7 @@ GTTweaker.iws
 Idea.bat
 SetupDevWorkspaces.bat
 SetupWorkspaces.bat
+*.bat
+Minetweakergt5addon.iws
+Minetweakergt5addon.ipr
+Minetweakergt5addon.iml

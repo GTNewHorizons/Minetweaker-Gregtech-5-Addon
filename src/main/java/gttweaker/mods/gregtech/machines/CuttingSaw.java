@@ -59,4 +59,14 @@ public class CuttingSaw {
             addRecipe(output[0], itemOrNull(output, 1), input, lubricant, durationTicks, euPerTick);
         }
     }
+    
+    @ZenMethod
+    public static void addRecipe(IItemStack output1, IItemStack output2, IIngredient input, IItemStack circuit, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Cutting Saw recipe for " + input, input, circuit, output1, output2, durationTicks, euPerTick) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                RA.addCutterRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+            }
+        });
+    }
 }
