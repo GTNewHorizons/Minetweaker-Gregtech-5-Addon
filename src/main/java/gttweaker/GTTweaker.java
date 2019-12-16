@@ -73,6 +73,7 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(CokeOven.class);
             MineTweakerAPI.registerClass(Dehydrator.class);
             MineTweakerAPI.registerClass(MatterFabricator.class);
+	    MineTweakerAPI.registerClass(MultiblockCentrifuge.class);	
         }
     }
     
