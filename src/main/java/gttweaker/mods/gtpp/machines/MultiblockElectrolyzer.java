@@ -13,10 +13,10 @@ import minetweaker.api.item.IItemStack;
 @ZenClass("mods.gtpp.MultiblockElectrolyzer")
 @ModOnly(CORE.MODID)
 /*
-ItemStack[] aInputs, 
-FluidStack[] aFluidInputs, 
-FluidStack[] aFluidOutputs, 
 ItemStack[] aOutputs, 
+FluidStack[] aFluidOutputs, 
+FluidStack[] aFluidInputs,
+ItemStack[] aInputs, 
 int[] aChances, 
 int aDuration, 
 int aEUtick, 
