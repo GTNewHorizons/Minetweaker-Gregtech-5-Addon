@@ -24,6 +24,10 @@ import stanhebben.zenscript.annotations.ZenMethod;
 
 //inputs, fluidOutput, chance, durationTicks, euPerTick
 //inputs, fluidInput, fluidOutput, chance, durationTicks, euPerTick
+//inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick
+//inputs, fluidInput, fluidOutput, chance, durationTicks, euPerTick, Special
+//inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick, Special
+
 @ZenClass("mods.gtpp.BlastSmelter")
 @ModOnly(CORE.MODID)
 public class BlastSmelter {
