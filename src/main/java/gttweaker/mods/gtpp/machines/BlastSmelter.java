@@ -43,5 +43,34 @@ public class BlastSmelter {
                 CORE.RA.addBlastSmelterRecipe(i.nextItemArr(), i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt(), i.nextInt());
             }
         });
-    } 
+    }
+    @ZenMethod
+    public static void addRecipe(IIngredient[] outputs, ILiquidStack fluidOutput, ILiquidStack fluidInput, IIngredient[] inputs, int[] chance, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding alloy blast smelter recipe for " + outputs, inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                CORE.RA.addBlastSmelterRecipe(i.nextItemArr(), i.nextFluid(), i.nextFluid(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+            }
+        });
+    }
+
+    @ZenMethod
+    public static void addRecipe(ILiquidStack fluidOutput, ILiquidStack fluidInput, IIngredient[] inputs, int chance, int durationTicks, int euPerTick, int Special) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding alloy blast smelter recipe for " + fluidOutput, inputs, fluidInput, fluidOutput, chance, durationTicks, euPerTick, Special) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                CORE.RA.addBlastSmelterRecipe(i.nextItemArr(), i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt(), i.nextInt(), i.nextInt());
+            }
+        });
+    }
+
+    @ZenMethod
+    public static void addRecipe(IIngredient[] outputs, ILiquidStack fluidOutput, ILiquidStack fluidInput, IIngredient[] inputs, int[] chance, int durationTicks, int euPerTick, int Special) {
+        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding alloy blast smelter recipe for " + outputs, inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick, Special) {
+            @Override
+            protected void applySingleRecipe(ArgIterator i) {
+                CORE.RA.addBlastSmelterRecipe(i.nextItemArr(), i.nextFluid(), i.nextFluid(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt(), i.nextInt());
+            }
+        });
+    }	
 }
