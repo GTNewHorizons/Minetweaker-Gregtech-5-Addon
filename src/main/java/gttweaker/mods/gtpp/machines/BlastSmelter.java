@@ -9,18 +9,18 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-	/**
-	 * Adds a Recipe for the Alloy Blast Smelter. (up to 9 Inputs)
-	 *
-	 * @param aInput   = ItemStack[] (not null, and respects StackSize)
-	 * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
-	 * @param aFluidOutput   = Output of the Molten Metal (not null, and respects StackSize)
-	 * @param aChances 	= Output Chance (can be == 0)
-	 * @param aDuration 	= Duration (must be >= 0)
-	 * @param aEUt			= EU per tick needed for heating up (must be >= 0)
-	 * @return true if the Recipe got added, otherwise false.
-	 *@param aSpecialValue			= Stores the Required Temp for the Recipe
-	 */
+ /**
+ * Adds a Recipe for the Alloy Blast Smelter. (up to 9 Inputs)
+ *
+ * @param aInput   = ItemStack[] (not null, and respects StackSize)
+ * @param aFluidInput   = Input of a fluid (can be null, and respects StackSize)
+ * @param aFluidOutput   = Output of the Molten Metal (not null, and respects StackSize)
+ * @param aChances 	= Output Chance (can be == 0)
+ * @param aDuration 	= Duration (must be >= 0)
+ * @param aEUt			= EU per tick needed for heating up (must be >= 0)
+ * @return true if the Recipe got added, otherwise false.
+ *@param aSpecialValue			= Stores the Required Temp for the Recipe
+ */
 
 //inputs, fluidOutput, chance, durationTicks, euPerTick
 //inputs, fluidInput, fluidOutput, chance, durationTicks, euPerTick
