@@ -19,6 +19,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
 	 * @param aDuration 	= Duration (must be >= 0)
 	 * @param aEUt			= EU per tick needed for heating up (must be >= 0)
 	 * @return true if the Recipe got added, otherwise false.
+	 *@param aSpecialValue			= Stores the Required Temp for the Recipe
 	 */
 
 //inputs, fluidOutput, chance, durationTicks, euPerTick
@@ -53,7 +54,6 @@ public class BlastSmelter {
             }
         });
     }
-
     @ZenMethod
     public static void addRecipe(ILiquidStack fluidOutput, ILiquidStack fluidInput, IIngredient[] inputs, int chance, int durationTicks, int euPerTick, int Special) {
         MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding alloy blast smelter recipe for " + fluidOutput, inputs, fluidInput, fluidOutput, chance, durationTicks, euPerTick, Special) {
@@ -63,7 +63,6 @@ public class BlastSmelter {
             }
         });
     }
-
     @ZenMethod
     public static void addRecipe(IIngredient[] outputs, ILiquidStack fluidOutput, ILiquidStack fluidInput, IIngredient[] inputs, int[] chance, int durationTicks, int euPerTick, int Special) {
         MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding alloy blast smelter recipe for " + outputs, inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick, Special) {
