@@ -4,6 +4,11 @@ Minetweaker Addon for all Gregtech 5 Machines
 [![Build Status](http://jenkins.usrv.eu:8080/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.eu:8080/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
+1.7.5 Add GT++ Blast Smelter more recipes
+1.7.4 Add GT++ Blast Smelter
+1.7.3 Add GT++ Multi Electrolyzer
+1.7.2 Add GT++ Multi Centrifuge
+1.7.1 Fix weird char in cokeoven java<BR>
 1.7.0 Added a low gravity flag in the autoclave; added a fluid output in the blast furnace; added a secondary output in the chem reactor; added addUniversalRecipe method in the distillation tower; changed addRecipe in the oil cracker; added a PrimitiveBlastFurnace support<BR>
 1.6.4 Added method for the six slots assembler<BR>
 1.6.3 Fix methods with array of inputs (Mixer, CircuitAssembler, Dehydrator, BlastFurnace). Fix type of inputs in OreWasher and ThermalCentrifuge<BR>
