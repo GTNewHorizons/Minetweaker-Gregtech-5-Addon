@@ -15,7 +15,7 @@ import minetweaker.api.item.IItemStack;
 		
 	public class MultiblockCentrifuge {
     @ZenMethod
-    public static void addRecipe(IItemStack[] outputs, ILiquidStack fluidOutput, ILiquidStack fluidInput, IItemStack[] inputs, int[] chances, int durationTicks, int euPerTick, int Special) {
+    public static void addRecipe(IItemStack[] outputs, ILiquidStack[] fluidOutput, ILiquidStack[] fluidInput, IItemStack[] inputs, int[] chances, int durationTicks, int euPerTick, int Special) {
         MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Multiblock Centrifuge recipe for " + outputs, inputs, fluidInput, fluidOutput, outputs, chances, durationTicks, euPerTick, Special) {
             @Override
             protected void applySingleRecipe(ArgIterator i) {
