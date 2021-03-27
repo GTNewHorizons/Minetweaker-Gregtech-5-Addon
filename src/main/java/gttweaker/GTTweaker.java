@@ -26,6 +26,7 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(ChemicalReactor.class);
         MineTweakerAPI.registerClass(CuttingSaw.class);
         MineTweakerAPI.registerClass(Distillery.class);
+	MineTweakerAPI.registerClass(Disassembler.class);
         MineTweakerAPI.registerClass(Electrolyzer.class);
         MineTweakerAPI.registerClass(Extruder.class);
         MineTweakerAPI.registerClass(Fermenter.class);
