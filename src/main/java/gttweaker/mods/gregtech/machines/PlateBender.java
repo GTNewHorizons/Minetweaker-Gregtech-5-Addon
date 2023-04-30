@@ -1,15 +1,19 @@
 package gttweaker.mods.gregtech.machines;
 
-import gttweaker.mods.AddMultipleRecipeAction;
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
+
+import net.minecraft.item.ItemStack;
+
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
+import gttweaker.GTTweaker;
+import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Access point to Plate Bender recipes.
@@ -19,6 +23,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.PlateBender")
 @ModOnly(MOD_ID)
 public class PlateBender {
+
     /**
      * Adds a plate bender recipe.
      *
@@ -29,11 +34,31 @@ public class PlateBender {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding plate bender recipe for " + output, input, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addBenderRecipe(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding plate bender recipe for " + output,
+                input,
+                output,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    ItemStack a1 = i.nextItem();
+                    ItemStack a2 = i.nextItem();
+                    int a3 = i.nextInt();
+                    int a4 = i.nextInt();
+
+                    RA.addBenderRecipe(a1, a2, a3, a4);
+                    GTTweaker.logGTRecipe(
+                        new ItemStack[] { a1 },
+                        new ItemStack[] { a2 },
+                        null,
+                        null,
+                        a3,
+                        a4,
+                        "sBenderRecipes");
+                }
+            });
     }
 }

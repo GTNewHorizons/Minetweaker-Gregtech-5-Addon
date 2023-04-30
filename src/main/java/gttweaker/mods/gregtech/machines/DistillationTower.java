@@ -1,15 +1,15 @@
 package gttweaker.mods.gregtech.machines;
 
-import gttweaker.mods.AddMultipleRecipeAction;
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
+import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Provides access to the Distillation Tower recipes.
@@ -20,6 +20,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.DistillationTower")
 @ModOnly(MOD_ID)
 public class DistillationTower {
+
     /**
      * Adds an Distillation Tower recipe.
      *
@@ -30,26 +31,54 @@ public class DistillationTower {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+    public static void addRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput,
+        int durationTicks, int euPerTick) {
         if (fluidOutput.length < 1) {
             MineTweakerAPI.logError("Distillation Tower must have at least 1 Fluid output");
         } else {
-            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Distillation Tower recipe for " + fluidInput.getDisplayName(), fluidInput, fluidOutput, itemOutput, durationTicks, euPerTick) {
-                @Override
-                protected void applySingleRecipe(ArgIterator i) {
-                    RA.addDistillationTowerRecipe(i.nextFluid(), i.nextFluidArr(), i.nextItem(), i.nextInt(), i.nextInt());
-                }
-            });
+            MineTweakerAPI.apply(
+                new AddMultipleRecipeAction(
+                    "Adding Distillation Tower recipe for " + fluidInput.getDisplayName(),
+                    fluidInput,
+                    fluidOutput,
+                    itemOutput,
+                    durationTicks,
+                    euPerTick) {
+
+                    @Override
+                    protected void applySingleRecipe(ArgIterator i) {
+                        RA.addDistillationTowerRecipe(
+                            i.nextFluid(),
+                            i.nextFluidArr(),
+                            i.nextItem(),
+                            i.nextInt(),
+                            i.nextInt());
+                    }
+                });
         }
     }
 
     @ZenMethod
-    public static void addUniversalRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding universal distillation recipe for " + fluidInput.getDisplayName(), fluidInput, fluidOutput, itemOutput, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addUniversalDistillationRecipe(i.nextFluid(), i.nextFluidArr(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addUniversalRecipe(ILiquidStack[] fluidOutput, IItemStack itemOutput, ILiquidStack fluidInput,
+        int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding universal distillation recipe for " + fluidInput.getDisplayName(),
+                fluidInput,
+                fluidOutput,
+                itemOutput,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addUniversalDistillationRecipe(
+                        i.nextFluid(),
+                        i.nextFluidArr(),
+                        i.nextItem(),
+                        i.nextInt(),
+                        i.nextInt());
+                }
+            });
     }
 }

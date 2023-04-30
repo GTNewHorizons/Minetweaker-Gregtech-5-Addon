@@ -1,15 +1,19 @@
 package gttweaker.mods.gregtech.machines;
 
-import gttweaker.mods.AddMultipleRecipeAction;
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
+
+import net.minecraft.item.ItemStack;
+
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
+import gttweaker.GTTweaker;
+import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Provides access to the Slicer recipes.
@@ -19,6 +23,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.Slicer")
 @ModOnly(MOD_ID)
 public class Slicer {
+
     /**
      * Adds an Slicer recipe.
      *
@@ -29,12 +34,34 @@ public class Slicer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, IItemStack blade, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Slicer recipe for " + output, input, blade, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addSlicerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient input, IItemStack blade, int durationTicks,
+        int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Slicer recipe for " + output,
+                input,
+                blade,
+                output,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    ItemStack a1 = i.nextItem();
+                    ItemStack a2 = i.nextItem();
+                    ItemStack a3 = i.nextItem();
+                    int a4 = i.nextInt();
+                    int a5 = i.nextInt();
+                    RA.addSlicerRecipe(a1, a2, a3, a4, a5);
+                    GTTweaker.logGTRecipe(
+                        new ItemStack[] { a1, a2 },
+                        new ItemStack[] { a3 },
+                        null,
+                        null,
+                        a4,
+                        a5,
+                        "sSlicerRecipes");
+                }
+            });
     }
 }

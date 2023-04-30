@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89db49c9-da4d-41b7-bb67-c52406447406" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/CodeChickenCore-1.7.10-1.0.4.35-dev.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/CodeChickenLib-1.7.10-1.1.1.99-dev.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/GT-PlusPlus-1.7.04.449.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/MineTweaker3-Dev-1.7.10-3.0.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/NotEnoughItems-1.7.10-1.0.4.95-dev.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/gregtech-5.09.33.11-dev.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/GTTweaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/GTTweaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/GTTweakerRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/GTTweakerRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/AddMultipleRecipeAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/AddMultipleRecipeAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/Fuels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/Fuels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/expand/OreDictEntryExpansion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/expand/OreDictEntryExpansion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/AlloySmelter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/AlloySmelter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Amplifabricator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Amplifabricator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ArcFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ArcFurnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Assembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Assembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/AssemblyLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/AssemblyLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Autoclave.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Autoclave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/BlastFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/BlastFurnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Brewery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Brewery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Canner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Canner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Centrifuge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Centrifuge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ChemicalBath.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ChemicalBath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ChemicalReactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ChemicalReactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/CircuitAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/CircuitAssembler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Compressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Compressor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/CuttingSaw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/CuttingSaw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/DistillationTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/DistillationTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Distillery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Distillery.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Electrolyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Electrolyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Extractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Extractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Extruder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Extruder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Fermenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Fermenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidCanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidCanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidExtractor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidHeater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidHeater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidSolidifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FluidSolidifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ForgeHammer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ForgeHammer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FormingPress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FormingPress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FusionReactor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/FusionReactor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ImplosionCompressor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ImplosionCompressor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Lathe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Lathe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Mixer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Mixer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/OilCracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/OilCracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/OreWasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/OreWasher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Packer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Packer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PlasmaArcFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PlasmaArcFurnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PlateBender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PlateBender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Polarizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Polarizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PrecisionLaser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PrecisionLaser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PrimitiveBlastFurnace.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PrimitiveBlastFurnace.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Printer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Printer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Pulverizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Pulverizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PyrolyseOven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/PyrolyseOven.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Separator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Separator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Sifter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Sifter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Slicer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Slicer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ThermalCentrifuge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/ThermalCentrifuge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Unpacker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Unpacker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/VacuumFreezer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/VacuumFreezer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Wiremill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gregtech/machines/Wiremill.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/BlastSmelter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/BlastSmelter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/CokeOven.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/CokeOven.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/Dehydrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/Dehydrator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MatterFabricator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MatterFabricator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MultiblockCentrifuge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MultiblockCentrifuge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MultiblockElectrolyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/mods/gtpp/machines/MultiblockElectrolyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/util/ArrayHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/util/ArrayHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/AnyIngredientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/AnyIngredientException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/EmptyIngredientException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/EmptyIngredientException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/OutOfStackSizeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gttweaker/util/exception/OutOfStackSizeException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mcmod.info" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mcmod.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+    <option name="REVERSE_PATCH" value="false" />
+  </component>
+  <component name="DebuggerManager">
+    <breakpoint_any converted="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="false" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules converted="true" />
+    <ui_properties converted="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation>
+            <after_sync>
+              <task name="processIdeaSettings" />
+            </after_sync>
+          </activation>
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Minetweaker-Gregtech-5-Addon" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Minetweaker-Gregtech-5-Addon" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Minetweaker-Gregtech-5-Addon" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Minetweaker-Gregtech-5-Addon" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ModuleEditorState">
+    <option name="LAST_EDITED_MODULE_NAME" />
+    <option name="LAST_EDITED_TAB_NAME" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2P0viiOZZJFB25m1woJieIdHSzB" />
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state />
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/GITHUB_DESKTOP/GTNH/MagicBees",
+    "settings.editor.selected.configurable": "vcs.Git"
+  }
+}]]></component>
+  <component name="RunManager" selected="Gradle.Minetweaker-Gregtech-5-Addon [build]">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method>
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+    <configuration name="Run Client (IJ Native)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="GradleStart" />
+      <module name="Minetweaker-Gregtech-5-Addon.ideVirtualMain" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;--username&quot; &quot;Developer&quot; &quot;--version&quot; &quot;1.7.10&quot; &quot;--gameDir&quot; &quot;D:\GITHUB_DESKTOP\GTNH\Minetweaker-Gregtech-5-Addon\run&quot; &quot;--assetsDir&quot; &quot;C:\Users\TellingSalamander\.gradle\caches\retro_futura_gradle\assets&quot; &quot;--assetIndex&quot; &quot;1.7.10&quot; &quot;--uuid&quot; &quot;31c4910d-9b69-4725-8969-9ed53ac8a7dc&quot; &quot;--userProperties&quot; &quot;{}&quot; &quot;--accessToken&quot; &quot;0&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;-ea:gttweaker&quot; &quot;-Dfml.ignoreInvalidMinecraftCertificates=true&quot; &quot;-Djava.library.path=D:\GITHUB_DESKTOP\GTNH\Minetweaker-Gregtech-5-Addon\run\natives\lwjgl2;D:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Python311\Scripts\;C:\Program Files\Python311\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Eclipse Foundation\jdk-8.0.302.8-hotspot\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\System32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files\Java\jdk1.8.0_241\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;D:\Program Files (x86)\Gpg4win\..\GnuPG\bin;C:\Program Files\PuTTY\;D:\ffmpeg\bin\;D:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\dotnet\;C:\Users\TellingSalamander\AppData\Local\Microsoft\WindowsApps;C:\Users\TellingSalamander\AppData\Local\GitHubDesktop\bin;C:\Users\TellingSalamander\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\TellingSalamander\AppData\Roaming\npm;C:\Users\TellingSalamander\.dotnet\tools;C:\Users\TellingSalamander\AppData\Roaming\Python\Scripts;.&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run Server (IJ Native)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
+      <module name="Minetweaker-Gregtech-5-Addon.ideVirtualMain" />
+      <option name="PROGRAM_PARAMETERS" value="&quot;nogui&quot;" />
+      <option name="VM_PARAMETERS" value="&quot;-ea:gttweaker&quot; &quot;-Dfml.ignoreInvalidMinecraftCertificates=true&quot;" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="1. Run Client" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runClient" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="1a. Run Client (Java 17)" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runClient17" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="1b. Run Client (Java 17, Hotswap)" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="HOTSWAP" value="true" />
+          </map>
+        </option>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runClient17" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="2. Run Server" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runServer" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="2a. Run Server (Java 17)" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runServer17" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="2b. Run Server (Java 17, Hotswap)" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="env">
+          <map>
+            <entry key="HOTSWAP" value="true" />
+          </map>
+        </option>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runServer17" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="3. Run Obfuscated Client" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runObfClient" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="4. Run Obfuscated Server" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="runObfServer" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="5. Apply spotless" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="spotlessApply" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="Minetweaker-Gregtech-5-Addon [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <option name="AUTO_RESTART" value="false" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="false" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Minetweaker-Gregtech-5-Addon [build]" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="UPDATE_RUN_STATUS" value="false" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="DETECT_NESTED_COPIES" value="true" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89db49c9-da4d-41b7-bb67-c52406447406" name="Changes" comment="" />
+      <created>1682606942839</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682606942839</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
+  </component>
+</project>

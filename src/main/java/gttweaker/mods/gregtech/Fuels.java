@@ -1,15 +1,19 @@
 package gttweaker.mods.gregtech;
 
-import gttweaker.mods.AddMultipleRecipeAction;
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
+
+import net.minecraft.item.ItemStack;
+
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
+import gttweaker.GTTweaker;
+import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Provides access to the fuels used by the various generators.
@@ -19,6 +23,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.Fuels")
 @ModOnly(MOD_ID)
 public class Fuels {
+
     /**
      * Adds a Diesel Engine fuel. If the given item does not contain any liquid,
      * it will generate the equivalent of 1000 millibuckets.
@@ -102,7 +107,9 @@ public class Fuels {
     // ######################
 
     private static class AddRecipeAction extends AddMultipleRecipeAction {
-        private static final String[] GENERATORS = {"diesel", "gas turbine", "thermal", "dense fluid", "plasma", "magic"};
+
+        private static final String[] GENERATORS = { "diesel", "gas turbine", "thermal", "dense fluid", "plasma",
+            "magic" };
 
         public AddRecipeAction(IItemStack output, IIngredient input, int euPerMillibucket, int type) {
             super("Adding " + GENERATORS[type] + " fuel " + input, input, output, euPerMillibucket, type);
@@ -110,7 +117,14 @@ public class Fuels {
 
         @Override
         protected void applySingleRecipe(ArgIterator i) {
-            RA.addFuel(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+            ItemStack a1 = i.nextItem();
+            ItemStack a2 = i.nextItem();
+            int a3 = i.nextInt();
+            int a4 = i.nextInt();
+            RA.addFuel(a1, a2, a3, a4);
+            GTTweaker.info(
+                "GT_Values.RA.addFuel(" + GTTweaker
+                    .convertStack(a1) + ", " + GTTweaker.convertStack(a2) + ", " + a3 + ", " + a4 + ");");
         }
     }
 }

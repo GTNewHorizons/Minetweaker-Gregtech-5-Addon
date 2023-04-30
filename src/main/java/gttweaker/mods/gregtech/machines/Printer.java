@@ -1,6 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
-import gttweaker.mods.AddMultipleRecipeAction;
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
@@ -8,9 +10,7 @@ import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
+import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Provides access to the Printer recipes.
@@ -20,6 +20,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.Printer")
 @ModOnly(MOD_ID)
 public class Printer {
+
     /**
      * Adds a Printer recipe.
      *
@@ -31,12 +32,28 @@ public class Printer {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, IItemStack dataStick, ILiquidStack ink, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Printer recipe for " + output, input, ink, dataStick, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addPrinterRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient input, IItemStack dataStick, ILiquidStack ink,
+        int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Printer recipe for " + output,
+                input,
+                ink,
+                dataStick,
+                output,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addPrinterRecipe(
+                        i.nextItem(),
+                        i.nextFluid(),
+                        i.nextItem(),
+                        i.nextItem(),
+                        i.nextInt(),
+                        i.nextInt());
+                }
+            });
     }
 }

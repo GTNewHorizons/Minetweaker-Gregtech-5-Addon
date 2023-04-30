@@ -1,0 +1,13 @@
+{
+  "ideaDirPath": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon",
+  "modulesMap": {
+    "Minetweaker-Gregtech-5-Addon": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.iml",
+    "Minetweaker-Gregtech-5-Addon:mcLauncher": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.mcLauncher.iml",
+    "Minetweaker-Gregtech-5-Addon:patchedMc": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.patchedMc.iml",
+    "Minetweaker-Gregtech-5-Addon:test": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.test.iml",
+    "Minetweaker-Gregtech-5-Addon:injectedTags": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.injectedTags.iml",
+    "Minetweaker-Gregtech-5-Addon:main": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.main.iml",
+    "Minetweaker-Gregtech-5-Addon:api": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.api.iml",
+    "Minetweaker-Gregtech-5-Addon:ideVirtualMain": "D:/GITHUB_DESKTOP/GTNH/Minetweaker-Gregtech-5-Addon/Minetweaker-Gregtech-5-Addon.ideVirtualMain.iml"
+  }
+}

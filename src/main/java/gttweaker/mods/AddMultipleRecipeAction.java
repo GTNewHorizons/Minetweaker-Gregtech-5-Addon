@@ -1,27 +1,33 @@
 package gttweaker.mods;
 
-import gttweaker.util.exception.AnyIngredientException;
-import gttweaker.util.exception.EmptyIngredientException;
-import gttweaker.util.exception.OutOfStackSizeException;
+import java.util.*;
+
 import minetweaker.MineTweakerAPI;
 import minetweaker.OneWayAction;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import minetweaker.api.minecraft.MineTweakerMC;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import java.util.*;
+import gttweaker.util.exception.AnyIngredientException;
+import gttweaker.util.exception.EmptyIngredientException;
+import gttweaker.util.exception.OutOfStackSizeException;
 
 /**
  * Created by Techlone
  */
 public abstract class AddMultipleRecipeAction extends OneWayAction {
+
     private static List<List<Object>> createNewMatrix(int initCount) {
-        return new ArrayList<List<Object>>(initCount) {{
-            this.add(new ArrayList<Object>());
-        }};
+        return new ArrayList<List<Object>>(initCount) {
+
+            {
+                this.add(new ArrayList<Object>());
+            }
+        };
     }
 
     private static void extendBySingle(Object singleArg, List<List<Object>> recipesData) {
@@ -78,8 +84,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         List<ItemStack[]> result = new ArrayList<ItemStack[]>(tempArgs.size());
         for (List<Object> tempArg : tempArgs) {
             ItemStack[] arg = new ItemStack[tempArg.size()];
-            for (int i = 0; i < arg.length; i++)
-                arg[i] = (ItemStack) tempArg.get(i);
+            for (int i = 0; i < arg.length; i++) arg[i] = (ItemStack) tempArg.get(i);
             result.add(arg);
         }
 
@@ -124,6 +129,7 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
     protected abstract void applySingleRecipe(ArgIterator i);
 
     protected static class ArgIterator {
+
         private Iterator<Object> iterator;
 
         public ArgIterator(List<Object> args) {

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id="Minetweaker-Gregtech-5-Addon:main" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="com.github.GTNewHorizons" external.system.module.type="sourceSet" external.system.module.version="1.7.5-5-gfebda0e.dirty" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Minetweaker-Gregtech-5-Addon.api" />
+    <orderEntry type="module" module-name="Minetweaker-Gregtech-5-Addon.injectedTags" />
+    <orderEntry type="module" module-name="Minetweaker-Gregtech-5-Addon.mcLauncher" />
+    <orderEntry type="module" module-name="Minetweaker-Gregtech-5-Addon.patchedMc" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:GTplusplus:dev:1.8.42" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:GT5-Unofficial:dev:5.09.42.82" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:NotEnoughItems:dev:2.3.45-GTNH" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:CodeChickenCore:dev:1.1.11" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:CodeChickenLib:dev:1.1.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:CraftTweaker:dev:3.2.12" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.lwjgl.lwjgl:lwjgl-platform:natives-linux:2.9.4-nightly-20150209" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.lwjgl.lwjgl:lwjgl-platform:natives-osx:2.9.4-nightly-20150209" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.lwjgl.lwjgl:lwjgl-platform:natives-windows:2.9.4-nightly-20150209" level="project" />
+    <orderEntry type="library" name="Gradle: net.minecraft:launchwrapper:1.12" level="project" />
+    <orderEntry type="library" name="Gradle: com.mojang:authlib:1.5.21" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:2.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.ow2.asm:asm-debug-all:5.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.typesafe.akka:akka-actor_2.11:2.3.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.typesafe:config:1.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-actors-migration_2.11:1.1.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang.plugins:scala-continuations-plugin_2.11.1:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-compiler:2.11.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang.plugins:scala-continuations-library_2.11:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-reflect:2.11.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-library:2.11.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-parser-combinators_2.11:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-swing_2.11:1.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-xml_2.11:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: lzma:lzma:0.0.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.mojang:netty:1.8.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.mojang:realms:1.3.5" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-compress:1.8.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpclient:4.3.3" level="project" />
+    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.1.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.httpcomponents:httpcore:4.3.2" level="project" />
+    <orderEntry type="library" name="Gradle: java3d:vecmath:1.3.1" level="project" />
+    <orderEntry type="library" name="Gradle: net.sf.trove4j:trove4j:3.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.ibm.icu:icu4j-core-mojang:51.2" level="project" />
+    <orderEntry type="library" name="Gradle: net.sf.jopt-simple:jopt-simple:4.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.paulscode:codecjorbis:20101023" level="project" />
+    <orderEntry type="library" name="Gradle: com.paulscode:codecwav:20101023" level="project" />
+    <orderEntry type="library" name="Gradle: com.paulscode:libraryjavasound:20101123" level="project" />
+    <orderEntry type="library" name="Gradle: com.paulscode:librarylwjglopenal:20100824" level="project" />
+    <orderEntry type="library" name="Gradle: com.paulscode:soundsystem:20120107" level="project" />
+    <orderEntry type="library" name="Gradle: io.netty:netty-all:4.0.10.Final" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.guava:guava:17.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-lang3:3.3.2" level="project" />
+    <orderEntry type="library" name="Gradle: commons-io:commons-io:2.4" level="project" />
+    <orderEntry type="library" name="Gradle: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Gradle: net.java.jinput:jinput:2.0.5" level="project" />
+    <orderEntry type="library" name="Gradle: net.java.jutils:jutils:1.0.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.google.code.gson:gson:2.2.4" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-core:2.0-beta9" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.logging.log4j:log4j-api:2.0-beta9" level="project" />
+    <orderEntry type="library" name="Gradle: net.java.jinput:jinput-platform:natives-windows:2.0.5" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch:5.16" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch-platform:natives-osx:5.16" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch-platform:natives-windows-32:5.16" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch-platform:natives-windows-64:5.16" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch-external-platform:natives-windows-32:4.5" level="project" />
+    <orderEntry type="library" name="Gradle: tv.twitch:twitch-external-platform:natives-windows-64:4.5" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:bartworks:dev:0.6.14" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:TecTech:dev:5.1.15-pre" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:ModularUI:dev:1.1.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:waila:dev:1.5.23" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:StructureLib:dev:1.2.1" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:GTNHLib:dev:0.0.12" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:dev:rv3-beta-195-GTNH" level="project" />
+    <orderEntry type="library" name="Gradle: net.industrial-craft:industrialcraft-2:dev:2.2.828-experimental" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang:scala-actors:2.11.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang.modules:scala-xml_2.11:1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:Galacticraft:dev:3.0.68-GTNH" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:GalacticGregGT5:dev:1.0.8" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:Avaritia:dev:1.37" level="project" />
+    <orderEntry type="library" name="Gradle: com.github.GTNewHorizons:Yamcl:dev:0.5.86" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:23.0.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.google.code.gson:gson:2.8.7" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: net.java.jinput:jinput-platform:natives-linux:2.0.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: net.java.jinput:jinput-platform:natives-osx:2.0.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:ForestryMC:dev:4.6.5" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: curse.maven:cofh-core-69162:2388751" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: curse.maven:advsolar-362768:2885953" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:Eternal-Singularity:dev:1.0.10" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:TinkersConstruct:dev:1.9.26-GTNH" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:GTNEIOrePlugin:dev:1.0.29" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:BuildCraft:api:7.1.28" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:BuildCraft:dev:7.1.28" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:inventory-tweaks:api:1.5.14" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: curse.maven:cofh-lib-220333:2388748" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:Universal-Singularities:dev:8.6.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:WanionLib:dev:1.8.4" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: io.github.legacymoddingmc:unimixins:dev:0.1.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:ironchest:dev:6.0.71" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:ForgeMultipart:dev:1.3.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.github.GTNewHorizons:Mantle:dev:0.3.6" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.diffplug:blowdryer:1.6.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.squareup.okhttp3:okhttp:4.2.2" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.squareup.okio:okio:2.4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.diffplug.durian:durian-io:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.diffplug.durian:durian-core:1.2.0" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.50" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: com.diffplug.durian:durian-collect:1.2.0" level="project" />
+  </component>
+</module>
