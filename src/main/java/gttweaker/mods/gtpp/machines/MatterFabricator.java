@@ -1,13 +1,13 @@
 package gttweaker.mods.gtpp.machines;
 
+import gtPlusPlus.core.lib.CORE;
+import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-import gtPlusPlus.core.lib.CORE;
-import gttweaker.mods.AddMultipleRecipeAction;
 
 @ZenClass("mods.gtpp.MatterFabricator")
 @ModOnly("miscutils")

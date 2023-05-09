@@ -3,16 +3,15 @@ package gttweaker.mods.gregtech.machines;
 import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
+import net.minecraftforge.fluids.FluidStack;
+
+import gttweaker.GTTweaker;
+import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.liquid.ILiquidStack;
-
-import net.minecraftforge.fluids.FluidStack;
-
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-import gttweaker.GTTweaker;
-import gttweaker.mods.AddMultipleRecipeAction;
 
 /**
  * Provides access to the Fermenter recipes.

@@ -4,9 +4,6 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Function;
 
-import minetweaker.MineTweakerAPI;
-import minetweaker.api.oredict.IOreDictEntry;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.FluidStack;
@@ -23,6 +20,8 @@ import gregtech.api.GregTech_API;
 import gttweaker.mods.gregtech.Fuels;
 import gttweaker.mods.gregtech.machines.*;
 import gttweaker.mods.gtpp.machines.*;
+import minetweaker.MineTweakerAPI;
+import minetweaker.api.oredict.IOreDictEntry;
 
 @Mod(modid = "GTTweaker", useMetadata = true)
 public class GTTweaker {

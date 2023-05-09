@@ -2,19 +2,18 @@ package gttweaker.mods;
 
 import java.util.*;
 
-import minetweaker.MineTweakerAPI;
-import minetweaker.OneWayAction;
-import minetweaker.api.item.IIngredient;
-import minetweaker.api.item.IItemStack;
-import minetweaker.api.liquid.ILiquidStack;
-import minetweaker.api.minecraft.MineTweakerMC;
-
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.util.exception.AnyIngredientException;
 import gttweaker.util.exception.EmptyIngredientException;
 import gttweaker.util.exception.OutOfStackSizeException;
+import minetweaker.MineTweakerAPI;
+import minetweaker.OneWayAction;
+import minetweaker.api.item.IIngredient;
+import minetweaker.api.item.IItemStack;
+import minetweaker.api.liquid.ILiquidStack;
+import minetweaker.api.minecraft.MineTweakerMC;
 
 /**
  * Created by Techlone
