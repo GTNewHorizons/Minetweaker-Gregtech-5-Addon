@@ -1,5 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -9,9 +12,6 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the Fluid Canner recipes.
  *
@@ -20,6 +20,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.FluidCanner")
 @ModOnly(MOD_ID)
 public class FluidCanner {
+
     /**
      * Adds a Fluid Canner recipe.
      *
@@ -29,12 +30,20 @@ public class FluidCanner {
      * @param fluidInput  fluid Input Slot
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidOutput, ILiquidStack fluidInput) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fluid Canner recipe for " + input, input, output, fluidInput, fluidOutput) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addFluidCannerRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient input, ILiquidStack fluidOutput,
+        ILiquidStack fluidInput) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Fluid Canner recipe for " + input,
+                input,
+                output,
+                fluidInput,
+                fluidOutput) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addFluidCannerRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid());
+                }
+            });
     }
 }

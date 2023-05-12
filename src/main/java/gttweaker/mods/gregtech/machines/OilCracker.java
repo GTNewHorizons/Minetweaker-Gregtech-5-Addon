@@ -1,14 +1,14 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
 
 /**
  * Provides access to the OilCracker recipes.
@@ -18,6 +18,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.OilCracker")
 @ModOnly(MOD_ID)
 public class OilCracker {
+
     /**
      * Adds a Oil Cracker recipe.
      *
@@ -28,13 +29,29 @@ public class OilCracker {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(int circuitConfig, ILiquidStack fluidOutput, ILiquidStack fluidInput1, ILiquidStack fluidInput2, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Oil Cracker recipe for " + fluidOutput, circuitConfig, fluidInput1, fluidInput2, fluidOutput, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addCrackingRecipe(i.nextInt(), i.nextFluid(), i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(int circuitConfig, ILiquidStack fluidOutput, ILiquidStack fluidInput1,
+        ILiquidStack fluidInput2, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Oil Cracker recipe for " + fluidOutput,
+                circuitConfig,
+                fluidInput1,
+                fluidInput2,
+                fluidOutput,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addCrackingRecipe(
+                        i.nextInt(),
+                        i.nextFluid(),
+                        i.nextFluid(),
+                        i.nextFluid(),
+                        i.nextInt(),
+                        i.nextInt());
+                }
+            });
     }
 
     @ZenMethod
@@ -42,4 +59,3 @@ public class OilCracker {
         MineTweakerAPI.logWarning("This method is no longer supported for OilCracker. Use OilCracker.addRecipe()");
     }
 }
-

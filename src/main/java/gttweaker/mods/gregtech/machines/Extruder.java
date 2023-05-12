@@ -1,5 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -7,9 +10,6 @@ import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
 
 /**
  * Provides access to the extruder recipes.
@@ -19,6 +19,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.Extruder")
 @ModOnly(MOD_ID)
 public class Extruder {
+
     /**
      * Adds an extruder recipe.
      *
@@ -29,12 +30,21 @@ public class Extruder {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input, IItemStack shape, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding extruder recipe for " + output, input, shape, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addExtruderRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient input, IItemStack shape, int durationTicks,
+        int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding extruder recipe for " + output,
+                input,
+                shape,
+                output,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addExtruderRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                }
+            });
     }
 }

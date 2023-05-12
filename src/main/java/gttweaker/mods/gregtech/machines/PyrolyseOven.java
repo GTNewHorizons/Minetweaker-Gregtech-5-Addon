@@ -1,5 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.MOD_ID;
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -9,9 +12,6 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the PyrolyseOven recipes.
  *
@@ -20,6 +20,7 @@ import static gregtech.api.enums.GT_Values.RA;
 @ZenClass("mods.gregtech.PyrolyseOven")
 @ModOnly(MOD_ID)
 public class PyrolyseOven {
+
     /**
      * Adds a Pyrolyse Oven recipe.
      *
@@ -32,13 +33,30 @@ public class PyrolyseOven {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, int circuit, IIngredient input, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Pyrolyse Oven recipe for " + output, input, fluidInput, circuit, output, fluidOutput, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addPyrolyseRecipe(i.nextItem(), i.nextFluid(), i.nextInt(), i.nextItem(), i.nextFluid(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output, ILiquidStack fluidOutput, int circuit, IIngredient input,
+        ILiquidStack fluidInput, int durationTicks, int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Pyrolyse Oven recipe for " + output,
+                input,
+                fluidInput,
+                circuit,
+                output,
+                fluidOutput,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addPyrolyseRecipe(
+                        i.nextItem(),
+                        i.nextFluid(),
+                        i.nextInt(),
+                        i.nextItem(),
+                        i.nextFluid(),
+                        i.nextInt(),
+                        i.nextInt());
+                }
+            });
     }
 }
-

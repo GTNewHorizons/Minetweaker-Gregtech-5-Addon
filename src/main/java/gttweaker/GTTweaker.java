@@ -12,8 +12,9 @@ import minetweaker.MineTweakerAPI;
 
 @Mod(modid = "GTTweaker", useMetadata = true)
 public class GTTweaker {
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
         MineTweakerAPI.registerClass(AlloySmelter.class);
         MineTweakerAPI.registerClass(Amplifabricator.class);
         MineTweakerAPI.registerClass(Assembler.class);
@@ -73,11 +74,11 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(CokeOven.class);
             MineTweakerAPI.registerClass(Dehydrator.class);
             MineTweakerAPI.registerClass(MatterFabricator.class);
-	    MineTweakerAPI.registerClass(MultiblockCentrifuge.class);
-	    MineTweakerAPI.registerClass(MultiblockElectrolyzer.class);	
+            MineTweakerAPI.registerClass(MultiblockCentrifuge.class);
+            MineTweakerAPI.registerClass(MultiblockElectrolyzer.class);
         }
     }
-    
+
     @EventHandler
     public void onPostInit(FMLPostInitializationEvent ev) {
         MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
