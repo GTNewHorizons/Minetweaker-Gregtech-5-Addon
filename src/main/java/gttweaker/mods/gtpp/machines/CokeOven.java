@@ -11,7 +11,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.gtpp.CokeOven")
-@ModOnly(CORE.MODID)
+@ModOnly("miscutils")
 public class CokeOven {
 
     @ZenMethod

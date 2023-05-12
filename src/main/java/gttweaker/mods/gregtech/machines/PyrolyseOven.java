@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
 import gttweaker.mods.AddMultipleRecipeAction;
@@ -18,7 +17,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.PyrolyseOven")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class PyrolyseOven {
 
     /**

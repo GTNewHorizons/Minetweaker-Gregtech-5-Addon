@@ -29,7 +29,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
 // inputs, fluidInput, fluidOutput, outputs, chance, durationTicks, euPerTick, Special
 
 @ZenClass("mods.gtpp.BlastSmelter")
-@ModOnly(CORE.MODID)
+@ModOnly("miscutils")
 public class BlastSmelter {
 
     @ZenMethod

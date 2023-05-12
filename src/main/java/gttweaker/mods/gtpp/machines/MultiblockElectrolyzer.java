@@ -10,7 +10,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.gtpp.MultiblockElectrolyzer")
-@ModOnly(CORE.MODID)
+@ModOnly("miscutils")
 /*
  * ItemStack[] aOutputs,
  * FluidStack[] aFluidOutputs,

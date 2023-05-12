@@ -1,10 +1,10 @@
 [
 {
-  "modid": "gttweaker",
-  "name": "GTTweaker",
+  "modid": "${modId}",
+  "name": "${modName}",
   "description": "Minetweaker Addon for GregTech 5.",
-  "version": "${version}",
-  "mcversion": "1.7.10",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
   "url": "http://forum.industrial-craft.net/index.php?page=Thread&threadID=11353",
   "updateUrl": "",
   "authorList": ["DreamMasterXXL", "Techlone"],

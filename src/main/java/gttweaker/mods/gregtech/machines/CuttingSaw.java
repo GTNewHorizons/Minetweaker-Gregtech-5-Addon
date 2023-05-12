@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
@@ -20,7 +19,7 @@ import stanhebben.zenscript.annotations.ZenMethod;
  * @author bculkin2442
  */
 @ZenClass("mods.gregtech.CuttingSaw")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class CuttingSaw {
 
     /**

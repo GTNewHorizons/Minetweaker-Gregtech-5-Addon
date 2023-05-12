@@ -1,7 +1,5 @@
 package gttweaker.mods.gregtech.expand;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-
 import java.util.*;
 
 import minetweaker.MineTweakerAPI;
@@ -12,7 +10,7 @@ import stanhebben.zenscript.annotations.ZenExpansion;
 import stanhebben.zenscript.annotations.ZenGetter;
 
 @ZenExpansion("minetweaker.oredict.IOreDictEntry")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class OreDictEntryExpansion {
 
     @ZenGetter("greggedItem")
@@ -23,7 +21,7 @@ public class OreDictEntryExpansion {
             // TODO: how to determine GT's items better?
             if (item.getDefinition()
                 .getId()
-                .startsWith(MOD_ID)) {
+                .startsWith("gregtech")) {
                 matchedItems.add(item);
             }
         }

@@ -1,6 +1,5 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
 import static gregtech.api.enums.GT_Values.RA;
 
 import gttweaker.mods.AddMultipleRecipeAction;
@@ -12,7 +11,7 @@ import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
 @ZenClass("mods.gregtech.Compressor")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Compressor {
 
     @ZenMethod
