@@ -1,14 +1,19 @@
 package gttweaker.mods.gregtech;
 
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
+import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_RecipeBuilder;
 import gttweaker.GTTweaker;
+import minetweaker.IUndoableAction;
+import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import stanhebben.zenscript.annotations.ZenClass;
@@ -114,6 +119,63 @@ public class RA2Builder {
 
     @ZenMethod
     public void addTo(String recipeMap) {
-        recipeBuilder.addTo(GTRecipeMap.getRecipeMap(recipeMap));
+        MineTweakerAPI.apply(
+            new RA2RecipeAdder(
+                recipeBuilder.build()
+                    .get(),
+                GTRecipeMap.getRecipeMap(recipeMap)));
+    }
+
+    public static class RA2RecipeAdder implements IUndoableAction {
+
+        GT_Recipe recipe;
+        GT_Recipe.GT_Recipe_Map map;
+
+        public RA2RecipeAdder(GT_Recipe recipe, GT_Recipe.GT_Recipe_Map map) {
+            this.recipe = recipe;
+            this.map = map;
+        }
+
+        @Override
+        public void apply() {
+            map.add(recipe);
+        }
+
+        @Override
+        public boolean canUndo() {
+            return true;
+        }
+
+        @Override
+        public void undo() {
+            map.mRecipeList.remove(recipe);
+            map.mRecipeItemMap.entrySet()
+                .stream()
+                .filter(e -> e.getValue() == recipe)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet())
+                .forEach(k -> map.mRecipeItemMap.remove(k));
+            map.mRecipeFluidMap.entrySet()
+                .stream()
+                .filter(e -> e.getValue() == recipe)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet())
+                .forEach(k -> map.mRecipeFluidMap.remove(k));
+        }
+
+        @Override
+        public String describe() {
+            return "RA2 - Adding recipe";
+        }
+
+        @Override
+        public String describeUndo() {
+            return "RA2 - Removing recipe";
+        }
+
+        @Override
+        public Object getOverrideKey() {
+            return null;
+        }
     }
 }

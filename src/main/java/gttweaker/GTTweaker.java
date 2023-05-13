@@ -11,6 +11,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import gregtech.api.GregTech_API;
 import gttweaker.mods.gregtech.Fuels;
 import gttweaker.mods.gregtech.RA2Builder;
+import gttweaker.mods.gregtech.RecipeRemover;
 import gttweaker.mods.gregtech.machines.*;
 import gttweaker.mods.gtpp.machines.*;
 import minetweaker.MineTweakerAPI;
@@ -84,6 +85,7 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(MultiblockElectrolyzer.class);
         }
         MineTweakerAPI.registerClass(RA2Builder.class);
+        MineTweakerAPI.registerClass(RecipeRemover.class);
     }
 
     @EventHandler
