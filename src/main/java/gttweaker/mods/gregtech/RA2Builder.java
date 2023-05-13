@@ -118,6 +118,24 @@ public class RA2Builder {
     }
 
     @ZenMethod
+    public RA2Builder outputChances(int[] chances) {
+        recipeBuilder.outputChances(chances);
+        return this;
+    }
+
+    @ZenMethod
+    public RA2Builder specialValue(int specialValue) {
+        recipeBuilder.specialValue(specialValue);
+        return this;
+    }
+
+    @ZenMethod
+    public RA2Builder specialItem(IIngredient specialItem) {
+        recipeBuilder.specialItem(GTTweaker.getItemStackOrNull(specialItem));
+        return this;
+    }
+
+    @ZenMethod
     public void addTo(String recipeMap) {
         GT_Recipe recipe = recipeBuilder.build()
             .orElse(null);
