@@ -25,6 +25,10 @@ public class RecipeRemover {
     @ZenMethod
     public static void remove(String map, IIngredient[] inputs, IIngredient[] fluidInputs) {
         GT_Recipe.GT_Recipe_Map recipeMap = GTRecipeMap.getRecipeMap(map);
+        if (recipeMap == null) {
+            MineTweakerAPI.logError("Could not find recipe map named \"" + map + "\"");
+            return;
+        }
         GT_Recipe recipe = recipeMap.findRecipe(
             null,
             false,
@@ -38,6 +42,10 @@ public class RecipeRemover {
                 .map(GTTweaker::getItemStackOrNull)
                 .filter(Objects::nonNull)
                 .toArray(ItemStack[]::new));
+        if (recipe == null) {
+            MineTweakerAPI.logWarning("Could not find recipe to remove!");
+            return;
+        }
         MineTweakerAPI.apply(new RecipeRemoveAction(recipe, recipeMap));
     }
 

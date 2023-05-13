@@ -119,19 +119,27 @@ public class RA2Builder {
 
     @ZenMethod
     public void addTo(String recipeMap) {
-        MineTweakerAPI.apply(
-            new RA2RecipeAdder(
-                recipeBuilder.build()
-                    .get(),
-                GTRecipeMap.getRecipeMap(recipeMap)));
+        GT_Recipe recipe = recipeBuilder.build()
+            .orElse(null);
+        if (recipe == null) {
+            MineTweakerAPI.logError("Could not build recipe!");
+            return;
+        }
+        GT_Recipe.GT_Recipe_Map map = GTRecipeMap.getRecipeMap(recipeMap);
+        if (map == null) {
+            MineTweakerAPI.logError("Could not find recipe map named \"" + recipeMap + "\"");
+            return;
+        }
+
+        MineTweakerAPI.apply(new RecipeAddAction(recipe, map));
     }
 
-    public static class RA2RecipeAdder implements IUndoableAction {
+    public static class RecipeAddAction implements IUndoableAction {
 
         GT_Recipe recipe;
         GT_Recipe.GT_Recipe_Map map;
 
-        public RA2RecipeAdder(GT_Recipe recipe, GT_Recipe.GT_Recipe_Map map) {
+        public RecipeAddAction(GT_Recipe recipe, GT_Recipe.GT_Recipe_Map map) {
             this.recipe = recipe;
             this.map = map;
         }
