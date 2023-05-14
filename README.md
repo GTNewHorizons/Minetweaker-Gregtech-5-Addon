@@ -1,9 +1,13 @@
 # Minetweaker-Gregtech-5-Addon
 Minetweaker Addon for all Gregtech 5 Machines
 
+## Example script: https://github.com/GTNewHorizons/GT-New-Horizons-Modpack/commit/2181d175d6bc719f1ae95d891eefa283a3a3a589
+## WIKI: https://github.com/GTNewHorizons/Minetweaker-Gregtech-5-Addon/wiki
+
 [![Build Status](http://jenkins.usrv.eu:8080/buildStatus/icon?job=Minetweaker-Gregtech-5-Addon-1.7.10)](http://jenkins.usrv.eu:8080/job/Minetweaker-Gregtech-5-Addon-1.7.10/)
 
 Changelog:<BR>
+Further changes -> https://github.com/GTNewHorizons/Minetweaker-Gregtech-5-Addon/releases  
 1.7.5 Add GT++ Blast Smelter more recipes
 1.7.4 Add GT++ Blast Smelter
 1.7.3 Add GT++ Multi Electrolyzer
