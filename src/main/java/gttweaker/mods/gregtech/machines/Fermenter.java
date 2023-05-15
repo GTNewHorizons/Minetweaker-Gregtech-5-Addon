@@ -1,5 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -7,17 +9,15 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the Fermenter recipes.
  *
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Fermenter")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Fermenter {
+
     /**
      * Adds a Fermenter recipe.
      *
@@ -28,11 +28,18 @@ public class Fermenter {
      */
     @ZenMethod
     public static void addRecipe(ILiquidStack fluidOutput, ILiquidStack fluidInput, int duration, boolean hidden) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Fermenter recipe for " + fluidOutput, fluidInput, fluidOutput, duration, hidden) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addFermentingRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextBool());
-            }
-        });
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Fermenter recipe for " + fluidOutput,
+                fluidInput,
+                fluidOutput,
+                duration,
+                hidden) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addFermentingRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextBool());
+                }
+            });
     }
 }

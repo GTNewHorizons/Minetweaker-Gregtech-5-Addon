@@ -1,5 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+import static gttweaker.util.ArrayHelper.itemOrNull;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -8,18 +11,15 @@ import minetweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-import static gttweaker.util.ArrayHelper.itemOrNull;
-
 /**
  * Provider access to the Canner recipes.
  *
  * @author Stan Hebben
  */
 @ZenClass("mods.gregtech.Canner")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Canner {
+
     /**
      * Adds a canner recipe with a single output.
      *
@@ -30,8 +30,9 @@ public class Canner {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-        addRecipe(new IItemStack[]{output}, input1, input2, durationTicks, euPerTick);
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks,
+        int euPerTick) {
+        addRecipe(new IItemStack[] { output }, input1, input2, durationTicks, euPerTick);
     }
 
     /**
@@ -44,16 +45,32 @@ public class Canner {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack[] output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack[] output, IIngredient input1, IIngredient input2, int durationTicks,
+        int euPerTick) {
         if (output.length == 0) {
             MineTweakerAPI.logError("canner requires at least 1 output");
         } else {
-            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding canner recipe for " + output[0], input1, input2, output[0], itemOrNull(output, 1), durationTicks, euPerTick) {
-                @Override
-                protected void applySingleRecipe(ArgIterator i) {
-                    RA.addCannerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-                }
-            });
+            MineTweakerAPI.apply(
+                new AddMultipleRecipeAction(
+                    "Adding canner recipe for " + output[0],
+                    input1,
+                    input2,
+                    output[0],
+                    itemOrNull(output, 1),
+                    durationTicks,
+                    euPerTick) {
+
+                    @Override
+                    protected void applySingleRecipe(ArgIterator i) {
+                        RA.addCannerRecipe(
+                            i.nextItem(),
+                            i.nextItem(),
+                            i.nextItem(),
+                            i.nextItem(),
+                            i.nextInt(),
+                            i.nextInt());
+                    }
+                });
         }
     }
 }

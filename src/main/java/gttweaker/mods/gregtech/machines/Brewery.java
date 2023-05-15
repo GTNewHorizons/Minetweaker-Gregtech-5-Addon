@@ -1,5 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -8,17 +10,15 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the Brewing Machine recipes.
  *
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Brewery")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Brewery {
+
     /**
      * Adds a Brewing Machine recipe.
      *
@@ -29,11 +29,19 @@ public class Brewery {
      */
     @ZenMethod
     public static void addRecipe(ILiquidStack output, IIngredient ingredient, ILiquidStack input, boolean hidden) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Brewery recipe for " + output, ingredient, input, output, hidden) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addBrewingRecipe(i.nextItem(), i.nextFluid().getFluid(), i.nextFluid().getFluid(), i.nextBool());
-            }
-        });
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction("Adding Brewery recipe for " + output, ingredient, input, output, hidden) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addBrewingRecipe(
+                        i.nextItem(),
+                        i.nextFluid()
+                            .getFluid(),
+                        i.nextFluid()
+                            .getFluid(),
+                        i.nextBool());
+                }
+            });
     }
 }

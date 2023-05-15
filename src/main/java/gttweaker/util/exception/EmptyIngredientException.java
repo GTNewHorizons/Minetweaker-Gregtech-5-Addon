@@ -6,6 +6,7 @@ import minetweaker.api.item.IIngredient;
  * Created by Techlone
  */
 public class EmptyIngredientException extends RuntimeException {
+
     public IIngredient ingredient;
 
     public EmptyIngredientException(IIngredient ingredient) {

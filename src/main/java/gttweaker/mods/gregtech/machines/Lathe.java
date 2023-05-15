@@ -1,5 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+import static gttweaker.util.ArrayHelper.itemOrNull;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -8,18 +11,15 @@ import minetweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-import static gttweaker.util.ArrayHelper.itemOrNull;
-
 /**
  * Access point for Lathe recipes.
  *
  * @author Stan Hebben
  */
 @ZenClass("mods.gregtech.Lathe")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Lathe {
+
     /**
      * Adds a lathe recipe with a single output.
      *
@@ -30,7 +30,7 @@ public class Lathe {
      */
     @ZenMethod
     public static void addRecipe(IItemStack output, IIngredient input, int durationTicks, int euPerTick) {
-        addRecipe(new IItemStack[]{output, null}, input, durationTicks, euPerTick);
+        addRecipe(new IItemStack[] { output, null }, input, durationTicks, euPerTick);
     }
 
     /**
@@ -46,12 +46,20 @@ public class Lathe {
         if (outputs.length == 0) {
             MineTweakerAPI.logError("Lathe recipe requires at least 1 input");
         } else {
-            MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding lathe recipe for " + outputs[0], input, outputs[0], itemOrNull(outputs, 1), durationTicks, euPerTick) {
-                @Override
-                protected void applySingleRecipe(ArgIterator i) {
-                    RA.addLatheRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-                }
-            });
+            MineTweakerAPI.apply(
+                new AddMultipleRecipeAction(
+                    "Adding lathe recipe for " + outputs[0],
+                    input,
+                    outputs[0],
+                    itemOrNull(outputs, 1),
+                    durationTicks,
+                    euPerTick) {
+
+                    @Override
+                    protected void applySingleRecipe(ArgIterator i) {
+                        RA.addLatheRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    }
+                });
         }
     }
 }

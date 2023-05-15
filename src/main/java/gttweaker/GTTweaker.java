@@ -1,19 +1,27 @@
 package gttweaker;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.oredict.OreDictionary;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import gregtech.api.GregTech_API;
 import gttweaker.mods.gregtech.Fuels;
+import gttweaker.mods.gregtech.RA2Builder;
+import gttweaker.mods.gregtech.RecipeRemover;
 import gttweaker.mods.gregtech.machines.*;
 import gttweaker.mods.gtpp.machines.*;
 import minetweaker.MineTweakerAPI;
+import minetweaker.api.item.IIngredient;
 
 @Mod(modid = "GTTweaker", useMetadata = true)
 public class GTTweaker {
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
+
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
         MineTweakerAPI.registerClass(AlloySmelter.class);
         MineTweakerAPI.registerClass(Amplifabricator.class);
         MineTweakerAPI.registerClass(Assembler.class);
@@ -73,13 +81,30 @@ public class GTTweaker {
             MineTweakerAPI.registerClass(CokeOven.class);
             MineTweakerAPI.registerClass(Dehydrator.class);
             MineTweakerAPI.registerClass(MatterFabricator.class);
-	    MineTweakerAPI.registerClass(MultiblockCentrifuge.class);
-	    MineTweakerAPI.registerClass(MultiblockElectrolyzer.class);	
+            MineTweakerAPI.registerClass(MultiblockCentrifuge.class);
+            MineTweakerAPI.registerClass(MultiblockElectrolyzer.class);
         }
+        MineTweakerAPI.registerClass(RA2Builder.class);
+        MineTweakerAPI.registerClass(RecipeRemover.class);
     }
-    
+
     @EventHandler
     public void onPostInit(FMLPostInitializationEvent ev) {
         MineTweakerAPI.registerClassRegistry(GTTweakerRegistry.class);
+    }
+
+    public static ItemStack getItemStackOrNull(IIngredient ingredient) {
+        Object internal = ingredient.getInternal();
+        if (internal instanceof ItemStack) return (ItemStack) internal;
+        else if (internal instanceof String) return OreDictionary.getOres((String) internal)
+            .size() > 0 ? OreDictionary.getOres((String) internal)
+                .get(0) : null;
+        return null;
+    }
+
+    public static FluidStack getFluidStackOrNull(IIngredient ingredient) {
+        Object internal = ingredient.getInternal();
+        if (internal instanceof FluidStack) return (FluidStack) internal;
+        return null;
     }
 }

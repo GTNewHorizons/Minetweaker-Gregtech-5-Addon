@@ -1,5 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -8,17 +10,15 @@ import minetweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the Precision Laser recipes.
  *
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.PrecisionLaser")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class PrecisionLaser {
+
     /**
      * Adds a Laser Engraver recipe.
      *
@@ -30,17 +30,34 @@ public class PrecisionLaser {
      * @param cleanroom     the cleanroom requirement
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick, boolean cleanroom) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Precision Laser recipe for " + output, input1, input2, output, durationTicks, euPerTick, cleanroom) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addLaserEngraverRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt(), i.nextBool());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks,
+        int euPerTick, boolean cleanroom) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Precision Laser recipe for " + output,
+                input1,
+                input2,
+                output,
+                durationTicks,
+                euPerTick,
+                cleanroom) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addLaserEngraverRecipe(
+                        i.nextItem(),
+                        i.nextItem(),
+                        i.nextItem(),
+                        i.nextInt(),
+                        i.nextInt(),
+                        i.nextBool());
+                }
+            });
     }
-    
+
     @ZenMethod
-	public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks,
+        int euPerTick) {
         addRecipe(output, input1, input2, durationTicks, euPerTick, false);
-	}
+    }
 }

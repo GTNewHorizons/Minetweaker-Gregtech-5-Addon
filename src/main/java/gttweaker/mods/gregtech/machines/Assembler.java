@@ -1,5 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -9,9 +11,6 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the assembler recipes.
  *
@@ -20,8 +19,9 @@ import static gregtech.api.enums.GT_Values.RA;
  * @author bculkin2442
  */
 @ZenClass("mods.gregtech.Assembler")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Assembler {
+
     /**
      * Adds an assemble recipe.
      *
@@ -33,23 +33,33 @@ public class Assembler {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        addRecipe(output, new IIngredient[]{input1, input2}, fluidInput, durationTicks, euPerTick);
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, ILiquidStack fluidInput,
+        int durationTicks, int euPerTick) {
+        addRecipe(output, new IIngredient[] { input1, input2 }, fluidInput, durationTicks, euPerTick);
     }
 
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks, int euPerTick) {
-        addRecipe(output, new IIngredient[]{input1, input2}, null, durationTicks, euPerTick);
+    public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks,
+        int euPerTick) {
+        addRecipe(output, new IIngredient[] { input1, input2 }, null, durationTicks, euPerTick);
     }
 
-
     @ZenMethod
-    public static void addRecipe(IItemStack output, IIngredient[] inputs, ILiquidStack fluidInput, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding assembler recipe for " + output, inputs, fluidInput, output, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addAssemblerRecipe(i.nextItemArr(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output, IIngredient[] inputs, ILiquidStack fluidInput, int durationTicks,
+        int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding assembler recipe for " + output,
+                inputs,
+                fluidInput,
+                output,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addAssemblerRecipe(i.nextItemArr(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
+                }
+            });
     }
 }

@@ -1,5 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
+import static gregtech.api.enums.GT_Values.RA;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -8,17 +10,15 @@ import minetweaker.api.item.IItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
-import static gregtech.api.enums.GT_Values.MOD_ID;
-import static gregtech.api.enums.GT_Values.RA;
-
 /**
  * Provides access to the Unpacker recipes.
  *
  * @author DreamMasterXXL
  */
 @ZenClass("mods.gregtech.Unpacker")
-@ModOnly(MOD_ID)
+@ModOnly("gregtech")
 public class Unpacker {
+
     /**
      * Adds a Unpacker recipe.
      *
@@ -29,12 +29,21 @@ public class Unpacker {
      * @param euPerTick     eu consumption per tick
      */
     @ZenMethod
-    public static void addRecipe(IItemStack output1, IItemStack output2, IIngredient input, int durationTicks, int euPerTick) {
-        MineTweakerAPI.apply(new AddMultipleRecipeAction("Adding Unpacker recipe for " + input, input, output1, output2, durationTicks, euPerTick) {
-            @Override
-            protected void applySingleRecipe(ArgIterator i) {
-                RA.addUnboxingRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
-            }
-        });
+    public static void addRecipe(IItemStack output1, IItemStack output2, IIngredient input, int durationTicks,
+        int euPerTick) {
+        MineTweakerAPI.apply(
+            new AddMultipleRecipeAction(
+                "Adding Unpacker recipe for " + input,
+                input,
+                output1,
+                output2,
+                durationTicks,
+                euPerTick) {
+
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    RA.addUnboxingRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                }
+            });
     }
 }
