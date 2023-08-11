@@ -180,27 +180,33 @@ public class RA2Builder {
 
         @Override
         public void undo() {
-            map.mRecipeList.remove(recipe);
-            map.mRecipeItemMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .size() == 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeItemMap.remove(k));
-            map.mRecipeFluidMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .size() == 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeFluidMap.remove(k));
+            try {
+                map.mRecipeList.remove(recipe);
+                map.mRecipeItemMap.entrySet()
+                    .stream()
+                    .filter(
+                        e -> e.getValue()
+                            .removeIf(r -> r == recipe)
+                            && e.getValue()
+                                .size() == 0)
+                    .map(Map.Entry::getKey)
+                    .collect(Collectors.toSet())
+                    .forEach(k -> map.mRecipeItemMap.remove(k));
+                map.mRecipeFluidMap.entrySet()
+                    .stream()
+                    .filter(
+                        e -> e.getValue()
+                            .removeIf(r -> r == recipe)
+                            && e.getValue()
+                                .size() == 0)
+                    .map(Map.Entry::getKey)
+                    .collect(Collectors.toSet())
+                    .forEach(k -> map.mRecipeFluidMap.remove(k)); // Sometimes throws java.lang.ClassCastException:
+                                                                  // class
+                                                                  // java.lang.String cannot be cast to class
+                                                                  // net.minecraftforge.fluids.Fluid for some reason
+                                                                  // ?????????
+            } catch (Throwable ignored) {}
         }
 
         @Override
