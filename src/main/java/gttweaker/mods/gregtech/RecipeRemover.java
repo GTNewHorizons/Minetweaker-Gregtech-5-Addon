@@ -61,29 +61,27 @@ public class RecipeRemover {
 
         @Override
         public void apply() {
-            try {
-                map.mRecipeList.remove(recipe);
-                map.mRecipeItemMap.entrySet()
-                    .stream()
-                    .filter(
-                        e -> e.getValue()
-                            .removeIf(r -> r == recipe)
-                            && e.getValue()
-                                .size() == 0)
-                    .map(Map.Entry::getKey)
-                    .collect(Collectors.toSet())
-                    .forEach(k -> map.mRecipeItemMap.remove(k));
-                map.mRecipeFluidMap.entrySet()
-                    .stream()
-                    .filter(
-                        e -> e.getValue()
-                            .removeIf(r -> r == recipe)
-                            && e.getValue()
-                                .size() == 0)
-                    .map(Map.Entry::getKey)
-                    .collect(Collectors.toSet())
-                    .forEach(k -> map.mRecipeFluidMap.remove(k));
-            } catch (Throwable ignored) {}
+            map.mRecipeList.remove(recipe);
+            map.mRecipeItemMap.entrySet()
+                .stream()
+                .filter(
+                    e -> e.getValue()
+                        .removeIf(r -> r == recipe)
+                        && e.getValue()
+                            .size() == 0)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet())
+                .forEach(k -> map.mRecipeItemMap.remove(k));
+            map.mRecipeFluidMap.entrySet()
+                .stream()
+                .filter(
+                    e -> e.getValue()
+                        .removeIf(r -> r == recipe)
+                        && e.getValue()
+                            .size() == 0)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.toSet())
+                .forEach(k -> map.mRecipeFluidMap.remove(k));
         }
 
         @Override
