@@ -2,7 +2,7 @@ package gttweaker;
 
 import java.util.List;
 
-import gttweaker.mods.gregtech.expand.*;
+import gttweaker.mods.gregtech.expand.OreDictEntryExpansion;
 
 public class GTTweakerRegistry {
 
