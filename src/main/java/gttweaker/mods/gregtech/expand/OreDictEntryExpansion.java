@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.expand;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;

@@ -39,14 +39,12 @@ public class RA2Builder {
 
     @ZenMethod
     public RA2Builder noItemInputs() {
-        recipeBuilder.noItemInputs();
         return this;
     }
 
     @ZenMethod
     public RA2Builder itemInputs(IIngredient[] inputs) {
-        if (inputs.length == 0) recipeBuilder.noItemInputs();
-        else recipeBuilder.itemInputs(
+        recipeBuilder.itemInputs(
             Arrays.stream(inputs)
                 .map(GTTweaker::getItemStackOrNull)
                 .filter(Objects::nonNull)
@@ -56,14 +54,12 @@ public class RA2Builder {
 
     @ZenMethod
     public RA2Builder noItemOutputs() {
-        recipeBuilder.noItemOutputs();
         return this;
     }
 
     @ZenMethod
     public RA2Builder itemOutputs(IIngredient[] outputs) {
-        if (outputs.length == 0) recipeBuilder.noItemOutputs();
-        else recipeBuilder.itemOutputs(
+        recipeBuilder.itemOutputs(
             Arrays.stream(outputs)
                 .map(GTTweaker::getItemStackOrNull)
                 .filter(Objects::nonNull)
@@ -73,14 +69,12 @@ public class RA2Builder {
 
     @ZenMethod
     public RA2Builder noFluidInputs() {
-        recipeBuilder.noFluidInputs();
         return this;
     }
 
     @ZenMethod
     public RA2Builder fluidInputs(IIngredient[] inputs) {
-        if (inputs.length == 0) recipeBuilder.noFluidInputs();
-        else recipeBuilder.fluidInputs(
+        recipeBuilder.fluidInputs(
             Arrays.stream(inputs)
                 .map(GTTweaker::getFluidStackOrNull)
                 .filter(Objects::nonNull)
@@ -90,14 +84,12 @@ public class RA2Builder {
 
     @ZenMethod
     public RA2Builder noFluidOutputs() {
-        recipeBuilder.noFluidOutputs();
         return this;
     }
 
     @ZenMethod
     public RA2Builder fluidOutputs(IIngredient[] outputs) {
-        if (outputs.length == 0) recipeBuilder.noFluidOutputs();
-        else recipeBuilder.fluidOutputs(
+        recipeBuilder.fluidOutputs(
             Arrays.stream(outputs)
                 .map(GTTweaker::getFluidStackOrNull)
                 .filter(Objects::nonNull)
@@ -187,7 +179,7 @@ public class RA2Builder {
                     e -> e.getValue()
                         .removeIf(r -> r == recipe)
                         && e.getValue()
-                            .size() == 0)
+                            .isEmpty())
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet())
                 .forEach(k -> map.mRecipeItemMap.remove(k));
@@ -197,7 +189,7 @@ public class RA2Builder {
                     e -> e.getValue()
                         .removeIf(r -> r == recipe)
                         && e.getValue()
-                            .size() == 0)
+                            .isEmpty())
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toSet())
                 .forEach(k -> map.mRecipeFluidMap.remove(k));
