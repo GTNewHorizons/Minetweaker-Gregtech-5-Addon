@@ -2,18 +2,19 @@ package gttweaker.mods.gregtech;
 
 import java.util.HashMap;
 
-import gregtech.api.util.GT_Recipe;
+import gregtech.api.recipe.RecipeMap;
 
 public class GTRecipeMap {
 
-    public static HashMap<String, GT_Recipe.GT_Recipe_Map> recipeMaps = new HashMap<>();
+    public static HashMap<String, RecipeMap<?>> recipeMaps = new HashMap<>();
 
-    public static GT_Recipe.GT_Recipe_Map getRecipeMap(String map) {
+    public static RecipeMap<?> getRecipeMap(String map) {
         if (!recipeMaps.containsKey(map)) {
             recipeMaps.put(
                 map,
-                GT_Recipe.GT_Recipe_Map.sMappings.stream()
-                    .filter(m -> m.mUnlocalizedName.equals(map))
+                RecipeMap.ALL_RECIPE_MAPS.values()
+                    .stream()
+                    .filter(m -> m.unlocalizedName.equals(map))
                     .findAny()
                     .orElse(null));
         }
