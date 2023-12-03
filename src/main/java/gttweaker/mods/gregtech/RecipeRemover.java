@@ -1,13 +1,12 @@
 package gttweaker.mods.gregtech;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_Recipe;
 import gttweaker.GTTweaker;
 import minetweaker.IUndoableAction;
@@ -24,7 +23,7 @@ public class RecipeRemover {
 
     @ZenMethod
     public static void remove(String map, IIngredient[] inputs, IIngredient[] fluidInputs) {
-        GT_Recipe.GT_Recipe_Map recipeMap = GTRecipeMap.getRecipeMap(map);
+        RecipeMap<?> recipeMap = GTRecipeMap.getRecipeMap(map);
         if (recipeMap == null) {
             MineTweakerAPI.logError("Could not find recipe map named \"" + map + "\"");
             return;
@@ -52,36 +51,17 @@ public class RecipeRemover {
     public static class RecipeRemoveAction implements IUndoableAction {
 
         GT_Recipe recipe;
-        GT_Recipe.GT_Recipe_Map map;
+        RecipeMap<?> map;
 
-        public RecipeRemoveAction(GT_Recipe recipe, GT_Recipe.GT_Recipe_Map map) {
+        public RecipeRemoveAction(GT_Recipe recipe, RecipeMap<?> map) {
             this.recipe = recipe;
             this.map = map;
         }
 
         @Override
         public void apply() {
-            map.mRecipeList.remove(recipe);
-            map.mRecipeItemMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .size() == 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeItemMap.remove(k));
-            map.mRecipeFluidMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .size() == 0)
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeFluidMap.remove(k));
+            map.getBackend()
+                .removeRecipe(recipe);
         }
 
         @Override

@@ -1,14 +1,13 @@
 package gttweaker.mods.gregtech;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.GT_Values;
+import gregtech.api.recipe.RecipeMap;
 import gregtech.api.util.GT_Recipe;
 import gregtech.api.util.GT_RecipeBuilder;
 import gttweaker.GTTweaker;
@@ -141,7 +140,7 @@ public class RA2Builder {
             MineTweakerAPI.logError("Could not build recipe!");
             return;
         }
-        GT_Recipe.GT_Recipe_Map map = GTRecipeMap.getRecipeMap(recipeMap);
+        RecipeMap<?> map = GTRecipeMap.getRecipeMap(recipeMap);
         if (map == null) {
             MineTweakerAPI.logError("Could not find recipe map named \"" + recipeMap + "\"");
             return;
@@ -153,9 +152,9 @@ public class RA2Builder {
     public static class RecipeAddAction implements IUndoableAction {
 
         GT_Recipe recipe;
-        GT_Recipe.GT_Recipe_Map map;
+        RecipeMap<?> map;
 
-        public RecipeAddAction(GT_Recipe recipe, GT_Recipe.GT_Recipe_Map map) {
+        public RecipeAddAction(GT_Recipe recipe, RecipeMap<?> map) {
             this.recipe = recipe;
             this.map = map;
         }
@@ -172,27 +171,8 @@ public class RA2Builder {
 
         @Override
         public void undo() {
-            map.mRecipeList.remove(recipe);
-            map.mRecipeItemMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .isEmpty())
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeItemMap.remove(k));
-            map.mRecipeFluidMap.entrySet()
-                .stream()
-                .filter(
-                    e -> e.getValue()
-                        .removeIf(r -> r == recipe)
-                        && e.getValue()
-                            .isEmpty())
-                .map(Map.Entry::getKey)
-                .collect(Collectors.toSet())
-                .forEach(k -> map.mRecipeFluidMap.remove(k));
+            map.getBackend()
+                .removeRecipe(recipe);
         }
 
         @Override
