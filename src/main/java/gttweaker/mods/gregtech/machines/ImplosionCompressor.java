@@ -1,13 +1,18 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.implosionRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeConstants.ADDITIVE_AMOUNT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import gregtech.api.enums.TierEU;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
+import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -54,7 +59,17 @@ public class ImplosionCompressor {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addImplosionRecipe(i.nextItem(), i.nextInt(), i.nextItem(), i.nextItem());
+                        ItemStack input = i.nextItem();
+                        int additiveAmount = i.nextInt();
+                        ItemStack output1 = i.nextItem();
+                        ItemStack output2 = i.nextItem();
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .itemOutputs(output1, output2)
+                            .duration(1*SECONDS)
+                            .eut(TierEU.RECIPE_LV)
+                            .metadata(ADDITIVE_AMOUNT, additiveAmount)
+                            .addTo(implosionRecipes);
                     }
                 });
         }

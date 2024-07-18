@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.arcFurnaceRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -8,6 +9,8 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -50,13 +53,21 @@ public class ArcFurnace {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addSimpleArcFurnaceRecipe(
-                            i.nextItem(),
-                            i.nextFluid(),
-                            i.nextItemArr(),
-                            i.nextIntArr(),
-                            i.nextInt(),
-                            i.nextInt());
+                        ItemStack input = i.nextItem();
+                        FluidStack fluidInput = i.nextFluid();
+                        ItemStack[] outputs = i.nextItemArr();
+                        int[] chances = i.nextIntArr();
+                        int duration = i.nextInt();
+                        int eut = i.nextInt();
+                        RA.stdBuilder()
+                                .itemInputs(input)
+                                .itemOutputs(outputs)
+                                .outputChances(chances)
+                                .fluidInputs(fluidInput)
+                                .fluidOutputs()
+                                .duration(duration)
+                                .eut(eut)
+                                .addTo(arcFurnaceRecipes);
                     }
                 });
         }
