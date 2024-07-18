@@ -3,14 +3,15 @@ package gttweaker.mods.gregtech.machines;
 import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -45,29 +46,29 @@ public class Assembler {
     public static void addRecipe(IItemStack output, IIngredient input1, IIngredient input2, int durationTicks,
         int euPerTick) {
         MineTweakerAPI.apply(
-                new AddMultipleRecipeAction(
-                        "Adding assembler recipe for " + output,
-                        input1,
-                        input2,
-                        output,
-                        durationTicks,
-                        euPerTick) {
+            new AddMultipleRecipeAction(
+                "Adding assembler recipe for " + output,
+                input1,
+                input2,
+                output,
+                durationTicks,
+                euPerTick) {
 
-                    @Override
-                    protected void applySingleRecipe(ArgIterator i) {
-                        ItemStack input1 = i.nextItem();
-                        ItemStack input2 = i.nextItem();
-                        ItemStack output = i.nextItem();
-                        int duration = i.nextInt();
-                        int eut = i.nextInt();
-                        RA.stdBuilder()
-                                .itemInputs(input1, input2)
-                                .itemOutputs(output)
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(assemblerRecipes);
-                    }
-                });
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    ItemStack input1 = i.nextItem();
+                    ItemStack input2 = i.nextItem();
+                    ItemStack output = i.nextItem();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    RA.stdBuilder()
+                        .itemInputs(input1, input2)
+                        .itemOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(assemblerRecipes);
+                }
+            });
     }
 
     @ZenMethod
@@ -90,12 +91,12 @@ public class Assembler {
                     int duration = i.nextInt();
                     int eut = i.nextInt();
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .itemOutputs(output)
-                            .fluidInputs(fluidInput)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(assemblerRecipes);
+                        .itemInputs(inputs)
+                        .itemOutputs(output)
+                        .fluidInputs(fluidInput)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(assemblerRecipes);
                 }
             });
     }
