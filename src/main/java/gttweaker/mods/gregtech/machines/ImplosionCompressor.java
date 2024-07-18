@@ -16,6 +16,10 @@ import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
 /**
  * Provides access to the Implosion Compressor recipes.
  *
@@ -63,9 +67,11 @@ public class ImplosionCompressor {
                         int additiveAmount = i.nextInt();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
+                        List<ItemStack> outputs = Arrays.asList(output1, output2);
+                        outputs.removeIf(Objects::isNull);
                         RA.stdBuilder()
                             .itemInputs(input)
-                            .itemOutputs(output1, output2)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
                             .duration(1*SECONDS)
                             .eut(TierEU.RECIPE_LV)
                             .metadata(ADDITIVE_AMOUNT, additiveAmount)
