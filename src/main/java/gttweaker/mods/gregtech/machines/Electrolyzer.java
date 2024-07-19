@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.electrolyzerRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
 import gttweaker.mods.AddMultipleRecipeAction;
@@ -9,8 +10,14 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * Provides access to the Electrolyzer recipes.
@@ -60,20 +67,29 @@ public class Electrolyzer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addElectrolyzerRecipe(
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextFluid(),
-                            i.nextFluid(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextIntArr(),
-                            i.nextInt(),
-                            i.nextInt());
+                        ItemStack[] inputs = new ItemStack[]{i.nextItem(), i.nextItem()};
+                        FluidStack fluidInput = i.nextFluid();
+                        FluidStack fluidOutput= i.nextFluid();
+                        List<ItemStack> outputs = Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()
+                        );
+                        outputs.removeIf(Objects::isNull);
+
+                        RA.stdBuilder()
+                                .itemInputs(inputs)
+                                .fluidInputs(fluidInput)
+                                .fluidOutputs(fluidOutput)
+                                .itemOutputs(outputs.toArray(new ItemStack[0]))
+                                .outputChances(i.nextIntArr())
+                                .duration(i.nextInt())
+                                .eut(i.nextInt())
+                                .addTo(electrolyzerRecipes)
+                        ;
                     }
                 });
         }
@@ -100,17 +116,29 @@ public class Electrolyzer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addElectrolyzerRecipe(
-                            i.nextItem(),
-                            i.nextInt(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextInt(),
-                            i.nextInt());
+                        ItemStack[] inputs = new ItemStack[]{i.nextItem(), i.nextItem()};
+                        FluidStack fluidInput = i.nextFluid();
+                        FluidStack fluidOutput= i.nextFluid();
+                        List<ItemStack> outputs = Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()
+                        );
+                        outputs.removeIf(Objects::isNull);
+
+                        RA.stdBuilder()
+                                .itemInputs(inputs)
+                                .fluidInputs(fluidInput)
+                                .fluidOutputs(fluidOutput)
+                                .itemOutputs(outputs.toArray(new ItemStack[0]))
+                                .outputChances(i.nextIntArr())
+                                .duration(i.nextInt())
+                                .eut(i.nextInt())
+                                .addTo(electrolyzerRecipes)
+                        ;
                     }
                 });
         }

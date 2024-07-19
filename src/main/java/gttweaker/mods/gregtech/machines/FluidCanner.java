@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fluidCannerRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -8,6 +9,8 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -41,7 +44,20 @@ public class FluidCanner {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFluidCannerRecipe(i.nextItem(), i.nextItem(), i.nextFluid(), i.nextFluid());
+                    ItemStack input = i.nextItem();
+                    ItemStack output = i.nextItem();
+                    FluidStack fluidInput = i.nextFluid();
+                    FluidStack fluidOutput = i.nextFluid();
+                    int duration = fluidOutput == null ? fluidInput.amount / 62 : fluidOutput.amount / 62;
+                    int eut = 1;
+                    RA.stdBuilder()
+                            .itemInputs(input)
+                            .itemOutputs(output)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs()
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(fluidCannerRecipes);
                 }
             });
     }
