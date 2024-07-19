@@ -4,6 +4,13 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.centrifugeRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.enums.ItemList;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -11,14 +18,8 @@ import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provides access to the Centrifuge recipes.
@@ -72,27 +73,22 @@ public class Centrifuge {
                         ItemStack input2 = i.nextItem();
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs = Arrays.asList(
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem());
+                        List<ItemStack> outputs = Arrays
+                            .asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem());
                         outputs.removeIf(Objects::isNull);
 
                         int[] chances = i.nextIntArr();
                         int duration = i.nextInt();
                         int eut = i.nextInt();
                         RA.stdBuilder()
-                                .itemInputs(input1, input2)
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .fluidInputs(fluidInput)
-                                .fluidOutputs(fluidOutput)
-                                .outputChances(chances)
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(centrifugeRecipes);
+                            .itemInputs(input1, input2)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .outputChances(chances)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(centrifugeRecipes);
                     }
                 });
         }
@@ -125,32 +121,27 @@ public class Centrifuge {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input1 = i.nextItem();
                         int cellNumber = i.nextInt();
-                        ItemStack input2 = cellNumber> 0 ? ItemList.Cell_Empty.get(cellNumber) : null;
+                        ItemStack input2 = cellNumber > 0 ? ItemList.Cell_Empty.get(cellNumber) : null;
                         List<ItemStack> inputs = Arrays.asList(input1, input2);
                         inputs.removeIf(Objects::isNull);
 
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs = Arrays.asList(
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem());
+                        List<ItemStack> outputs = Arrays
+                            .asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem());
                         outputs.removeIf(Objects::isNull);
 
                         int[] chances = i.nextIntArr();
                         int duration = i.nextInt();
                         RA.stdBuilder()
-                                .itemInputs(inputs.toArray(new ItemStack[0]))
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .fluidInputs(fluidInput)
-                                .fluidOutputs(fluidOutput)
-                                .outputChances(chances)
-                                .duration(duration)
-                                .eut(5)
-                                .addTo(centrifugeRecipes);
+                            .itemInputs(inputs.toArray(new ItemStack[0]))
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .outputChances(chances)
+                            .duration(duration)
+                            .eut(5)
+                            .addTo(centrifugeRecipes);
                     }
                 });
         }

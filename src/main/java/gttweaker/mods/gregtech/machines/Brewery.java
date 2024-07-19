@@ -5,14 +5,14 @@ import static gregtech.api.recipe.RecipeMaps.brewingRecipes;
 import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeBuilder.TICKS;
 
-import gregtech.api.util.GT_RecipeBuilder;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -41,26 +41,32 @@ public class Brewery {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     ItemStack input = i.nextItem();
-                    FluidStack fluidInput = new FluidStack(i.nextFluid().getFluid(),750);
-                    FluidStack fluidOutput =new FluidStack(i.nextFluid().getFluid(),750);
+                    FluidStack fluidInput = new FluidStack(
+                        i.nextFluid()
+                            .getFluid(),
+                        750);
+                    FluidStack fluidOutput = new FluidStack(
+                        i.nextFluid()
+                            .getFluid(),
+                        750);
                     boolean recipe_hidden = i.nextBool();
                     if (recipe_hidden) {
                         RA.stdBuilder()
-                                .itemInputs(input)
-                                .fluidInputs(fluidInput)
-                                .fluidOutputs(fluidOutput)
-                                .duration(6 * SECONDS + 8 * TICKS)
-                                .eut(4)
-                                .hidden()
-                                .addTo(brewingRecipes);
-                    }else{
+                            .itemInputs(input)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .duration(6 * SECONDS + 8 * TICKS)
+                            .eut(4)
+                            .hidden()
+                            .addTo(brewingRecipes);
+                    } else {
                         RA.stdBuilder()
-                                .itemInputs(input)
-                                .fluidInputs(fluidInput)
-                                .fluidOutputs(fluidOutput)
-                                .duration(6 * SECONDS + 8 * TICKS)
-                                .eut(4)
-                                .addTo(brewingRecipes);
+                            .itemInputs(input)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .duration(6 * SECONDS + 8 * TICKS)
+                            .eut(4)
+                            .addTo(brewingRecipes);
                     }
                 }
             });

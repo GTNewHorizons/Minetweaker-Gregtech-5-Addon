@@ -5,22 +5,21 @@ import static gregtech.api.recipe.RecipeMaps.blastFurnaceRecipes;
 import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provides access to the Blast Furnace recipes.
@@ -94,79 +93,79 @@ public class BlastFurnace {
     public static void addRecipe(IItemStack[] output, ILiquidStack fluidInput, IIngredient[] input, int durationTicks,
         int euPerTick, int heat) {
         MineTweakerAPI.apply(
-                new AddMultipleRecipeAction(
-                        "Adding Blast furnace recipe for " + output[0],
-                        input[0],
-                        itemOrNull(input, 1),
-                        fluidInput,
-                        output[0],
-                        itemOrNull(output, 1),
-                        durationTicks,
-                        euPerTick,
-                        heat) {
+            new AddMultipleRecipeAction(
+                "Adding Blast furnace recipe for " + output[0],
+                input[0],
+                itemOrNull(input, 1),
+                fluidInput,
+                output[0],
+                itemOrNull(output, 1),
+                durationTicks,
+                euPerTick,
+                heat) {
 
-                    @Override
-                    protected void applySingleRecipe(ArgIterator i) {
-                        ItemStack input1 = i.nextItem();
-                        ItemStack input2 = i.nextItem();
-                        List<ItemStack> inputs = Arrays.asList(input1, input2);
-                        inputs.removeIf(Objects::isNull);
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    ItemStack input1 = i.nextItem();
+                    ItemStack input2 = i.nextItem();
+                    List<ItemStack> inputs = Arrays.asList(input1, input2);
+                    inputs.removeIf(Objects::isNull);
 
-                        FluidStack fluidInput = i.nextFluid();
-                        ItemStack output1 = i.nextItem();
-                        ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(output1, output2);
-                        outputs.removeIf(Objects::isNull);
-                        int duration = i.nextInt();
-                        int eut = i.nextInt();
-                        int heatLevel = i.nextInt();
-                        RA.stdBuilder()
-                                .itemInputs(inputs.toArray(new ItemStack[0]))
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .fluidInputs(fluidInput)
-                                .metadata(COIL_HEAT, heatLevel)
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(blastFurnaceRecipes);
-                    }
-                });
+                    FluidStack fluidInput = i.nextFluid();
+                    ItemStack output1 = i.nextItem();
+                    ItemStack output2 = i.nextItem();
+                    List<ItemStack> outputs = Arrays.asList(output1, output2);
+                    outputs.removeIf(Objects::isNull);
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    int heatLevel = i.nextInt();
+                    RA.stdBuilder()
+                        .itemInputs(inputs.toArray(new ItemStack[0]))
+                        .itemOutputs(outputs.toArray(new ItemStack[0]))
+                        .fluidInputs(fluidInput)
+                        .metadata(COIL_HEAT, heatLevel)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(blastFurnaceRecipes);
+                }
+            });
     }
 
     @ZenMethod
     public static void addRecipe(IItemStack[] output, IIngredient[] input, int durationTicks, int euPerTick, int heat) {
         MineTweakerAPI.apply(
-                new AddMultipleRecipeAction(
-                        "Adding Blast furnace recipe for " + output[0],
-                        input[0],
-                        itemOrNull(input, 1),
-                        output[0],
-                        itemOrNull(output, 1),
-                        durationTicks,
-                        euPerTick,
-                        heat) {
+            new AddMultipleRecipeAction(
+                "Adding Blast furnace recipe for " + output[0],
+                input[0],
+                itemOrNull(input, 1),
+                output[0],
+                itemOrNull(output, 1),
+                durationTicks,
+                euPerTick,
+                heat) {
 
-                    @Override
-                    protected void applySingleRecipe(ArgIterator i) {
-                        ItemStack input1 = i.nextItem();
-                        ItemStack input2 = i.nextItem();
-                        List<ItemStack> inputs = Arrays.asList(input1, input2);
-                        inputs.removeIf(Objects::isNull);
+                @Override
+                protected void applySingleRecipe(ArgIterator i) {
+                    ItemStack input1 = i.nextItem();
+                    ItemStack input2 = i.nextItem();
+                    List<ItemStack> inputs = Arrays.asList(input1, input2);
+                    inputs.removeIf(Objects::isNull);
 
-                        ItemStack output1 = i.nextItem();
-                        ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(output1, output2);
-                        outputs.removeIf(Objects::isNull);
-                        int duration = i.nextInt();
-                        int eut = i.nextInt();
-                        int heatLevel = i.nextInt();
-                        RA.stdBuilder()
-                                .itemInputs(inputs.toArray(new ItemStack[0]))
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .metadata(COIL_HEAT, heatLevel)
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(blastFurnaceRecipes);
-                    }
-                });
+                    ItemStack output1 = i.nextItem();
+                    ItemStack output2 = i.nextItem();
+                    List<ItemStack> outputs = Arrays.asList(output1, output2);
+                    outputs.removeIf(Objects::isNull);
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    int heatLevel = i.nextInt();
+                    RA.stdBuilder()
+                        .itemInputs(inputs.toArray(new ItemStack[0]))
+                        .itemOutputs(outputs.toArray(new ItemStack[0]))
+                        .metadata(COIL_HEAT, heatLevel)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(blastFurnaceRecipes);
+                }
+            });
     }
 }
