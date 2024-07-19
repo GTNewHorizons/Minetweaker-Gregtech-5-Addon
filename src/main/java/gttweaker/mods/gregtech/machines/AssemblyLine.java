@@ -4,14 +4,15 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
 import static gregtech.api.util.GT_RecipeConstants.RESEARCH_TIME;
 
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gregtech.api.util.GT_RecipeConstants;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -58,14 +59,14 @@ public class AssemblyLine {
                     int eut = i.nextInt();
 
                     RA.stdBuilder()
-                            .metadata(RESEARCH_ITEM, researchItem)
-                            .metadata(RESEARCH_TIME, researchTime)
-                            .itemInputs(inputs)
-                            .itemOutputs(output)
-                            .fluidInputs(fluidInputs)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(GT_RecipeConstants.AssemblyLine);
+                        .metadata(RESEARCH_ITEM, researchItem)
+                        .metadata(RESEARCH_TIME, researchTime)
+                        .itemInputs(inputs)
+                        .itemOutputs(output)
+                        .fluidInputs(fluidInputs)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(GT_RecipeConstants.AssemblyLine);
                 }
             });
     }

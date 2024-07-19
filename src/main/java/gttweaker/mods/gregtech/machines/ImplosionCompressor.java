@@ -6,19 +6,20 @@ import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeConstants.ADDITIVE_AMOUNT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+
 import gregtech.api.enums.TierEU;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provides access to the Implosion Compressor recipes.
@@ -72,7 +73,7 @@ public class ImplosionCompressor {
                         RA.stdBuilder()
                             .itemInputs(input)
                             .itemOutputs(outputs.toArray(new ItemStack[0]))
-                            .duration(1*SECONDS)
+                            .duration(1 * SECONDS)
                             .eut(TierEU.RECIPE_LV)
                             .metadata(ADDITIVE_AMOUNT, additiveAmount)
                             .addTo(implosionRecipes);

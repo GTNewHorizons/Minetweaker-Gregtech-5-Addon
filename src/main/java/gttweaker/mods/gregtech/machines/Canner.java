@@ -4,18 +4,19 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.cannerRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provider access to the Canner recipes.
@@ -78,11 +79,11 @@ public class Canner {
                         int duration = i.nextInt();
                         int eut = i.nextInt();
                         RA.stdBuilder()
-                                .itemInputs(input1, input2)
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(cannerRecipes);
+                            .itemInputs(input1, input2)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(cannerRecipes);
                     }
                 });
         }
