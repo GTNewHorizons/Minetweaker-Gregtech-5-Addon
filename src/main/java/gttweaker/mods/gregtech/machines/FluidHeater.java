@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fluidHeaterRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -42,7 +43,13 @@ public class FluidHeater {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFluidHeaterRecipe(i.nextItem(), i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .fluidOutputs(i.nextFluid())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(fluidHeaterRecipes);
                 }
             });
     }

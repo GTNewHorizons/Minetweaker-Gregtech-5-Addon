@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fluidSolidifierRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -42,7 +43,14 @@ public class FluidSolidifier {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFluidSolidifierRecipe(i.nextItem(), i.nextFluid(), i.nextItem(), i.nextInt(), i.nextInt());
+
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .itemOutputs(i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(fluidSolidifierRecipes);
                 }
             });
     }

@@ -1,6 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fusionRecipes;
+import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -43,13 +45,12 @@ public class FusionReactor {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFusionReactorRecipe(
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                            .fluidInputs(i.nextFluid(), i.nextFluid())
+                            .fluidOutputs(i.nextFluid()).duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .metadata(FUSION_THRESHOLD, i.nextInt())
+                            .addTo(fusionRecipes);
                 }
             });
     }
