@@ -1,6 +1,9 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fermentingRecipes;
+
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -38,7 +41,27 @@ public class Fermenter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFermentingRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextBool());
+                    FluidStack input = i.nextFluid();
+                    FluidStack output = i.nextFluid();
+                    int duration = i.nextInt();
+                    int eut = 2;
+                    boolean hidden = i.nextBool();
+                    if (hidden) {
+                        RA.stdBuilder()
+                            .fluidInputs(input)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .hidden()
+                            .addTo(fermentingRecipes);
+                        return;
+                    }
+                    RA.stdBuilder()
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(fermentingRecipes);
                 }
             });
     }

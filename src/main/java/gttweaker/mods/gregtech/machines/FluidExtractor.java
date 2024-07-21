@@ -1,6 +1,10 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.fluidExtractionRecipes;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -45,13 +49,21 @@ public class FluidExtractor {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addFluidExtractionRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack input = i.nextItem();
+                    ItemStack output = i.nextItem();
+                    FluidStack fluidOutput = i.nextFluid();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    int chance = i.nextInt();
+
+                    RA.stdBuilder()
+                        .itemInputs(input)
+                        .itemOutputs(output)
+                        .outputChances(chance)
+                        .fluidOutputs(fluidOutput)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(fluidExtractionRecipes);
                 }
             });
     }

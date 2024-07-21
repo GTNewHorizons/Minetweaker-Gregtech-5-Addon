@@ -42,7 +42,11 @@ public class Extruder {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addExtruderRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt());
                 }
             });
     }

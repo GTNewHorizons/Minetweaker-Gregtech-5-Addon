@@ -1,6 +1,12 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.brewingRecipes;
+import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
+import static gregtech.api.util.GT_RecipeBuilder.TICKS;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -34,13 +40,34 @@ public class Brewery {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addBrewingRecipe(
-                        i.nextItem(),
+                    ItemStack input = i.nextItem();
+                    FluidStack fluidInput = new FluidStack(
                         i.nextFluid()
                             .getFluid(),
+                        750);
+                    FluidStack fluidOutput = new FluidStack(
                         i.nextFluid()
                             .getFluid(),
-                        i.nextBool());
+                        750);
+                    boolean recipe_hidden = i.nextBool();
+                    if (recipe_hidden) {
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .duration(6 * SECONDS + 8 * TICKS)
+                            .eut(4)
+                            .hidden()
+                            .addTo(brewingRecipes);
+                    } else {
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .duration(6 * SECONDS + 8 * TICKS)
+                            .eut(4)
+                            .addTo(brewingRecipes);
+                    }
                 }
             });
     }

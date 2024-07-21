@@ -1,7 +1,14 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.latheRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -57,7 +64,16 @@ public class Lathe {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addLatheRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                        ItemStack input = i.nextItem();
+                        List<ItemStack> outputs = Arrays.asList(i.nextItem(), i.nextItem());
+                        outputs.removeIf(Objects::isNull);
+
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(latheRecipes);
                     }
                 });
         }

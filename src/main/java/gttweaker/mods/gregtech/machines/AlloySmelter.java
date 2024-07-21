@@ -1,6 +1,9 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.alloySmelterRecipes;
+
+import net.minecraft.item.ItemStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -42,7 +45,17 @@ public class AlloySmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addAlloySmelterRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    ItemStack input1 = i.nextItem();
+                    ItemStack input2 = i.nextItem();
+                    ItemStack output = i.nextItem();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    RA.stdBuilder()
+                        .itemInputs(input1, input2)
+                        .itemOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloySmelterRecipes);
                 }
             });
     }

@@ -1,6 +1,8 @@
 package gttweaker.mods.gtpp.machines;
 
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.cokeOvenRecipes;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -30,14 +32,14 @@ public class CokeOven {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addCokeOvenRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .fluidInputs(i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(cokeOvenRecipes);
                 }
             });
     }

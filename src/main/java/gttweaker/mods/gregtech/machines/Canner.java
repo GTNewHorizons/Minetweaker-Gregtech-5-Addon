@@ -1,7 +1,14 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.cannerRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -62,13 +69,21 @@ public class Canner {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addCannerRecipe(
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextInt(),
-                            i.nextInt());
+                        ItemStack input1 = i.nextItem();
+                        ItemStack input2 = i.nextItem();
+                        ItemStack output1 = i.nextItem();
+                        ItemStack output2 = i.nextItem();
+                        List<ItemStack> outputs = Arrays.asList(output1, output2);
+                        outputs.removeIf(Objects::isNull);
+
+                        int duration = i.nextInt();
+                        int eut = i.nextInt();
+                        RA.stdBuilder()
+                            .itemInputs(input1, input2)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(cannerRecipes);
                     }
                 });
         }

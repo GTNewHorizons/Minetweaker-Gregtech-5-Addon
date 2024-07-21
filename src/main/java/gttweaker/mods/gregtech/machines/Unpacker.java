@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.unpackagerRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -42,7 +43,12 @@ public class Unpacker {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addUnboxingRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .duration(i.nextInt())
+                        .addTo(unpackagerRecipes);
                 }
             });
     }

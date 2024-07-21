@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.thermalCentrifugeRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -29,13 +30,12 @@ public class ThermalCentrifuge {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addThermalCentrifugeRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(thermalCentrifugeRecipes);
                 }
             });
     }

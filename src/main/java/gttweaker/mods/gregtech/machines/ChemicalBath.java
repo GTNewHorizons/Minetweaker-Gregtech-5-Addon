@@ -1,7 +1,15 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.chemicalBathRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -51,15 +59,21 @@ public class ChemicalBath {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addChemicalBathRecipe(
-                            i.nextItem(),
-                            i.nextFluid(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextIntArr(),
-                            i.nextInt(),
-                            i.nextInt());
+                        ItemStack input = i.nextItem();
+                        FluidStack fluidInput = i.nextFluid();
+                        List<ItemStack> outputs = Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem());
+                        outputs.removeIf(Objects::isNull);
+                        int[] chances = i.nextIntArr();
+                        int duration = i.nextInt();
+                        int eut = i.nextInt();
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .outputChances(chances)
+                            .fluidInputs(fluidInput)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(chemicalBathRecipes);
                     }
                 });
         }

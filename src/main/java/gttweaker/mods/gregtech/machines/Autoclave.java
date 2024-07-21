@@ -1,6 +1,11 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.autoclaveRecipes;
+import static gregtech.api.util.GT_RecipeConstants.LOW_GRAVITY;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -47,14 +52,23 @@ public class Autoclave {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addAutoclaveRecipe(
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextBool());
+                    ItemStack input = i.nextItem();
+                    FluidStack fluidInput = i.nextFluid();
+                    ItemStack output = i.nextItem();
+                    int chance = i.nextInt();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    boolean requiresLowGravity = i.nextBool();
+
+                    RA.stdBuilder()
+                        .itemInputs(input)
+                        .itemOutputs(output)
+                        .outputChances(chance)
+                        .fluidInputs(fluidInput)
+                        .duration(duration)
+                        .eut(eut)
+                        .metadata(LOW_GRAVITY, requiresLowGravity)
+                        .addTo(autoclaveRecipes);
                 }
             });
     }

@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.benderRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -39,7 +40,12 @@ public class PlateBender {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addBenderRecipe(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .duration(i.nextInt())
+                        .addTo(benderRecipes);
                 }
             });
     }

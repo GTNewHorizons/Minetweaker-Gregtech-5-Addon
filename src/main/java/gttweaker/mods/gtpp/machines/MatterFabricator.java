@@ -1,6 +1,8 @@
 package gttweaker.mods.gtpp.machines;
 
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.multiblockMassFabricatorRecipes;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -24,7 +26,13 @@ public class MatterFabricator {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addMatterFabricatorRecipe(i.nextFluid(), i.nextFluid(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                        .fluidInputs(i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(multiblockMassFabricatorRecipes);
+
                 }
             });
     }

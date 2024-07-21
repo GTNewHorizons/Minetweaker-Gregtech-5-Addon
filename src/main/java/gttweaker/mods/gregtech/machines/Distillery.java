@@ -1,6 +1,10 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.distilleryRecipes;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -44,13 +48,29 @@ public class Distillery {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addDistilleryRecipe(
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextBool());
+                    ItemStack input = i.nextItem();
+                    FluidStack fluidInput = i.nextFluid();
+                    FluidStack fluidOutput = i.nextFluid();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    boolean hidden = i.nextBool();
+                    if (hidden) {
+                        RA.stdBuilder()
+                            .itemInputs(input)
+                            .fluidInputs(fluidInput)
+                            .fluidOutputs(fluidOutput)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(distilleryRecipes);
+                        return;
+                    }
+                    RA.stdBuilder()
+                        .itemInputs(input)
+                        .fluidInputs(fluidInput)
+                        .fluidOutputs(fluidOutput)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(distilleryRecipes);
                 }
             });
     }

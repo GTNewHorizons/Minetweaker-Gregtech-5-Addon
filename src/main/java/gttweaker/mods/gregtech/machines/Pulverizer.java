@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.maceratorRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -47,7 +48,13 @@ public class Pulverizer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addPulveriserRecipe(i.nextItem(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+                        RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItemArr())
+                            .outputChances(i.nextIntArr())
+                            .duration(i.nextInt())
+                            .duration(i.nextInt())
+                            .addTo(maceratorRecipes);
                     }
                 });
         }

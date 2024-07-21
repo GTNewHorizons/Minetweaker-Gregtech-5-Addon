@@ -1,7 +1,10 @@
 package gttweaker.mods.gregtech;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_TYPE;
+import static gregtech.api.util.GT_RecipeConstants.FUEL_VALUE;
 
+import gregtech.api.enums.GT_Values;
+import gregtech.api.util.GT_RecipeConstants;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -112,7 +115,14 @@ public class Fuels {
 
         @Override
         protected void applySingleRecipe(ArgIterator i) {
-            RA.addFuel(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+            GT_Values.RA.stdBuilder()
+                .itemInputs(i.nextItem())
+                .itemOutputs(i.nextItem())
+                .metadata(FUEL_VALUE, i.nextInt())
+                .metadata(FUEL_TYPE, i.nextInt())
+                .duration(0)
+                .eut(0)
+                .addTo(GT_RecipeConstants.Fuel);
         }
     }
 }

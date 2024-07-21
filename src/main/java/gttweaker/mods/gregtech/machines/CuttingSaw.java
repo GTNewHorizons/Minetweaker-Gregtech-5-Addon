@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.cutterRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
 import gttweaker.mods.AddMultipleRecipeAction;
@@ -47,7 +48,12 @@ public class CuttingSaw {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addCutterRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                        RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItem(), i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(cutterRecipes);
                     }
                 });
         } else {
@@ -63,13 +69,13 @@ public class CuttingSaw {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addCutterRecipe(
-                            i.nextItem(),
-                            i.nextFluid(),
-                            i.nextItem(),
-                            i.nextItem(),
-                            i.nextInt(),
-                            i.nextInt());
+                        RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .itemOutputs(i.nextItem(), i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(cutterRecipes);
                     }
                 });
         }
@@ -100,13 +106,12 @@ public class CuttingSaw {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addCutterRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(cutterRecipes);
                 }
             });
     }

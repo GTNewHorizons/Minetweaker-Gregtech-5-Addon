@@ -1,6 +1,8 @@
 package gttweaker.mods.gtpp.machines;
 
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.chemicalDehydratorRecipes;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -31,15 +33,18 @@ public class MultiblockCentrifuge {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addMultiblockCentrifugeRecipe(
-                        i.nextItemArr(),
-                        i.nextFluidArr(),
-                        i.nextFluidArr(),
-                        i.nextItemArr(),
-                        i.nextIntArr(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                        .noOptimize()
+                        .itemInputs(i.nextItemArr())
+                        .fluidInputs(i.nextFluidArr())
+                        .fluidOutputs(i.nextFluidArr())
+                        .itemOutputs(i.nextItemArr())
+                        .outputChances(i.nextIntArr())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .specialValue(i.nextInt()) // unused, added for full backward compat
+                        .addTo(chemicalDehydratorRecipes);
+
                 }
             });
     }

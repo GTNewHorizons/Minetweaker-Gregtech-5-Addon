@@ -1,6 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.primitiveBlastRecipes;
+import static gregtech.api.util.GT_RecipeConstants.ADDITIVE_AMOUNT;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -29,13 +31,12 @@ public class PrimitiveBlastFurnace {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPrimitiveBlastRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .metadata(ADDITIVE_AMOUNT, i.nextInt())
+                        .itemOutputs(i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .addTo(primitiveBlastRecipes);
                 }
             });
     }
