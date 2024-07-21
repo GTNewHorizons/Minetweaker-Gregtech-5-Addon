@@ -1,15 +1,14 @@
 package gttweaker.mods.gtpp.machines;
 
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.multiblockMassFabricatorRecipes;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.RA;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.multiblockMassFabricatorRecipes;
 
 @ZenClass("mods.gtpp.MatterFabricator")
 @ModOnly("miscutils")
@@ -28,11 +27,11 @@ public class MatterFabricator {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .fluidInputs(i.nextFluid())
-                            .fluidOutputs(i.nextFluid())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(multiblockMassFabricatorRecipes);
+                        .fluidInputs(i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(multiblockMassFabricatorRecipes);
 
                 }
             });

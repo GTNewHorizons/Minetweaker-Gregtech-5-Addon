@@ -1,23 +1,22 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
-import static gregtech.api.recipe.RecipeMaps.benderRecipes;
 import static gregtech.api.recipe.RecipeMaps.electroMagneticSeparatorRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provides access to the Separator recipes.
@@ -63,12 +62,12 @@ public class Separator {
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
-                                .itemInputs(input)
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .outputChances(i.nextIntArr())
-                                .duration(i.nextInt())
-                                .eut(i.nextInt())
-                                .addTo(electroMagneticSeparatorRecipes);
+                            .itemInputs(input)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .outputChances(i.nextIntArr())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(electroMagneticSeparatorRecipes);
                     }
                 });
         }

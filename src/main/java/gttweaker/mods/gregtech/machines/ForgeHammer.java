@@ -41,11 +41,11 @@ public class ForgeHammer {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(hammerRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(hammerRecipes);
                 }
             });
     }

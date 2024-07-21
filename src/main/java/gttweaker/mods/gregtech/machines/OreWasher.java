@@ -35,12 +35,12 @@ public class OreWasher {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
-                            .fluidInputs(i.nextFluid())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(oreWasherRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
+                        .fluidInputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(oreWasherRecipes);
                 }
             });
     }

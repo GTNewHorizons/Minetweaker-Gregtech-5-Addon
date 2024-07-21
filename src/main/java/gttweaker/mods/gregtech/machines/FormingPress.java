@@ -44,11 +44,11 @@ public class FormingPress {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem(), i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(formingPressRecipes);
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(formingPressRecipes);
                 }
             });
     }

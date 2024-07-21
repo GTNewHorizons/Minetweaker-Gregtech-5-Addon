@@ -49,11 +49,11 @@ public class CuttingSaw {
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
                         RA.stdBuilder()
-                                .itemInputs(i.nextItem())
-                                .itemOutputs(i.nextItem(), i.nextItem())
-                                .duration(i.nextInt())
-                                .eut(i.nextInt())
-                                .addTo(cutterRecipes);
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItem(), i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(cutterRecipes);
                     }
                 });
         } else {
@@ -70,12 +70,12 @@ public class CuttingSaw {
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
                         RA.stdBuilder()
-                                .itemInputs(i.nextItem())
-                                .fluidInputs(i.nextFluid())
-                                .itemOutputs(i.nextItem(), i.nextItem())
-                                .duration(i.nextInt())
-                                .eut(i.nextInt())
-                                .addTo(cutterRecipes);
+                            .itemInputs(i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .itemOutputs(i.nextItem(), i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(cutterRecipes);
                     }
                 });
         }
@@ -107,11 +107,11 @@ public class CuttingSaw {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem(), i.nextItem())
-                            .itemOutputs(i.nextItem(), i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(cutterRecipes);
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(cutterRecipes);
                 }
             });
     }

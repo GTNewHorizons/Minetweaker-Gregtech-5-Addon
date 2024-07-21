@@ -32,11 +32,11 @@ public class PrimitiveBlastFurnace {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem(), i.nextItem())
-                            .metadata(ADDITIVE_AMOUNT, i.nextInt())
-                            .itemOutputs(i.nextItem(), i.nextItem())
-                            .duration(i.nextInt())
-                            .addTo(primitiveBlastRecipes);
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .metadata(ADDITIVE_AMOUNT, i.nextInt())
+                        .itemOutputs(i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .addTo(primitiveBlastRecipes);
                 }
             });
     }

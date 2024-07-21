@@ -47,13 +47,13 @@ public class Printer {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .fluidInputs(i.nextFluid())
-                            .special(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(printerRecipes);
+                        .itemInputs(i.nextItem())
+                        .fluidInputs(i.nextFluid())
+                        .special(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(printerRecipes);
                 }
             });
     }

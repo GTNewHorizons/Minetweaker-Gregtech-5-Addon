@@ -1,19 +1,18 @@
 package gttweaker.mods.gtpp.machines;
 
-import gtPlusPlus.api.recipe.GTPPRecipeMaps;
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.alloyBlastSmelterRecipes;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.RA;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.alloyBlastSmelterRecipes;
 
 /**
  * Adds a Recipe for the Alloy Blast Smelter. (up to 9 Inputs)
@@ -59,11 +58,11 @@ public class BlastSmelter {
                     int eut = i.nextInt();
 
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .fluidOutputs(output)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(alloyBlastSmelterRecipes);
+                        .itemInputs(inputs)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -91,12 +90,12 @@ public class BlastSmelter {
                     int eut = i.nextInt();
 
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .fluidInputs(input)
-                            .fluidOutputs(output)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(alloyBlastSmelterRecipes);
+                        .itemInputs(inputs)
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -126,14 +125,14 @@ public class BlastSmelter {
                     int eut = i.nextInt();
 
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .itemOutputs(outputs)
-                            .outputChances(chances)
-                            .fluidInputs(input)
-                            .fluidOutputs(output)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(alloyBlastSmelterRecipes);
+                        .itemInputs(inputs)
+                        .itemOutputs(outputs)
+                        .outputChances(chances)
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -163,12 +162,12 @@ public class BlastSmelter {
                     // special value is useless in ABS recipes
 
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .fluidInputs(input)
-                            .fluidOutputs(output)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(alloyBlastSmelterRecipes);
+                        .itemInputs(inputs)
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -199,14 +198,14 @@ public class BlastSmelter {
                     int eut = i.nextInt();
                     // special value is useless in ABS recipes
                     RA.stdBuilder()
-                            .itemInputs(inputs)
-                            .itemOutputs(outputs)
-                            .outputChances(chances)
-                            .fluidInputs(input)
-                            .fluidOutputs(output)
-                            .duration(duration)
-                            .eut(eut)
-                            .addTo(alloyBlastSmelterRecipes);
+                        .itemInputs(inputs)
+                        .itemOutputs(outputs)
+                        .outputChances(chances)
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }

@@ -31,11 +31,11 @@ public class ThermalCentrifuge {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(thermalCentrifugeRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(thermalCentrifugeRecipes);
                 }
             });
     }

@@ -28,11 +28,11 @@ public class Compressor {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(compressorRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(compressorRecipes);
                 }
             });
     }

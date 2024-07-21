@@ -28,12 +28,11 @@ public class Extractor {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(extractorRecipes)
-                    ;
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(extractorRecipes);
                 }
             });
     }

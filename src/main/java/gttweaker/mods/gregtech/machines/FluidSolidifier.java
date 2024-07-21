@@ -45,12 +45,12 @@ public class FluidSolidifier {
                 protected void applySingleRecipe(ArgIterator i) {
 
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .fluidInputs(i.nextFluid())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(fluidSolidifierRecipes);
+                        .itemInputs(i.nextItem())
+                        .fluidInputs(i.nextFluid())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(fluidSolidifierRecipes);
                 }
             });
     }

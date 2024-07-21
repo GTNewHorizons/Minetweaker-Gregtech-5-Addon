@@ -49,12 +49,12 @@ public class Sifter {
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
                         RA.stdBuilder()
-                                .itemInputs(i.nextItem())
-                                .itemOutputs(i.nextItemArr())
-                                .outputChances(i.nextIntArr())
-                                .duration(i.nextInt())
-                                .eut(i.nextInt())
-                                .addTo(sifterRecipes);
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItemArr())
+                            .outputChances(i.nextIntArr())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(sifterRecipes);
                     }
                 });
         }

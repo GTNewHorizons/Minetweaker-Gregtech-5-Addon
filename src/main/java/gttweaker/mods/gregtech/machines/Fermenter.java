@@ -3,11 +3,12 @@ package gttweaker.mods.gregtech.machines;
 import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.fermentingRecipes;
 
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -45,21 +46,22 @@ public class Fermenter {
                     int duration = i.nextInt();
                     int eut = 2;
                     boolean hidden = i.nextBool();
-                    if (hidden){
+                    if (hidden) {
                         RA.stdBuilder()
-                                .fluidInputs(input)
-                                .fluidOutputs(output)
-                                .duration(duration)
-                                .eut(eut)
-                                .hidden()
-                                .addTo(fermentingRecipes);
-                        return;
-                    }
-                    RA.stdBuilder().fluidInputs(input)
+                            .fluidInputs(input)
                             .fluidOutputs(output)
                             .duration(duration)
                             .eut(eut)
+                            .hidden()
                             .addTo(fermentingRecipes);
+                        return;
+                    }
+                    RA.stdBuilder()
+                        .fluidInputs(input)
+                        .fluidOutputs(output)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(fermentingRecipes);
                 }
             });
     }

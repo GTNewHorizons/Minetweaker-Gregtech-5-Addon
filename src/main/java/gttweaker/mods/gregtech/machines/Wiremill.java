@@ -1,7 +1,6 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
-import static gregtech.api.recipe.RecipeMaps.benderRecipes;
 import static gregtech.api.recipe.RecipeMaps.wiremillRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
@@ -42,11 +41,11 @@ public class Wiremill {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .duration(i.nextInt())
-                            .addTo(wiremillRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .duration(i.nextInt())
+                        .addTo(wiremillRecipes);
                 }
             });
     }

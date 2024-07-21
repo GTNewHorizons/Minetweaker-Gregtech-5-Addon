@@ -4,18 +4,19 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.latheRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
-import net.minecraft.item.ItemStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Access point for Lathe recipes.
@@ -68,11 +69,11 @@ public class Lathe {
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
-                                .itemInputs(input)
-                                .itemOutputs(outputs.toArray(new ItemStack[0]))
-                                .duration(i.nextInt())
-                                .eut(i.nextInt())
-                                .addTo(latheRecipes);
+                            .itemInputs(input)
+                            .itemOutputs(outputs.toArray(new ItemStack[0]))
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(latheRecipes);
                     }
                 });
         }

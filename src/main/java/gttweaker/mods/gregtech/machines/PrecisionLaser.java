@@ -47,12 +47,12 @@ public class PrecisionLaser {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem(), i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .metadata(CLEANROOM, i.nextBool())
-                            .addTo(laserEngraverRecipes);
+                        .itemInputs(i.nextItem(), i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .metadata(CLEANROOM, i.nextBool())
+                        .addTo(laserEngraverRecipes);
                 }
             });
     }

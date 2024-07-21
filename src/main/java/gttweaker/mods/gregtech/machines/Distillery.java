@@ -3,14 +3,14 @@ package gttweaker.mods.gregtech.machines;
 import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.distilleryRecipes;
 
-import gregtech.api.util.GT_Utility;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -56,21 +56,21 @@ public class Distillery {
                     boolean hidden = i.nextBool();
                     if (hidden) {
                         RA.stdBuilder()
-                                .itemInputs(input)
-                                .fluidInputs(fluidInput)
-                                .fluidOutputs(fluidOutput)
-                                .duration(duration)
-                                .eut(eut)
-                                .addTo(distilleryRecipes);
-                        return;
-                    }
-                    RA.stdBuilder()
                             .itemInputs(input)
                             .fluidInputs(fluidInput)
                             .fluidOutputs(fluidOutput)
                             .duration(duration)
                             .eut(eut)
                             .addTo(distilleryRecipes);
+                        return;
+                    }
+                    RA.stdBuilder()
+                        .itemInputs(input)
+                        .fluidInputs(fluidInput)
+                        .fluidOutputs(fluidOutput)
+                        .duration(duration)
+                        .eut(eut)
+                        .addTo(distilleryRecipes);
                 }
             });
     }

@@ -4,20 +4,21 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.chemicalBathRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 
 /**
  * Provides access to the Chemical Bath recipes.
@@ -60,11 +61,7 @@ public class ChemicalBath {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input = i.nextItem();
                         FluidStack fluidInput = i.nextFluid();
-                        List<ItemStack> outputs = Arrays.asList(
-                                i.nextItem(),
-                                i.nextItem(),
-                                i.nextItem()
-                        );
+                        List<ItemStack> outputs = Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem());
                         outputs.removeIf(Objects::isNull);
                         int[] chances = i.nextIntArr();
                         int duration = i.nextInt();
@@ -74,7 +71,8 @@ public class ChemicalBath {
                             .itemOutputs(outputs.toArray(new ItemStack[0]))
                             .outputChances(chances)
                             .fluidInputs(fluidInput)
-                            .duration(duration).eut(eut)
+                            .duration(duration)
+                            .eut(eut)
                             .addTo(chemicalBathRecipes);
                     }
                 });

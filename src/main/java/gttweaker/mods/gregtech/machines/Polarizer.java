@@ -41,11 +41,11 @@ public class Polarizer {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .itemOutputs(i.nextItem())
-                            .duration(i.nextInt())
-                            .duration(i.nextInt())
-                            .addTo(polarizerRecipes);
+                        .itemInputs(i.nextItem())
+                        .itemOutputs(i.nextItem())
+                        .duration(i.nextInt())
+                        .duration(i.nextInt())
+                        .addTo(polarizerRecipes);
                 }
             });
     }

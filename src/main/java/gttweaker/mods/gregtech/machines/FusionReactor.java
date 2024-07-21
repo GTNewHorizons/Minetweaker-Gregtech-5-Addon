@@ -46,11 +46,12 @@ public class FusionReactor {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .fluidInputs(i.nextFluid(), i.nextFluid())
-                            .fluidOutputs(i.nextFluid()).duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .metadata(FUSION_THRESHOLD, i.nextInt())
-                            .addTo(fusionRecipes);
+                        .fluidInputs(i.nextFluid(), i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .metadata(FUSION_THRESHOLD, i.nextInt())
+                        .addTo(fusionRecipes);
                 }
             });
     }

@@ -1,8 +1,8 @@
 package gttweaker.mods.gtpp.machines;
 
-import gregtech.api.util.GT_Recipe;
-import gtPlusPlus.api.recipe.GTPPRecipeMaps;
-import gtPlusPlus.core.lib.CORE;
+import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.electrolyzerNonCellRecipes;
+
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -10,9 +10,6 @@ import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
-
-import static gregtech.api.enums.GT_Values.RA;
-import static gregtech.api.recipe.RecipeMaps.electrolyzerNonCellRecipes;
 
 @ZenClass("mods.gtpp.MultiblockElectrolyzer")
 @ModOnly("miscutils")
@@ -46,16 +43,16 @@ public class MultiblockElectrolyzer {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .noOptimize()
-                            .itemInputs(i.nextItemArr())
-                            .fluidInputs(i.nextFluidArr())
-                            .fluidOutputs(i.nextFluidArr())
-                            .itemOutputs(i.nextItemArr())
-                            .outputChances(i.nextIntArr())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .specialValue(i.nextInt()) // unused, added for full backward compat
-                            .addTo(electrolyzerNonCellRecipes);
+                        .noOptimize()
+                        .itemInputs(i.nextItemArr())
+                        .fluidInputs(i.nextFluidArr())
+                        .fluidOutputs(i.nextFluidArr())
+                        .itemOutputs(i.nextItemArr())
+                        .outputChances(i.nextIntArr())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .specialValue(i.nextInt()) // unused, added for full backward compat
+                        .addTo(electrolyzerNonCellRecipes);
                 }
             });
     }

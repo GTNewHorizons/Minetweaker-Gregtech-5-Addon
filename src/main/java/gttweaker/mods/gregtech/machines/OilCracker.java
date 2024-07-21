@@ -45,12 +45,12 @@ public class OilCracker {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(GT_Utility.getIntegratedCircuit(i.nextInt()))
-                            .fluidInputs(i.nextFluid(), i.nextFluid())
-                            .fluidOutputs(i.nextFluid())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(crackingRecipes);
+                        .itemInputs(GT_Utility.getIntegratedCircuit(i.nextInt()))
+                        .fluidInputs(i.nextFluid(), i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(crackingRecipes);
                 }
             });
     }

@@ -44,12 +44,12 @@ public class FluidHeater {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                            .itemInputs(i.nextItem())
-                            .fluidInputs(i.nextFluid())
-                            .fluidOutputs(i.nextFluid())
-                            .duration(i.nextInt())
-                            .eut(i.nextInt())
-                            .addTo(fluidHeaterRecipes);
+                        .itemInputs(i.nextItem())
+                        .fluidInputs(i.nextFluid())
+                        .fluidOutputs(i.nextFluid())
+                        .duration(i.nextInt())
+                        .eut(i.nextInt())
+                        .addTo(fluidHeaterRecipes);
                 }
             });
     }
