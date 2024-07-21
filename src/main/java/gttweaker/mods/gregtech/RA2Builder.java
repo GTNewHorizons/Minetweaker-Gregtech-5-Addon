@@ -122,7 +122,7 @@ public class RA2Builder {
 
     @ZenMethod
     public RA2Builder specialItem(IIngredient specialItem) {
-        recipeBuilder.specialItem(GTTweaker.getItemStackOrNull(specialItem));
+        recipeBuilder.special(GTTweaker.getItemStackOrNull(specialItem));
         return this;
     }
 

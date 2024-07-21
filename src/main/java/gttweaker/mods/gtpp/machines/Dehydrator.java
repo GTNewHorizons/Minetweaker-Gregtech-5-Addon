@@ -11,6 +11,9 @@ import minetweaker.api.liquid.ILiquidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
+import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.centrifugeNonCellRecipes;
+
 @ZenClass("mods.gtpp.Dehydrator")
 @ModOnly("miscutils")
 public class Dehydrator {
@@ -31,14 +34,15 @@ public class Dehydrator {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addDehydratorRecipe(
-                        i.nextItemArr(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextItemArr(),
-                        i.nextIntArr(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItemArr())
+                            .fluidInputs(i.nextFluid())
+                            .fluidOutputs(i.nextFluid())
+                            .itemOutputs(i.nextItemArr())
+                            .outputChances(i.nextIntArr())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(centrifugeNonCellRecipes);
                 }
             });
     }

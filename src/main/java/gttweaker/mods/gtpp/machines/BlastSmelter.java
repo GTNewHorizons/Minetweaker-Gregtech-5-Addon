@@ -1,13 +1,19 @@
 package gttweaker.mods.gtpp.machines;
 
+import gtPlusPlus.api.recipe.GTPPRecipeMaps;
 import gtPlusPlus.core.lib.CORE;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.liquid.ILiquidStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
+
+import static gregtech.api.enums.GT_Values.RA;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.alloyBlastSmelterRecipes;
 
 /**
  * Adds a Recipe for the Alloy Blast Smelter. (up to 9 Inputs)
@@ -46,8 +52,18 @@ public class BlastSmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA
-                        .addBlastSmelterRecipe(i.nextItemArr(), i.nextFluid(), i.nextInt(), i.nextInt(), i.nextInt());
+                    ItemStack[] inputs = i.nextItemArr();
+                    FluidStack output = i.nextFluid();
+                    i.nextInt(); // stupid code that asked for an output chance with no output added
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+
+                    RA.stdBuilder()
+                            .itemInputs(inputs)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -67,13 +83,20 @@ public class BlastSmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addBlastSmelterRecipe(
-                        i.nextItemArr(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack[] inputs = i.nextItemArr();
+                    FluidStack input = i.nextFluid();
+                    FluidStack output = i.nextFluid();
+                    i.nextInt(); // stupid code that asked for an output chance with no output added
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+
+                    RA.stdBuilder()
+                            .itemInputs(inputs)
+                            .fluidInputs(input)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -94,14 +117,23 @@ public class BlastSmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addBlastSmelterRecipe(
-                        i.nextItemArr(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextItemArr(),
-                        i.nextIntArr(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack[] inputs = i.nextItemArr();
+                    FluidStack input = i.nextFluid();
+                    FluidStack output = i.nextFluid();
+                    ItemStack[] outputs = i.nextItemArr();
+                    int[] chances = i.nextIntArr();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+
+                    RA.stdBuilder()
+                            .itemInputs(inputs)
+                            .itemOutputs(outputs)
+                            .outputChances(chances)
+                            .fluidInputs(input)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -122,14 +154,21 @@ public class BlastSmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addBlastSmelterRecipe(
-                        i.nextItemArr(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack[] inputs = i.nextItemArr();
+                    FluidStack input = i.nextFluid();
+                    FluidStack output = i.nextFluid();
+                    i.nextInt(); // unused
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    // special value is useless in ABS recipes
+
+                    RA.stdBuilder()
+                            .itemInputs(inputs)
+                            .fluidInputs(input)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
@@ -151,15 +190,23 @@ public class BlastSmelter {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    CORE.RA.addBlastSmelterRecipe(
-                        i.nextItemArr(),
-                        i.nextFluid(),
-                        i.nextFluid(),
-                        i.nextItemArr(),
-                        i.nextIntArr(),
-                        i.nextInt(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack[] inputs = i.nextItemArr();
+                    FluidStack input = i.nextFluid();
+                    FluidStack output = i.nextFluid();
+                    ItemStack[] outputs = i.nextItemArr();
+                    int[] chances = i.nextIntArr();
+                    int duration = i.nextInt();
+                    int eut = i.nextInt();
+                    // special value is useless in ABS recipes
+                    RA.stdBuilder()
+                            .itemInputs(inputs)
+                            .itemOutputs(outputs)
+                            .outputChances(chances)
+                            .fluidInputs(input)
+                            .fluidOutputs(output)
+                            .duration(duration)
+                            .eut(eut)
+                            .addTo(alloyBlastSmelterRecipes);
                 }
             });
     }
