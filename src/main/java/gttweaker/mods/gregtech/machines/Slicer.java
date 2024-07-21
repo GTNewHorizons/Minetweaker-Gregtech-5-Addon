@@ -1,6 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.benderRecipes;
+import static gregtech.api.recipe.RecipeMaps.slicerRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -42,7 +44,12 @@ public class Slicer {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addSlicerRecipe(i.nextItem(), i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem(), i.nextItem())
+                            .itemOutputs(i.nextItem())
+                            .duration(i.nextInt())
+                            .duration(i.nextInt())
+                            .addTo(slicerRecipes);
                 }
             });
     }

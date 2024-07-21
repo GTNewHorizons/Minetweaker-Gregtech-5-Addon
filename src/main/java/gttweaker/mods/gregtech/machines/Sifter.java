@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.sifterRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -47,7 +48,13 @@ public class Sifter {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        RA.addSifterRecipe(i.nextItem(), i.nextItemArr(), i.nextIntArr(), i.nextInt(), i.nextInt());
+                        RA.stdBuilder()
+                                .itemInputs(i.nextItem())
+                                .itemOutputs(i.nextItemArr())
+                                .outputChances(i.nextIntArr())
+                                .duration(i.nextInt())
+                                .eut(i.nextInt())
+                                .addTo(sifterRecipes);
                     }
                 });
         }

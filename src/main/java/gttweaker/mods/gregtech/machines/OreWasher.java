@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.oreWasherRecipes;
 
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
@@ -33,14 +34,13 @@ public class OreWasher {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addOreWasherRecipe(
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItem(), i.nextItem(), i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(oreWasherRecipes);
                 }
             });
     }

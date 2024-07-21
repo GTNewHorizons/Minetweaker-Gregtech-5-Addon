@@ -1,12 +1,17 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.vacuumFreezerRecipes;
 
+import gregtech.api.enums.TierEU;
+import gregtech.api.util.GT_Utility;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -33,7 +38,27 @@ public class VacuumFreezer {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addVacuumFreezerRecipe(i.nextItem(), i.nextItem(), i.nextInt());
+                    ItemStack input = i.nextItem();
+                    ItemStack output = i.nextItem();
+                    int duration =i.nextInt();
+                    RA.stdBuilder()
+                            .itemInputs(input)
+                            .itemOutputs(output)
+                            .duration(duration)
+                            .eut(TierEU.RECIPE_MV)
+                            .addTo(vacuumFreezerRecipes);
+
+                    FluidStack fluidInput = GT_Utility.getFluidForFilledItem(input, true);
+                    FluidStack fluidOutput = GT_Utility.getFluidForFilledItem(output, true);
+                    if (fluidInput != null && fluidOutput != null) {
+                        RA.stdBuilder()
+                                .fluidInputs(fluidInput)
+                                .fluidOutputs(fluidOutput)
+                                .duration(duration)
+                                .eut(TierEU.RECIPE_MV)
+                                .addTo(vacuumFreezerRecipes);
+                    }
+
                 }
             });
     }

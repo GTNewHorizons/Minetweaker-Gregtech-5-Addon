@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.printerRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -45,13 +46,14 @@ public class Printer {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPrinterRecipe(
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextItem(),
-                        i.nextItem(),
-                        i.nextInt(),
-                        i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .fluidInputs(i.nextFluid())
+                            .special(i.nextItem())
+                            .itemOutputs(i.nextItem())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(printerRecipes);
                 }
             });
     }

@@ -1,6 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.polarizerRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -39,7 +40,12 @@ public class Polarizer {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPolarizerRecipe(i.nextItem(), i.nextItem(), i.nextInt(), i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(i.nextItem())
+                            .itemOutputs(i.nextItem())
+                            .duration(i.nextInt())
+                            .duration(i.nextInt())
+                            .addTo(polarizerRecipes);
                 }
             });
     }

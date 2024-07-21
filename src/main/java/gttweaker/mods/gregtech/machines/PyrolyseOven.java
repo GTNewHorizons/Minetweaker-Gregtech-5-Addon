@@ -1,13 +1,17 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.recipe.RecipeMaps.pyrolyseRecipes;
 
+import gregtech.api.util.GT_Utility;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
 import minetweaker.api.item.IIngredient;
 import minetweaker.api.item.IItemStack;
 import minetweaker.api.liquid.ILiquidStack;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidStack;
 import stanhebben.zenscript.annotations.ZenClass;
 import stanhebben.zenscript.annotations.ZenMethod;
 
@@ -47,14 +51,17 @@ public class PyrolyseOven {
 
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
-                    RA.addPyrolyseRecipe(
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextItem(),
-                        i.nextFluid(),
-                        i.nextInt(),
-                        i.nextInt());
+                    ItemStack input = i.nextItem();
+                    FluidStack fluidInput = i.nextFluid();
+                    ItemStack circuit = GT_Utility.getIntegratedCircuit(i.nextInt());
+                    RA.stdBuilder()
+                            .itemInputs(input, circuit)
+                            .fluidInputs(fluidInput)
+                            .itemOutputs(i.nextItem())
+                            .fluidOutputs(i.nextFluid())
+                            .duration(i.nextInt())
+                            .eut(i.nextInt())
+                            .addTo(pyrolyseRecipes);
                 }
             });
     }
