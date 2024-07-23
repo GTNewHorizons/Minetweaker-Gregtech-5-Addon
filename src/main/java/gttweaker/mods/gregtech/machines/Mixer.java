@@ -60,7 +60,8 @@ public class Mixer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        List<ItemStack> inputs =new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> inputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
                         inputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
@@ -94,7 +95,8 @@ public class Mixer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        List<ItemStack> inputs =new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> inputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
                         inputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()

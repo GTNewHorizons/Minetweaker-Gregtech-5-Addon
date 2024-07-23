@@ -74,7 +74,7 @@ public class Canner {
                         ItemStack input2 = i.nextItem();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays.asList(output1, output2));
+                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                         outputs.removeIf(Objects::isNull);
 
                         int duration = i.nextInt();

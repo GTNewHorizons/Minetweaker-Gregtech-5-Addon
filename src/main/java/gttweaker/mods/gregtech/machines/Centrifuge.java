@@ -74,7 +74,14 @@ public class Centrifuge {
                         ItemStack input2 = i.nextItem();
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         int[] chances = i.nextIntArr();
@@ -122,13 +129,19 @@ public class Centrifuge {
                         ItemStack input1 = i.nextItem();
                         int cellNumber = i.nextInt();
                         ItemStack input2 = cellNumber > 0 ? ItemList.Cell_Empty.get(cellNumber) : null;
-                        List<ItemStack> inputs =new ArrayList<>(Arrays.asList(input1, input2));
+                        List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2));
                         inputs.removeIf(Objects::isNull);
 
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays
-                            .asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         int[] chances = i.nextIntArr();

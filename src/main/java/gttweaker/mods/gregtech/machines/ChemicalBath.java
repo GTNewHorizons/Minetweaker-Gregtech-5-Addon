@@ -62,7 +62,8 @@ public class ChemicalBath {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input = i.nextItem();
                         FluidStack fluidInput = i.nextFluid();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem()));
                         outputs.removeIf(Objects::isNull);
                         int[] chances = i.nextIntArr();
                         int duration = i.nextInt();
