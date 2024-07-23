@@ -72,8 +72,14 @@ public class Electrolyzer {
                         ItemStack[] inputs = new ItemStack[] { i.nextItem(), i.nextItem() };
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays
-                            .asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
@@ -114,8 +120,14 @@ public class Electrolyzer {
                         ItemStack[] inputs = new ItemStack[] { i.nextItem(), i.nextItem() };
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays
-                            .asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem(),
+                                i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()

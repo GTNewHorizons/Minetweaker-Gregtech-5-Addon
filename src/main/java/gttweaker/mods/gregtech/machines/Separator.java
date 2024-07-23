@@ -59,7 +59,8 @@ public class Separator {
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input = i.nextItem();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem()));
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()

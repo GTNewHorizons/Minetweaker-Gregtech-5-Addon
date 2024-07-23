@@ -64,7 +64,7 @@ public class BlastFurnace {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input1 = i.nextItem();
                         ItemStack input2 = i.nextItem();
-                        List<ItemStack> inputs =new ArrayList<>(Arrays.asList(input1, input2));
+                        List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2));
                         inputs.removeIf(Objects::isNull);
 
                         FluidStack fluidInput = i.nextFluid();
@@ -115,7 +115,7 @@ public class BlastFurnace {
                     FluidStack fluidInput = i.nextFluid();
                     ItemStack output1 = i.nextItem();
                     ItemStack output2 = i.nextItem();
-                    List<ItemStack> outputs =new ArrayList<>(Arrays.asList(output1, output2));
+                    List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                     outputs.removeIf(Objects::isNull);
                     int duration = i.nextInt();
                     int eut = i.nextInt();

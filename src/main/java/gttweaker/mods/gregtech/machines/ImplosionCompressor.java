@@ -69,7 +69,7 @@ public class ImplosionCompressor {
                         int additiveAmount = i.nextInt();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs =new ArrayList<>(Arrays.asList(output1, output2));
+                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                         outputs.removeIf(Objects::isNull);
                         RA.stdBuilder()
                             .itemInputs(input)
