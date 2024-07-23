@@ -4,6 +4,7 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.latheRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -65,7 +66,7 @@ public class Lathe {
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(i.nextItem(), i.nextItem());
+                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(i.nextItem(), i.nextItem()));
                         outputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()

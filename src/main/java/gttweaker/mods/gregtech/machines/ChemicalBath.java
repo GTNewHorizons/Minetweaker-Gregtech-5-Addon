@@ -4,6 +4,7 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.chemicalBathRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -61,7 +62,8 @@ public class ChemicalBath {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input = i.nextItem();
                         FluidStack fluidInput = i.nextFluid();
-                        List<ItemStack> outputs = Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem());
+                        List<ItemStack> outputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem()));
                         outputs.removeIf(Objects::isNull);
                         int[] chances = i.nextIntArr();
                         int duration = i.nextInt();

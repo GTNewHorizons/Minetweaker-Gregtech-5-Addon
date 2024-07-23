@@ -6,6 +6,7 @@ import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
 import static gregtech.api.util.GT_RecipeConstants.ADDITIVE_AMOUNT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -68,7 +69,7 @@ public class ImplosionCompressor {
                         int additiveAmount = i.nextInt();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(output1, output2);
+                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                         outputs.removeIf(Objects::isNull);
                         RA.stdBuilder()
                             .itemInputs(input)

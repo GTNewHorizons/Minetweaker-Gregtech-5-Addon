@@ -4,6 +4,7 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.mixerRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -59,7 +60,8 @@ public class Mixer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        List<ItemStack> inputs = Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem());
+                        List<ItemStack> inputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
                         inputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
@@ -93,7 +95,8 @@ public class Mixer {
 
                     @Override
                     protected void applySingleRecipe(ArgIterator i) {
-                        List<ItemStack> inputs = Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem());
+                        List<ItemStack> inputs = new ArrayList<>(
+                            Arrays.asList(i.nextItem(), i.nextItem(), i.nextItem(), i.nextItem()));
                         inputs.removeIf(Objects::isNull);
 
                         RA.stdBuilder()
