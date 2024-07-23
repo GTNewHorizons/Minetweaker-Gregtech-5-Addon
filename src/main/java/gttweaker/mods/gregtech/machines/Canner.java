@@ -4,6 +4,7 @@ import static gregtech.api.enums.GT_Values.RA;
 import static gregtech.api.recipe.RecipeMaps.cannerRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -73,7 +74,7 @@ public class Canner {
                         ItemStack input2 = i.nextItem();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(output1, output2);
+                        List<ItemStack> outputs =new ArrayList<>(Arrays.asList(output1, output2));
                         outputs.removeIf(Objects::isNull);
 
                         int duration = i.nextInt();

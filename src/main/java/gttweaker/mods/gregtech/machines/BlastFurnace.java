@@ -5,6 +5,7 @@ import static gregtech.api.recipe.RecipeMaps.blastFurnaceRecipes;
 import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -63,14 +64,14 @@ public class BlastFurnace {
                     protected void applySingleRecipe(ArgIterator i) {
                         ItemStack input1 = i.nextItem();
                         ItemStack input2 = i.nextItem();
-                        List<ItemStack> inputs = Arrays.asList(input1, input2);
+                        List<ItemStack> inputs =new ArrayList<>(Arrays.asList(input1, input2));
                         inputs.removeIf(Objects::isNull);
 
                         FluidStack fluidInput = i.nextFluid();
                         FluidStack fluidOutput = i.nextFluid();
                         ItemStack output1 = i.nextItem();
                         ItemStack output2 = i.nextItem();
-                        List<ItemStack> outputs = Arrays.asList(output1, output2);
+                        List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                         outputs.removeIf(Objects::isNull);
                         int duration = i.nextInt();
                         int eut = i.nextInt();
@@ -108,13 +109,13 @@ public class BlastFurnace {
                 protected void applySingleRecipe(ArgIterator i) {
                     ItemStack input1 = i.nextItem();
                     ItemStack input2 = i.nextItem();
-                    List<ItemStack> inputs = Arrays.asList(input1, input2);
+                    List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2));
                     inputs.removeIf(Objects::isNull);
 
                     FluidStack fluidInput = i.nextFluid();
                     ItemStack output1 = i.nextItem();
                     ItemStack output2 = i.nextItem();
-                    List<ItemStack> outputs = Arrays.asList(output1, output2);
+                    List<ItemStack> outputs =new ArrayList<>(Arrays.asList(output1, output2));
                     outputs.removeIf(Objects::isNull);
                     int duration = i.nextInt();
                     int eut = i.nextInt();
@@ -148,12 +149,12 @@ public class BlastFurnace {
                 protected void applySingleRecipe(ArgIterator i) {
                     ItemStack input1 = i.nextItem();
                     ItemStack input2 = i.nextItem();
-                    List<ItemStack> inputs = Arrays.asList(input1, input2);
+                    List<ItemStack> inputs = new ArrayList<>(Arrays.asList(input1, input2));
                     inputs.removeIf(Objects::isNull);
 
                     ItemStack output1 = i.nextItem();
                     ItemStack output2 = i.nextItem();
-                    List<ItemStack> outputs = Arrays.asList(output1, output2);
+                    List<ItemStack> outputs = new ArrayList<>(Arrays.asList(output1, output2));
                     outputs.removeIf(Objects::isNull);
                     int duration = i.nextInt();
                     int eut = i.nextInt();
