@@ -28,19 +28,19 @@ public class RecipeRemover {
             MineTweakerAPI.logError("Could not find recipe map named \"" + map + "\"");
             return;
         }
-        GT_Recipe recipe = recipeMap.findRecipe(
-            null,
-            false,
-            true,
-            Long.MAX_VALUE,
-            Arrays.stream(fluidInputs)
-                .map(GTTweaker::getFluidStackOrNull)
-                .filter(Objects::nonNull)
-                .toArray(FluidStack[]::new),
-            Arrays.stream(inputs)
-                .map(GTTweaker::getItemStackOrNull)
-                .filter(Objects::nonNull)
-                .toArray(ItemStack[]::new));
+        GT_Recipe recipe = recipeMap.findRecipeQuery()
+            .items(
+                Arrays.stream(inputs)
+                    .map(GTTweaker::getItemStackOrNull)
+                    .filter(Objects::nonNull)
+                    .toArray(ItemStack[]::new))
+            .fluids(
+                Arrays.stream(fluidInputs)
+                    .map(GTTweaker::getFluidStackOrNull)
+                    .filter(Objects::nonNull)
+                    .toArray(FluidStack[]::new))
+            .dontCheckStackSizes(true)
+            .find();
         if (recipe == null) {
             MineTweakerAPI.logWarning("Could not find recipe to remove!");
             return;
