@@ -1,5 +1,7 @@
 package gttweaker;
 
+import static gregtech.api.enums.Mods.GTPlusPlus;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -8,7 +10,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import gregtech.api.GregTech_API;
 import gttweaker.mods.gregtech.Fuels;
 import gttweaker.mods.gregtech.RA2Builder;
 import gttweaker.mods.gregtech.RecipeRemover;
@@ -112,24 +113,20 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(Unpacker.class);
         MineTweakerAPI.registerClass(VacuumFreezer.class);
         MineTweakerAPI.registerClass(Wiremill.class);
-        if (GregTech_API.VERSION >= 508) {
-            MineTweakerAPI.registerClass(ArcFurnace.class);
-            MineTweakerAPI.registerClass(DistillationTower.class);
-            MineTweakerAPI.registerClass(FusionReactor.class);
-            MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
-        }
-        if (GregTech_API.VERSION >= 509) {
-            MineTweakerAPI.registerClass(PyrolyseOven.class);
-            MineTweakerAPI.registerClass(OilCracker.class);
-            MineTweakerAPI.registerClass(AssemblyLine.class);
-            MineTweakerAPI.registerClass(CircuitAssembler.class);
-            MineTweakerAPI.registerClass(Compressor.class);
-            MineTweakerAPI.registerClass(Extractor.class);
-            MineTweakerAPI.registerClass(OreWasher.class);
-            MineTweakerAPI.registerClass(ThermalCentrifuge.class);
-            MineTweakerAPI.registerClass(PrimitiveBlastFurnace.class);
-        }
-        if (GregTech_API.mGTPlusPlus) {
+        MineTweakerAPI.registerClass(ArcFurnace.class);
+        MineTweakerAPI.registerClass(DistillationTower.class);
+        MineTweakerAPI.registerClass(FusionReactor.class);
+        MineTweakerAPI.registerClass(PlasmaArcFurnace.class);
+        MineTweakerAPI.registerClass(PyrolyseOven.class);
+        MineTweakerAPI.registerClass(OilCracker.class);
+        MineTweakerAPI.registerClass(AssemblyLine.class);
+        MineTweakerAPI.registerClass(CircuitAssembler.class);
+        MineTweakerAPI.registerClass(Compressor.class);
+        MineTweakerAPI.registerClass(Extractor.class);
+        MineTweakerAPI.registerClass(OreWasher.class);
+        MineTweakerAPI.registerClass(ThermalCentrifuge.class);
+        MineTweakerAPI.registerClass(PrimitiveBlastFurnace.class);
+        if (GTPlusPlus.isModLoaded()) {
             MineTweakerAPI.registerClass(BlastSmelter.class);
             MineTweakerAPI.registerClass(CokeOven.class);
             MineTweakerAPI.registerClass(Dehydrator.class);
