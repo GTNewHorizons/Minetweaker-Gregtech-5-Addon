@@ -1,9 +1,9 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.implosionRecipes;
-import static gregtech.api.util.GT_RecipeBuilder.SECONDS;
-import static gregtech.api.util.GT_RecipeConstants.ADDITIVE_AMOUNT;
+import static gregtech.api.util.GTRecipeBuilder.SECONDS;
+import static gregtech.api.util.GTRecipeConstants.ADDITIVE_AMOUNT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
 import java.util.ArrayList;

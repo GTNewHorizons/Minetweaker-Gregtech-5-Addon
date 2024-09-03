@@ -1,13 +1,13 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
-import static gregtech.api.util.GT_RecipeConstants.RESEARCH_ITEM;
-import static gregtech.api.util.GT_RecipeConstants.RESEARCH_TIME;
+import static gregtech.api.enums.GTValues.RA;
+import static gregtech.api.util.GTRecipeConstants.RESEARCH_ITEM;
+import static gregtech.api.util.GTRecipeConstants.RESEARCH_TIME;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.util.GT_RecipeConstants;
+import gregtech.api.util.GTRecipeConstants;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -66,7 +66,7 @@ public class AssemblyLine {
                         .fluidInputs(fluidInputs)
                         .duration(duration)
                         .eut(eut)
-                        .addTo(GT_RecipeConstants.AssemblyLine);
+                        .addTo(GTRecipeConstants.AssemblyLine);
                 }
             });
     }

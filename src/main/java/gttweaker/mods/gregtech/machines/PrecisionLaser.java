@@ -1,8 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.laserEngraverRecipes;
-import static gregtech.api.util.GT_RecipeConstants.CLEANROOM;
+import static gregtech.api.util.GTRecipeConstants.CLEANROOM;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;

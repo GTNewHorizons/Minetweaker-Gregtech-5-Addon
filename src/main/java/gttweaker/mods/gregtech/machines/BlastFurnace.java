@@ -1,8 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.blastFurnaceRecipes;
-import static gregtech.api.util.GT_RecipeConstants.COIL_HEAT;
+import static gregtech.api.util.GTRecipeConstants.COIL_HEAT;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 
 import java.util.ArrayList;
