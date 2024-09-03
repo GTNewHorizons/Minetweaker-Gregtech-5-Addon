@@ -1,12 +1,12 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.pyrolyseRecipes;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.GTUtility;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -54,7 +54,7 @@ public class PyrolyseOven {
                 protected void applySingleRecipe(ArgIterator i) {
                     ItemStack input = i.nextItem();
                     FluidStack fluidInput = i.nextFluid();
-                    ItemStack circuit = GT_Utility.getIntegratedCircuit(i.nextInt());
+                    ItemStack circuit = GTUtility.getIntegratedCircuit(i.nextInt());
                     RA.stdBuilder()
                         .itemInputs(input, circuit)
                         .fluidInputs(fluidInput)

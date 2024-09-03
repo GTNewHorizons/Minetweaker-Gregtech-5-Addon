@@ -6,10 +6,10 @@ import java.util.Objects;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
-import gregtech.api.enums.GT_Values;
+import gregtech.api.enums.GTValues;
 import gregtech.api.recipe.RecipeMap;
-import gregtech.api.util.GT_Recipe;
-import gregtech.api.util.GT_RecipeBuilder;
+import gregtech.api.util.GTRecipe;
+import gregtech.api.util.GTRecipeBuilder;
 import gttweaker.GTTweaker;
 import minetweaker.IUndoableAction;
 import minetweaker.MineTweakerAPI;
@@ -23,17 +23,17 @@ import stanhebben.zenscript.annotations.ZenMethod;
 @ModOnly("gregtech")
 public class RA2Builder {
 
-    private GT_RecipeBuilder recipeBuilder;
+    private GTRecipeBuilder recipeBuilder;
 
     public RA2Builder() {}
 
-    public RA2Builder(GT_RecipeBuilder recipeBuilder) {
+    public RA2Builder(GTRecipeBuilder recipeBuilder) {
         this.recipeBuilder = recipeBuilder;
     }
 
     @ZenMethod
     public static RA2Builder builder() {
-        return new RA2Builder(GT_Values.RA.stdBuilder());
+        return new RA2Builder(GTValues.RA.stdBuilder());
     }
 
     @ZenMethod
@@ -134,7 +134,7 @@ public class RA2Builder {
 
     @ZenMethod
     public void addTo(String recipeMap) {
-        GT_Recipe recipe = recipeBuilder.build()
+        GTRecipe recipe = recipeBuilder.build()
             .orElse(null);
         if (recipe == null) {
             MineTweakerAPI.logError("Could not build recipe!");
@@ -151,10 +151,10 @@ public class RA2Builder {
 
     public static class RecipeAddAction implements IUndoableAction {
 
-        GT_Recipe recipe;
+        GTRecipe recipe;
         RecipeMap<?> map;
 
-        public RecipeAddAction(GT_Recipe recipe, RecipeMap<?> map) {
+        public RecipeAddAction(GTRecipe recipe, RecipeMap<?> map) {
             this.recipe = recipe;
             this.map = map;
         }

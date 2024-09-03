@@ -1,7 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
-import static gregtech.api.util.GT_RecipeConstants.UniversalChemical;
+import static gregtech.api.enums.GTValues.RA;
+import static gregtech.api.util.GTRecipeConstants.UniversalChemical;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;

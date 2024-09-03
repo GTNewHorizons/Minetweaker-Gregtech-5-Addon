@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.recipe.RecipeMap;
-import gregtech.api.util.GT_Recipe;
+import gregtech.api.util.GTRecipe;
 import gttweaker.GTTweaker;
 import minetweaker.IUndoableAction;
 import minetweaker.MineTweakerAPI;
@@ -28,7 +28,7 @@ public class RecipeRemover {
             MineTweakerAPI.logError("Could not find recipe map named \"" + map + "\"");
             return;
         }
-        GT_Recipe recipe = recipeMap.findRecipeQuery()
+        GTRecipe recipe = recipeMap.findRecipeQuery()
             .items(
                 Arrays.stream(inputs)
                     .map(GTTweaker::getItemStackOrNull)
@@ -50,10 +50,10 @@ public class RecipeRemover {
 
     public static class RecipeRemoveAction implements IUndoableAction {
 
-        GT_Recipe recipe;
+        GTRecipe recipe;
         RecipeMap<?> map;
 
-        public RecipeRemoveAction(GT_Recipe recipe, RecipeMap<?> map) {
+        public RecipeRemoveAction(GTRecipe recipe, RecipeMap<?> map) {
             this.recipe = recipe;
             this.map = map;
         }

@@ -1,6 +1,6 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.chemicalBathRecipes;
 import static gttweaker.util.ArrayHelper.itemOrNull;
 

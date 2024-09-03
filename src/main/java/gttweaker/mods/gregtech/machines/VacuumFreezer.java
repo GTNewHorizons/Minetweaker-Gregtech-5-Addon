@@ -1,13 +1,13 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.vacuumFreezerRecipes;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
 import gregtech.api.enums.TierEU;
-import gregtech.api.util.GT_Utility;
+import gregtech.api.util.GTUtility;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -49,8 +49,8 @@ public class VacuumFreezer {
                         .eut(TierEU.RECIPE_MV)
                         .addTo(vacuumFreezerRecipes);
 
-                    FluidStack fluidInput = GT_Utility.getFluidForFilledItem(input, true);
-                    FluidStack fluidOutput = GT_Utility.getFluidForFilledItem(output, true);
+                    FluidStack fluidInput = GTUtility.getFluidForFilledItem(input, true);
+                    FluidStack fluidOutput = GTUtility.getFluidForFilledItem(output, true);
                     if (fluidInput != null && fluidOutput != null) {
                         RA.stdBuilder()
                             .fluidInputs(fluidInput)

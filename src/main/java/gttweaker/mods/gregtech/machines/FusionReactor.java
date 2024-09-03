@@ -1,8 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
-import static gregtech.api.enums.GT_Values.RA;
+import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.recipe.RecipeMaps.fusionRecipes;
-import static gregtech.api.util.GT_RecipeConstants.FUSION_THRESHOLD;
+import static gregtech.api.util.GTRecipeConstants.FUSION_THRESHOLD;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
