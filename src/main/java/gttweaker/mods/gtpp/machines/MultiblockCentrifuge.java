@@ -34,7 +34,6 @@ public class MultiblockCentrifuge {
                 @Override
                 protected void applySingleRecipe(ArgIterator i) {
                     RA.stdBuilder()
-                        .noOptimize()
                         .itemInputs(i.nextItemArr())
                         .fluidInputs(i.nextFluidArr())
                         .fluidOutputs(i.nextFluidArr())

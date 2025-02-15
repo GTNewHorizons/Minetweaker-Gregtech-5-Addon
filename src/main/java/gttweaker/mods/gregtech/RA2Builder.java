@@ -127,12 +127,6 @@ public class RA2Builder {
     }
 
     @ZenMethod
-    public RA2Builder noOptimize() {
-        recipeBuilder.noOptimize();
-        return this;
-    }
-
-    @ZenMethod
     public void addTo(String recipeMap) {
         GTRecipe recipe = recipeBuilder.build()
             .orElse(null);
