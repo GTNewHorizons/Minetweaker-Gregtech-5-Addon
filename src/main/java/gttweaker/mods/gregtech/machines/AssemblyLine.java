@@ -2,12 +2,14 @@ package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GTValues.RA;
 import static gregtech.api.util.GTRecipeConstants.RESEARCH_ITEM;
-import static gregtech.api.util.GTRecipeConstants.RESEARCH_TIME;
+import static gregtech.api.util.GTRecipeConstants.SCANNING;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 
+import gregtech.api.enums.TierEU;
 import gregtech.api.util.GTRecipeConstants;
+import gregtech.api.util.recipe.Scanning;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -60,7 +62,7 @@ public class AssemblyLine {
 
                     RA.stdBuilder()
                         .metadata(RESEARCH_ITEM, researchItem)
-                        .metadata(RESEARCH_TIME, researchTime)
+                        .metadata(SCANNING, new Scanning(researchTime, TierEU.RECIPE_LV))
                         .itemInputs(inputs)
                         .itemOutputs(output)
                         .fluidInputs(fluidInputs)

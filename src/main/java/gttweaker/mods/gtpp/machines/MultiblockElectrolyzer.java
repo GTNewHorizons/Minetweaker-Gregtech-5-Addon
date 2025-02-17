@@ -1,7 +1,7 @@
 package gttweaker.mods.gtpp.machines;
 
 import static gregtech.api.enums.GTValues.RA;
-import static gregtech.api.recipe.RecipeMaps.electrolyzerNonCellRecipes;
+import static gtPlusPlus.api.recipe.GTPPRecipeMaps.electrolyzerNonCellRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
