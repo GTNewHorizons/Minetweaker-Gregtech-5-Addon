@@ -50,7 +50,7 @@ public class FusionReactor {
                         .fluidOutputs(i.nextFluid())
                         .duration(i.nextInt())
                         .eut(i.nextInt())
-                        .metadata(FUSION_THRESHOLD, i.nextInt())
+                        .metadata(FUSION_THRESHOLD, i.nextLong())
                         .addTo(fusionRecipes);
                 }
             });
