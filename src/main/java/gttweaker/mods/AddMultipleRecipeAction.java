@@ -165,6 +165,10 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         public boolean nextBool() {
             return (Boolean) iterator.next();
         }
+
+        public long nextLong() {
+            return (Long) iterator.next();
+        }
     }
 
     @Override
