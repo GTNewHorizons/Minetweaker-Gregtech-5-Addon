@@ -1,7 +1,7 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GTValues.RA;
-import static gregtech.api.recipe.RecipeMaps.plasmaArcFurnaceRecipes;
+import static gregtech.api.recipe.RecipeMaps.arcFurnaceRecipes;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -72,7 +72,7 @@ public class PlasmaArcFurnace {
                             .fluidOutputs(fluidOutput)
                             .duration(duration)
                             .eut(eut)
-                            .addTo(plasmaArcFurnaceRecipes);
+                            .addTo(arcFurnaceRecipes);
                     }
                 });
         }
@@ -122,7 +122,7 @@ public class PlasmaArcFurnace {
                             .fluidOutputs(fluidOutput)
                             .duration(duration)
                             .eut(eut)
-                            .addTo(plasmaArcFurnaceRecipes);
+                            .addTo(arcFurnaceRecipes);
                     }
                 });
         }
