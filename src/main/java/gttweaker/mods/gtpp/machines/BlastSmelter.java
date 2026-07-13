@@ -1,7 +1,7 @@
 package gttweaker.mods.gtpp.machines;
 
 import static gregtech.api.enums.GTValues.RA;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.alloyBlastSmelterRecipes;
+import static gregtech.api.recipe.RecipeMaps.alloyBlastSmelterRecipes;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;

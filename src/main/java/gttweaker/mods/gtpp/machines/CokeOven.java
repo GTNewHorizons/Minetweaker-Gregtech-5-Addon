@@ -1,7 +1,7 @@
 package gttweaker.mods.gtpp.machines;
 
 import static gregtech.api.enums.GTValues.RA;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.cokeOvenRecipes;
+import static gregtech.api.recipe.RecipeMaps.cokeOvenRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;

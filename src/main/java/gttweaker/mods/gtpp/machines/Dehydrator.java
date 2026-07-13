@@ -1,7 +1,7 @@
 package gttweaker.mods.gtpp.machines;
 
 import static gregtech.api.enums.GTValues.RA;
-import static gtPlusPlus.api.recipe.GTPPRecipeMaps.centrifugeNonCellRecipes;
+import static gregtech.api.recipe.RecipeMaps.centrifugeNonCellRecipes;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import gttweaker.util.ArrayHelper;
