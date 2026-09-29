@@ -13,6 +13,7 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import gttweaker.mods.gregtech.Fuels;
 import gttweaker.mods.gregtech.RA2Builder;
 import gttweaker.mods.gregtech.RecipeRemover;
+import gttweaker.mods.gregtech.ScrapboxDrops;
 import gttweaker.mods.gregtech.machines.AlloySmelter;
 import gttweaker.mods.gregtech.machines.Amplifabricator;
 import gttweaker.mods.gregtech.machines.ArcFurnace;
@@ -126,6 +127,7 @@ public class GTTweaker {
         MineTweakerAPI.registerClass(OreWasher.class);
         MineTweakerAPI.registerClass(ThermalCentrifuge.class);
         MineTweakerAPI.registerClass(PrimitiveBlastFurnace.class);
+        MineTweakerAPI.registerClass(ScrapboxDrops.class);
         if (GTPlusPlus.isModLoaded()) {
             MineTweakerAPI.registerClass(BlastSmelter.class);
             MineTweakerAPI.registerClass(CokeOven.class);

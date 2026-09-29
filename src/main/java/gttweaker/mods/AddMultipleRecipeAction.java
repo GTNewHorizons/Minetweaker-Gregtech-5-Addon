@@ -169,6 +169,10 @@ public abstract class AddMultipleRecipeAction extends OneWayAction {
         public long nextLong() {
             return (Long) iterator.next();
         }
+
+        public float nextFloat() {
+            return (Float) iterator.next();
+        }
     }
 
     @Override
