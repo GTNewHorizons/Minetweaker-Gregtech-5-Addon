@@ -1,8 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GTValues.RA;
+import static gregtech.api.recipe.RecipeEnvironment.LOW_GRAVITY;
 import static gregtech.api.recipe.RecipeMaps.autoclaveRecipes;
-import static gregtech.api.util.GTRecipeConstants.LOW_GRAVITY;
 
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
@@ -67,7 +67,7 @@ public class Autoclave {
                         .fluidInputs(fluidInput)
                         .duration(duration)
                         .eut(eut)
-                        .metadata(LOW_GRAVITY, requiresLowGravity)
+                        .requiresEnvironment(LOW_GRAVITY, requiresLowGravity)
                         .addTo(autoclaveRecipes);
                 }
             });
