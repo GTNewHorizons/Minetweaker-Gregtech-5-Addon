@@ -1,8 +1,8 @@
 package gttweaker.mods.gregtech.machines;
 
 import static gregtech.api.enums.GTValues.RA;
+import static gregtech.api.recipe.RecipeEnvironment.CLEANROOM;
 import static gregtech.api.recipe.RecipeMaps.laserEngraverRecipes;
-import static gregtech.api.util.GTRecipeConstants.CLEANROOM;
 
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
@@ -51,7 +51,7 @@ public class PrecisionLaser {
                         .itemOutputs(i.nextItem())
                         .duration(i.nextInt())
                         .eut(i.nextInt())
-                        .metadata(CLEANROOM, i.nextBool())
+                        .requiresEnvironment(CLEANROOM, i.nextBool())
                         .addTo(laserEngraverRecipes);
                 }
             });
