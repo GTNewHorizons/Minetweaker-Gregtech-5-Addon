@@ -5,8 +5,9 @@ import static gregtech.api.recipe.RecipeMaps.amplifierRecipes;
 
 import net.minecraft.item.ItemStack;
 
-import gregtech.api.enums.Materials;
 import gregtech.api.enums.TierEU;
+import gregtech.api.enums.materials.Materials;
+import gregtech.api.material.MaterialUtils;
 import gttweaker.mods.AddMultipleRecipeAction;
 import minetweaker.MineTweakerAPI;
 import minetweaker.annotations.ModOnly;
@@ -42,7 +43,7 @@ public class Amplifabricator {
                     RA.stdBuilder()
                         .itemInputs(input)
                         .duration(duration)
-                        .fluidOutputs(Materials.UUAmplifier.getFluid(UUAQuantity))
+                        .fluidOutputs(MaterialUtils.fluid(Materials.UUAmplifier, UUAQuantity))
                         .eut(TierEU.RECIPE_LV)
                         .addTo(amplifierRecipes);
                 }
